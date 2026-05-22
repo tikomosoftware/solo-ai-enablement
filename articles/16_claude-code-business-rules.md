@@ -38,6 +38,94 @@ Claude Codeのpermission modeでは、`default` は読み取り中心で、編�
 
 `bypassPermissions` は権限確認をほぼ飛ばすモードです。公式ドキュメントでも、コンテナやVMのような隔離環境でのみ使うべきものとして説明されています。通常の業務PCや本物の業務リポジトリでは使わない方針にします。
 
+## 最初に迷いやすい配置場所
+
+Claude Codeを使い始めるときに最初に迷いやすいのは、「どこで起動するのか」と「設定ファイルをどこに置くのか」です。
+
+基本は、対象リポジトリの一番上のフォルダをプロジェクトルートとして扱います。VS Codeでいうと、「フォルダーを開く」で開く対象のフォルダです。
+
+例:
+
+```text
+my-app/
+  .git/
+  .claude/
+    settings.json
+  docs/
+    ai-development-policy.md
+    policies/
+      common.md
+      frontend.md
+      backend.md
+  src/
+  tests/
+  package.json
+  README.md
+  CLAUDE.md
+```
+
+この場合、`my-app/` がプロジェクトルートです。
+
+VS Codeで使う場合は、`my-app/` を開き、VS Codeの統合ターミナルで次を実行します。
+
+```text
+claude
+```
+
+CLIだけで使う場合も考え方は同じです。
+
+```text
+cd C:\ProjectsDEV\my-app
+claude
+```
+
+避けるべき起動場所:
+
+```text
+C:\
+C:\Users\your-name
+C:\ProjectsDEV
+```
+
+こうした広いフォルダで起動すると、関係ないプロジェクトや個人ファイルまで作業対象に見えてしまう可能性があります。Claude Codeは、何もしなくてもPC全体を完全に隔離するサンドボックスではありません。まずは起動場所を狭くすることが重要です。
+
+## 最初に置くファイル
+
+業務利用を始める最小セットは次の3つです。
+
+```text
+my-app/
+  CLAUDE.md
+  .claude/
+    settings.json
+  docs/
+    ai-development-policy.md
+    policies/
+      common.md
+```
+
+必要に応じて、職種別の補足ポリシーを追加します。
+
+```text
+docs/
+  policies/
+    frontend.md
+    backend.md
+    windows-app.md
+    devops.md
+    qa.md
+```
+
+役割は次のとおりです。
+
+- `CLAUDE.md`: Claude Codeに読ませる作業ルール
+- `.claude/settings.json`: Claude Codeの権限設定
+- `docs/ai-development-policy.md`: 人間向けの入口ドキュメント
+- `docs/policies/common.md`: 全エンジニア共通の利用ルール
+- `docs/policies/*.md`: 担当領域別の補足ルール
+
+最初は全ファイルを完璧に整える必要はありません。まずは `CLAUDE.md` と `.claude/settings.json` を置き、チームの担当領域に合わせて `docs/policies/` を追加していく形で十分です。
+
 ## サンプル: CLAUDE.md
 
 プロジェクトのルートに `CLAUDE.md` を置きます。
@@ -271,4 +359,3 @@ Claude Codeを業務で使うなら、`CLAUDE.md` と `.claude/settings.json` �
 - [Choose a permission mode](https://code.claude.com/docs/en/permission-modes)
 - [How Claude remembers your project](https://code.claude.com/docs/en/memory)
 - [Hooks reference](https://code.claude.com/docs/en/hooks)
-

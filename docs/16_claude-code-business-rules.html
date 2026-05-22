@@ -106,6 +106,63 @@
 </ul>
 <p>Claude Codeのpermission modeでは、<code>default</code> は読み取り中心で、編集やコマンド実行時に確認が入ります。<code>plan</code> は調査向けで、ファイル編集をしません。<code>acceptEdits</code> は編集や一部のファイル操作が通りやすくなるため、慣れるまでは避けたほうが安全です。</p>
 <p><code>bypassPermissions</code> は権限確認をほぼ飛ばすモードです。公式ドキュメントでも、コンテナやVMのような隔離環境でのみ使うべきものとして説明されています。通常の業務PCや本物の業務リポジトリでは使わない方針にします。</p>
+<h2>最初に迷いやすい配置場所</h2>
+<p>Claude Codeを使い始めるときに最初に迷いやすいのは、「どこで起動するのか」と「設定ファイルをどこに置くのか」です。</p>
+<p>基本は、対象リポジトリの一番上のフォルダをプロジェクトルートとして扱います。VS Codeでいうと、「フォルダーを開く」で開く対象のフォルダです。</p>
+<p>例:</p>
+<pre><code class="language-text">my-app/
+  .git/
+  .claude/
+    settings.json
+  docs/
+    ai-development-policy.md
+    policies/
+      common.md
+      frontend.md
+      backend.md
+  src/
+  tests/
+  package.json
+  README.md
+  CLAUDE.md</code></pre>
+<p>この場合、<code>my-app/</code> がプロジェクトルートです。</p>
+<p>VS Codeで使う場合は、<code>my-app/</code> を開き、VS Codeの統合ターミナルで次を実行します。</p>
+<pre><code class="language-text">claude</code></pre>
+<p>CLIだけで使う場合も考え方は同じです。</p>
+<pre><code class="language-text">cd C:\ProjectsDEV\my-app
+claude</code></pre>
+<p>避けるべき起動場所:</p>
+<pre><code class="language-text">C:\
+C:\Users\your-name
+C:\ProjectsDEV</code></pre>
+<p>こうした広いフォルダで起動すると、関係ないプロジェクトや個人ファイルまで作業対象に見えてしまう可能性があります。Claude Codeは、何もしなくてもPC全体を完全に隔離するサンドボックスではありません。まずは起動場所を狭くすることが重要です。</p>
+<h2>最初に置くファイル</h2>
+<p>業務利用を始める最小セットは次の3つです。</p>
+<pre><code class="language-text">my-app/
+  CLAUDE.md
+  .claude/
+    settings.json
+  docs/
+    ai-development-policy.md
+    policies/
+      common.md</code></pre>
+<p>必要に応じて、職種別の補足ポリシーを追加します。</p>
+<pre><code class="language-text">docs/
+  policies/
+    frontend.md
+    backend.md
+    windows-app.md
+    devops.md
+    qa.md</code></pre>
+<p>役割は次のとおりです。</p>
+<ul>
+<li><code>CLAUDE.md</code>: Claude Codeに読ませる作業ルール</li>
+<li><code>.claude/settings.json</code>: Claude Codeの権限設定</li>
+<li><code>docs/ai-development-policy.md</code>: 人間向けの入口ドキュメント</li>
+<li><code>docs/policies/common.md</code>: 全エンジニア共通の利用ルール</li>
+<li><code>docs/policies/*.md</code>: 担当領域別の補足ルール</li>
+</ul>
+<p>最初は全ファイルを完璧に整える必要はありません。まずは <code>CLAUDE.md</code> と <code>.claude/settings.json</code> を置き、チームの担当領域に合わせて <code>docs/policies/</code> を追加していく形で十分です。</p>
 <h2>サンプル: CLAUDE.md</h2>
 <p>プロジェクトのルートに <code>CLAUDE.md</code> を置きます。</p>
 <pre><code class="language-markdown"># Claude Code 業務利用ルール

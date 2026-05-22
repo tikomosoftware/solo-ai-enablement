@@ -6,6 +6,59 @@
 
 全員が読むべき共通ルールと、担当領域ごとの補足ルールを分けています。運用時は、まず共通ポリシーを採用し、必要な職種別ポリシーだけを追加してください。
 
+## 最初に置く場所
+
+このサンプルは、対象リポジトリのプロジェクトルートに置く想定です。
+
+プロジェクトルートとは、VS Codeで「フォルダーを開く」ときに選ぶ一番上のフォルダです。CLIで使う場合も、このフォルダに移動してからClaude Codeを起動します。
+
+配置例:
+
+```text
+my-app/
+  .git/
+  .claude/
+    settings.json
+  docs/
+    ai-development-policy.md
+    policies/
+      common.md
+      frontend.md
+      backend.md
+      windows-app.md
+      devops.md
+      qa.md
+  src/
+  tests/
+  README.md
+  CLAUDE.md
+```
+
+VS Codeで使う場合:
+
+```text
+1. VS Codeで my-app/ を開く
+2. 統合ターミナルを開く
+3. claude を実行する
+```
+
+CLIだけで使う場合:
+
+```text
+cd C:\ProjectsDEV\my-app
+claude
+```
+
+避ける起動場所:
+
+```text
+C:\
+C:\Users\your-name
+C:\ProjectsDEV
+```
+
+Claude Codeは、起動したフォルダを中心に作業します。広いフォルダで起動すると、関係ないファイルや別プロジェクトまで作業対象に見えてしまう可能性があります。
+
 ## 使い方
 
 基本セット:
@@ -50,4 +103,3 @@ backend.md
 このサンプルをそのまま社内ルールにする必要はありません。
 
 最初はこの構成をベースにして、実際の開発体制、扱うデータ、リポジトリ権限、リリースフローに合わせて編集してください。
-
