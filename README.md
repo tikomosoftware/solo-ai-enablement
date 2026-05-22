@@ -9,6 +9,11 @@ AIをまだ使っていないメンバーに向けて、AI活用の基本、注�
 - OneNoteにはHTML表示から貼り付ける
 - 将来的に権限が取れたら、Microsoft Graph APIでOneNote更新を自動化する
 
+## サンプル
+
+- `examples/claude-code-safe-config/`: Claude Codeを業務で安全に使うための最小構成サンプル
+- `examples/team-ai-development-harness/`: チーム開発でAI支援を使うためのharness構成テンプレート
+
 ## ローカルでHTMLを生成する
 
 ```bash
@@ -24,4 +29,3 @@ docs/
 ## GitHub Actions
 
 `articles/**/*.md` またはHTML生成スクリプトをpushすると、GitHub Actionsが自動でHTMLを再生成し、差分があれば同じブランチへコミットします。
-
