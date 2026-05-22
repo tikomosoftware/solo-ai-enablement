@@ -4,64 +4,21 @@
 
 Claude Code、GitHub Copilot、その他のAIコーディング支援ツールを、個人の使い方ではなくチームの開発プロセスとして扱うための構成です。
 
-## Harnessとは
+## まず読むもの
 
-ここでいうharnessは、AIに作業させる前に、前提、権限、作業手順、確認方法を整えるための仕組みです。
+メンバー向け:
 
-AIに「いい感じに実装して」と依頼するのではなく、次を先に用意します。
+- [AI開発利用ポリシー](./docs/ai-development-policy.md)
+- [Claude Code初回セットアップガイド](./docs/start-guide.md)
+- [最初の実践課題](./docs/first-exercise.md)
 
-- Context: AIに渡す前提
-- Guardrails: AIに許可すること、禁止すること
-- Workflow: 作業の進め方
-- Verification: 人間と自動テストによる確認
+展開担当者向け:
 
-## ディレクトリ構成
+- [展開担当者向け資料](./facilitator/README.md)
 
-```text
-team-ai-development-harness/
-  README.md
-  CLAUDE.md
-  .claude/
-    settings.json
-  docs/
-    harness-concept.md
-    start-guide.md
-    ai-development-policy.md
-    first-exercise.md
-    faq.md
-    common-pitfalls.md
-    tool-selection-guide.md
-    approval-required-operations.md
-    repository-adoption-guide.md
-  facilitator/
-    README.md
-    rollout-plan.md
-    session-plan-30min.md
-    explanation-script-30min.md
-    adoption-checklist.md
-  policies/
-    common.md
-    frontend.md
-    backend.md
-    windows-app.md
-    devops.md
-    qa.md
-  workflows/
-    ai-assisted-development.md
-    code-review.md
-    pull-request.md
-  checklists/
-    before-ai-work.md
-    before-commit.md
-    before-pr.md
-  prompts/
-    investigate.md
-    implement.md
-    review.md
-    test-design.md
-  templates/
-    incident-report.md
-```
+全体構成を把握したい場合:
+
+- [構成ガイド](./STRUCTURE.md)
 
 ## 使い方
 
@@ -88,18 +45,11 @@ my-app/
 
 導入後は、プロジェクトに合わせて内容を調整してください。
 
-## 説明会で扱う範囲
+## 補足
 
-初回説明会では、すべての資料を読む必要はありません。
+説明会で使う資料と、展開担当者向け資料は少し違います。
 
-おすすめの説明範囲:
+説明会で使う資料は、参加者に見せたり、説明中に参照したりする資料です。
 
-- `docs/harness-concept.md` の概要
-- `docs/start-guide.md` の起動場所とVS Code注意点
-- `policies/common.md` の禁止事項
-- `docs/tool-selection-guide.md` の使い分け
-- `docs/first-exercise.md` の最初の課題
+展開担当者向け資料は、説明会の準備、導入計画、進行、ふりかえりに使う裏方資料です。
 
-残りの資料は、必要になったときに参照する運用にします。
-
-説明する人は、`facilitator/` の資料を使って準備します。
