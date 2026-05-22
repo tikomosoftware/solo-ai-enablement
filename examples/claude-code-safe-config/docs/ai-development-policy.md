@@ -61,6 +61,10 @@ Claude Codeは、起動したフォルダを中心に作業します。広いフ
 
 ## 使い方
 
+初めてClaude Codeを使う人は、まず次のセットアップガイドを読んでください。
+
+- [Claude Code初回セットアップガイド](./claude-code-start-guide.md)
+
 基本セット:
 
 - [共通ポリシー](./policies/common.md)
