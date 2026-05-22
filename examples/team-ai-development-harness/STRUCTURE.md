@@ -187,6 +187,7 @@ AIに依頼するときのプロンプトテンプレートです。
 主なファイル:
 
 - `incident-report.md`: 事故・ヒヤリハット共有
+- `project-adoption-profile.md`: 実プロジェクト導入時に埋めるプロジェクト固有設定
 
 ## 説明会で使う資料と展開担当者向け資料の違い
 
@@ -259,6 +260,6 @@ templates/
 - `docs/common-pitfalls.md`
 - `templates/incident-report.md`
 - `policies/common.md`
+- `templates/project-adoption-profile.md`
 
 理由は、説明会と実運用で最初に使う可能性が高いためです。
-
