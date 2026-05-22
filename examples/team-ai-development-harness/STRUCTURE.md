@@ -115,6 +115,7 @@ templates/
 - `ai-development-policy.md`: AI開発利用ポリシーの入口
 - `harness-concept.md`: harnessの考え方
 - `start-guide.md`: Claude Code初回セットアップ
+- `glossary.md`: Claude Codeやharness周りの用語集
 - `first-exercise.md`: 最初の実践課題
 - `faq.md`: よくある質問
 - `common-pitfalls.md`: よくある失敗例

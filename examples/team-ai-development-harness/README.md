@@ -10,6 +10,7 @@ Claude Code、GitHub Copilot、その他のAIコーディング支援ツール�
 
 - [AI開発利用ポリシー](./docs/ai-development-policy.md)
 - [Claude Code初回セットアップガイド](./docs/start-guide.md)
+- [AI開発支援 用語集](./docs/glossary.md)
 - [最初の実践課題](./docs/first-exercise.md)
 
 展開担当者向け:

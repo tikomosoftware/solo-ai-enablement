@@ -8,6 +8,7 @@
 
 - [AI Development Harnessの考え方](./harness-concept.md)
 - [Claude Code初回セットアップガイド](./start-guide.md)
+- [AI開発支援 用語集](./glossary.md)
 - [最初の実践課題](./first-exercise.md)
 
 全員が読むもの:
