@@ -27,6 +27,12 @@ team-ai-development-harness/
     harness-concept.md
     start-guide.md
     ai-development-policy.md
+    rollout-plan.md
+    first-exercise.md
+    faq.md
+    tool-selection-guide.md
+    approval-required-operations.md
+    repository-adoption-guide.md
   policies/
     common.md
     frontend.md
@@ -47,6 +53,8 @@ team-ai-development-harness/
     implement.md
     review.md
     test-design.md
+  templates/
+    incident-report.md
 ```
 
 ## 使い方
@@ -74,3 +82,16 @@ my-app/
 
 導入後は、プロジェクトに合わせて内容を調整してください。
 
+## 説明会で扱う範囲
+
+初回説明会では、すべての資料を読む必要はありません。
+
+おすすめの説明範囲:
+
+- `docs/harness-concept.md` の概要
+- `docs/start-guide.md` の起動場所とVS Code注意点
+- `policies/common.md` の禁止事項
+- `docs/tool-selection-guide.md` の使い分け
+- `docs/first-exercise.md` の最初の課題
+
+残りの資料は、必要になったときに参照する運用にします。
