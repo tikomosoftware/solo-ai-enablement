@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07. よい依頼の仕方、プロンプトの基本</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 07. よい依頼の仕方、プロンプトの基本</nav>
+    <h1>07. よい依頼の仕方、プロンプトの基本</h1>
+<h2>この記事の目的</h2>
+<p>この記事では、AIにうまく依頼するための基本を説明します。</p>
+<p>AIへの指示文は「プロンプト」と呼ばれます。ただし、難しいテクニックとして考える必要はありません。仕事で人に依頼するときと同じように、目的、背景、条件、期待する形を伝えることが大切です。</p>
+<h2>よいプロンプトは依頼が具体的</h2>
+<p>AIにうまく答えてもらうには、何をしてほしいのかを具体的に伝えます。</p>
+<p>悪い例:</p>
+<pre><code class="language-text">いい感じにまとめて</code></pre>
+<p>よい例:</p>
+<pre><code class="language-text">以下の会議メモを、社内共有用に整理してください。
+出力は「決定事項」「TODO」「未決事項」の3つに分けてください。
+TODOには担当者と期限の欄を作ってください。</code></pre>
+<p>後者のほうが、AIは何をすればよいか判断しやすくなります。</p>
+<h2>伝えるとよい要素</h2>
+<p>プロンプトには、次の要素を入れると精度が上がります。</p>
+<ul>
+<li>目的: 何のために使うのか</li>
+<li>背景: どんな状況なのか</li>
+<li>対象読者: 誰に向けた文章なのか</li>
+<li>条件: 守ってほしい制約は何か</li>
+<li>出力形式: 箇条書き、表、文章、メール文など</li>
+<li>トーン: 丁寧、簡潔、やわらかい、ビジネス向けなど</li>
+<li>確認したい観点: 誤字、抜け漏れ、リスク、わかりやすさなど</li>
+</ul>
+<p>すべてを毎回入れる必要はありません。必要な情報を足すほど、期待に近い答えが返りやすくなります。</p>
+<h2>使いやすい型</h2>
+<p>次の型を覚えておくと、いろいろな場面で使えます。</p>
+<pre><code class="language-text">目的:
+背景:
+依頼内容:
+条件:
+出力形式:
+対象読者:</code></pre>
+<p>例:</p>
+<pre><code class="language-text">目的: 社内メンバーにAI活用の基本を説明したい
+背景: AIをまだ使ったことがない人もいる
+依頼内容: 記事の導入文を作ってください
+条件: 不安をあおらず、前向きな内容にする
+出力形式: 600文字程度の本文
+対象読者: プロジェクトメンバー</code></pre>
+<h2>一回で完成させようとしない</h2>
+<p>AIへの依頼は、一回で完璧な答えを出すものではありません。</p>
+<p>最初の回答を見て、追加で依頼します。</p>
+<pre><code class="language-text">もう少し短くしてください。</code></pre>
+<pre><code class="language-text">初心者向けに言い換えてください。</code></pre>
+<pre><code class="language-text">具体例を3つ追加してください。</code></pre>
+<pre><code class="language-text">社外向けではなく、社内向けの表現にしてください。</code></pre>
+<p>このように会話しながら調整するほうが、よい結果になりやすいです。</p>
+<h2>AIに確認させる</h2>
+<p>AIは作るだけでなく、確認にも使えます。</p>
+<pre><code class="language-text">以下の文章に、わかりにくい点、誤解されそうな点、抜け漏れがあれば指摘してください。</code></pre>
+<pre><code class="language-text">この手順書を初めて読む人がつまずきそうな箇所を挙げてください。</code></pre>
+<pre><code class="language-text">このメール文が冷たく見えないか確認してください。</code></pre>
+<p>自分で書いたものをAIに見てもらうと、別の視点を得られます。</p>
+<h2>この章のまとめ</h2>
+<p>AIにうまく依頼するコツは、特別な呪文を書くことではありません。</p>
+<p>目的、背景、条件、出力形式、対象読者を伝えることです。</p>
+<p>まずは「人に依頼するときに伝える情報を、AIにも伝える」と考えると始めやすくなります。</p>
+  </main>
+</body>
+</html>

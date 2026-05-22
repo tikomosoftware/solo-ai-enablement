@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08. 失敗例と注意点</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 08. 失敗例と注意点</nav>
+    <h1>08. 失敗例と注意点</h1>
+<h2>この記事の目的</h2>
+<p>この記事では、AIを使うときに起こりやすい失敗例と注意点を紹介します。</p>
+<p>AIは便利ですが、失敗しない道具ではありません。よくある失敗を先に知っておくことで、安全に使いやすくなります。</p>
+<h2>失敗例1: もっともらしい間違いを信じてしまう</h2>
+<p>AIは、間違った内容でも自然な文章で答えることがあります。</p>
+<p>たとえば、存在しない制度、古い仕様、誤った数字、架空の事例を、まるで正しい情報のように出すことがあります。</p>
+<p>対策:</p>
+<ul>
+<li>数字、日付、固有名詞は確認する</li>
+<li>公式情報や社内資料にあたる</li>
+<li>重要な内容はAIの回答だけで判断しない</li>
+</ul>
+<h2>失敗例2: 機密情報を入力してしまう</h2>
+<p>便利だからといって、顧客情報や社内情報をそのままAIに入れてしまうのは危険です。</p>
+<p>対策:</p>
+<ul>
+<li>顧客名や個人名は伏せる</li>
+<li>実データをダミーデータに置き換える</li>
+<li>許可されたAI環境か確認する</li>
+<li>迷った情報は入力しない</li>
+</ul>
+<h2>失敗例3: AIの文章をそのまま提出してしまう</h2>
+<p>AIが作った文章は、一般的で整った表現になりやすい一方で、自分たちの状況に合わないことがあります。</p>
+<p>相手との関係性、社内用語、過去の経緯、具体的な条件が反映されていない場合があります。</p>
+<p>対策:</p>
+<ul>
+<li>自分の言葉に直す</li>
+<li>業務の前提に合っているか確認する</li>
+<li>相手に合わせて表現を調整する</li>
+<li>不自然な言い回しを削る</li>
+</ul>
+<h2>失敗例4: AIに判断を任せすぎる</h2>
+<p>AIは判断材料を出すことはできますが、責任ある判断はできません。</p>
+<p>特に、人事、契約、法務、会計、医療、安全、顧客への重要回答などは、AIだけで決めてはいけません。</p>
+<p>対策:</p>
+<ul>
+<li>AIは参考意見として扱う</li>
+<li>最終判断は人間が行う</li>
+<li>必要に応じて責任者や専門家に確認する</li>
+</ul>
+<h2>失敗例5: 出典や根拠がないまま使う</h2>
+<p>AIが出した説明を、そのまま資料や顧客説明に使うと、根拠を聞かれたときに困ることがあります。</p>
+<p>対策:</p>
+<ul>
+<li>出典が必要な情報は確認する</li>
+<li>公式サイト、社内資料、契約書などにあたる</li>
+<li>「AIが言っていた」を根拠にしない</li>
+</ul>
+<h2>失敗例6: 指示があいまいで期待と違う回答になる</h2>
+<p>AIへの依頼があいまいだと、期待と違う回答が返ってきます。</p>
+<p>対策:</p>
+<ul>
+<li>目的を伝える</li>
+<li>対象読者を伝える</li>
+<li>出力形式を指定する</li>
+<li>条件を明確にする</li>
+<li>追加依頼で調整する</li>
+</ul>
+<h2>失敗を共有する文化も大事</h2>
+<p>AI活用では、うまくいった例だけでなく、うまくいかなかった例も重要です。</p>
+<p>失敗例を共有すると、チーム全体で同じミスを減らせます。</p>
+<p>たとえば、次のような共有が役立ちます。</p>
+<ul>
+<li>AIの回答が間違っていた例</li>
+<li>プロンプトがあいまいで失敗した例</li>
+<li>情報を入れすぎそうになった例</li>
+<li>出力を直すのに時間がかかった例</li>
+</ul>
+<p>失敗を責めるのではなく、使い方を改善する材料として扱うことが大切です。</p>
+<h2>この章のまとめ</h2>
+<p>AIの主な失敗は、間違いを信じる、機密情報を入れる、そのまま提出する、判断を任せすぎる、根拠を確認しない、という形で起こります。</p>
+<p>AIを安全に使うには、出力を確認し、重要情報を入れず、最終判断を人間が行うことが基本です。</p>
+  </main>
+</body>
+</html>

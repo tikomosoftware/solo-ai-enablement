@@ -1,0 +1,39 @@
+name: Build HTML
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "articles/**/*.md"
+      - "scripts/build-html.js"
+      - "package.json"
+      - ".github/workflows/build-html.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build HTML
+        run: npm run build
+
+      - name: Commit generated HTML
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build HTML from Markdown"
+          file_pattern: docs/*.html
+

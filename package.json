@@ -1,0 +1,13 @@
+{
+  "name": "solo-ai-enablement",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Markdown-first AI enablement articles with generated HTML for sharing.",
+  "scripts": {
+    "build": "node scripts/build-html.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
