@@ -21,3 +21,4 @@
 13. [Claude Code CLIの使い方](./13_claude-code-cli.md)
 14. [Claude CodeをVS Codeで使う](./14_claude-code-vscode.md)
 15. [Claude Codeの代表的な拡張機能](./15_claude-code-advanced.md)
+16. [Claude Codeを業務で使うための安全設定サンプル](./16_claude-code-business-rules.md)
