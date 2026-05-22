@@ -27,13 +27,18 @@ team-ai-development-harness/
     harness-concept.md
     start-guide.md
     ai-development-policy.md
-    rollout-plan.md
     first-exercise.md
     faq.md
     common-pitfalls.md
     tool-selection-guide.md
     approval-required-operations.md
     repository-adoption-guide.md
+  facilitator/
+    README.md
+    rollout-plan.md
+    session-plan-30min.md
+    explanation-script-30min.md
+    adoption-checklist.md
   policies/
     common.md
     frontend.md
@@ -96,3 +101,5 @@ my-app/
 - `docs/first-exercise.md` の最初の課題
 
 残りの資料は、必要になったときに参照する運用にします。
+
+説明する人は、`facilitator/` の資料を使って準備します。
