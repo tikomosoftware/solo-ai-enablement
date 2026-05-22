@@ -30,6 +30,7 @@ team-ai-development-harness/
     rollout-plan.md
     first-exercise.md
     faq.md
+    common-pitfalls.md
     tool-selection-guide.md
     approval-required-operations.md
     repository-adoption-guide.md

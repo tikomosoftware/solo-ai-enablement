@@ -29,6 +29,7 @@
 - [AI作業前チェックリスト](../checklists/before-ai-work.md)
 - [コミット前チェックリスト](../checklists/before-commit.md)
 - [PR前チェックリスト](../checklists/before-pr.md)
+- [よくある失敗例](./common-pitfalls.md)
 - [事故・ヒヤリハット共有テンプレート](../templates/incident-report.md)
 
 展開・運用する人が読むもの:
