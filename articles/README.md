@@ -16,4 +16,8 @@
 8. [失敗例と注意点](./08_shippai-rei-chuui-ten.md)
 9. [チーム内ルール](./09_team-rule.md)
 10. [実践記事インデックス](./10_jissen-index.md)
-
+11. [GitHub Copilot CLIの使い方](./11_github-copilot-cli.md)
+12. [GitHub CopilotをVS Codeで使う](./12_github-copilot-vscode.md)
+13. [Claude Code CLIの使い方](./13_claude-code-cli.md)
+14. [Claude CodeをVS Codeで使う](./14_claude-code-vscode.md)
+15. [Claude Codeの代表的な拡張機能](./15_claude-code-advanced.md)

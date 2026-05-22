@@ -59,10 +59,17 @@ AIの出力をどのように直したのか。
 
 ## 実践記事一覧
 
-まだ実践記事はありません。追加したらここにリンクを増やしていきます。
+AI活用の実践記事として、まず業務で使う代表的な開発支援ツールの記事を追加しています。
+
+- [GitHub Copilot CLIの使い方](./11_github-copilot-cli.md)
+- [GitHub CopilotをVS Codeで使う](./12_github-copilot-vscode.md)
+- [Claude Code CLIの使い方](./13_claude-code-cli.md)
+- [Claude CodeをVS Codeで使う](./14_claude-code-vscode.md)
+- [Claude Codeの代表的な拡張機能](./15_claude-code-advanced.md)
+
+今後、実際に社内で試した事例を追加したら、ここにリンクを増やしていきます。
 
 例:
 
 - [メール文面をAIで作る](./practice/01_mail-draft.md)
 - [会議メモを議事録に変換する](./practice/02_meeting-notes.md)
-
