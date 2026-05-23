@@ -7,12 +7,15 @@
 ## ファイル一覧
 
 - [展開ロードマップ](./rollout-plan.md)
-- [30分説明会プラン](./session-plan-30min.md)
-- [30分説明会 台本たたき台](./explanation-script-30min.md)
-- [30分説明会 スライド構成案](./slides-outline-30min.md)
-- [30分説明会 Marpスライド](./slides-30min.marp.md)
 - [展開前チェックリスト](./adoption-checklist.md)
-- [メンバー向けはじめ方メモ](./member-start-note.md)
+
+説明会ごとの資料:
+
+- [第0回 AIを業務で使う前に知っておきたいこと](./session-00-ai-basics/ai-basics.marp.md)
+- [第1回 30分説明会](./session-01-30min/)
+- [第2回 小さな修正を依頼してみる](./session-02-small-change/)
+- [第3回 チームで使うための運用にする](./session-03-team-operation/)
+- [第4回 実プロジェクトへ広げる](./session-04-project-rollout/)
 
 ## 初回説明会で扱う資料
 

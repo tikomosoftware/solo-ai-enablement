@@ -133,12 +133,27 @@ templates/
 
 - `README.md`: 展開担当者向け入口
 - `rollout-plan.md`: 展開ロードマップ
-- `session-plan-30min.md`: 30分説明会の構成
-- `explanation-script-30min.md`: 30分説明会の台本たたき台
-- `slides-outline-30min.md`: 30分説明会のスライド構成案
-- `slides-30min.marp.md`: 参加者に見せるMarp形式のスライド
 - `adoption-checklist.md`: 展開前チェックリスト
-- `member-start-note.md`: メンバーに共有する、Claude Codeを試すためのはじめ方メモ
+- `session-00-ai-basics/`: 第0回 AIを業務で使う前に知っておきたいこと
+- `session-01-30min/`: 第1回30分説明会の資料一式
+- `session-02-small-change/`: 第2回 小さな修正を依頼するセッションの雛形
+- `session-03-team-operation/`: 第3回 チーム運用を整理するセッションの雛形
+- `session-04-project-rollout/`: 第4回 実プロジェクトへ広げるセッションの雛形
+
+`session-00-ai-basics/` の主なファイル:
+
+- `ai-basics.marp.md`: AIチャット、AIエディタ、AIエージェントを使う前の基本姿勢を説明するMarpスライド
+- `article/`: 第0回の公開記事ドラフトと作業セッションログ
+
+`session-01-30min/` の主なファイル:
+
+- `01-slides-outline-30min.md`: 30分説明会のスライド構成案。スライド構成と話すポイントの原本
+- `02-slides-30min.marp.md`: 参加者に見せるMarp形式のスライド
+- `03-explanation-script-30min.md`: 30分説明会の台本たたき台
+- `04-member-start-note.md`: メンバーに共有する、Claude Codeを使い始めるためのはじめ方メモ
+- `article/`: 第1回の公開記事ドラフトと作業セッションログ
+
+`session-02-small-change/` 以降は、今後の社内共有に向けたセッション雛形です。まずはREADMEに、各回で扱うこと、扱わないこと、参加者への事前依頼、想定成果物をまとめます。
 
 ## policies/
 
@@ -222,8 +237,7 @@ docs/first-exercise.md
 
 ```text
 facilitator/rollout-plan.md
-facilitator/session-plan-30min.md
-facilitator/explanation-script-30min.md
+facilitator/session-01-30min/03-explanation-script-30min.md
 facilitator/adoption-checklist.md
 ```
 
@@ -259,7 +273,7 @@ templates/
 
 会社やチームで実際に展開するなら、最初に育てるべき資料は次です。
 
-- `facilitator/explanation-script-30min.md`
+- `facilitator/session-01-30min/03-explanation-script-30min.md`
 - `docs/faq.md`
 - `docs/common-pitfalls.md`
 - `templates/incident-report.md`

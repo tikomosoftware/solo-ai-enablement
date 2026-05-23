@@ -951,7 +951,7 @@ Codexは、ユーザー向け資料としては70〜80%程度の完成度に来�
 
 次回以降の候補:
 
-- `facilitator/explanation-script-30min.md` を本番用に磨く
+- `facilitator/session-01-30min/explanation-script-30min.md` を本番用に磨く
 - 説明会スライド構成を作る
 - デモ手順を作る
 - 説明後アンケートを作る
@@ -986,4 +986,3 @@ db1e43c Clarify how Skills fit into harness
 できるだけユーザーの依頼内容、Codexの提案、作成したファイル、設計判断を残しています。
 
 より完全な逐語録が必要な場合は、今後のセッションでは、節目ごとに `session-logs/` へログを追記していく運用にするとよいです。
-
