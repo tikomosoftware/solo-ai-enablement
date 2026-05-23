@@ -143,12 +143,20 @@ Verification 確認方法
 
 そこで、メンバー向けには入口を絞りました。
 
+また、いきなり資料を渡して「読んでおいてください」にするのではなく、最初の30分説明会で一緒に起動、ルール確認、変更なしの調査まで試せるようにしました。
+
 まず読むもの:
 
 - [AI開発利用ポリシー](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/docs/ai-development-policy.md)
 - [Claude Code初回セットアップガイド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/docs/start-guide.md)
 - [AI開発支援 用語集](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/docs/glossary.md)
 - [最初の実践課題](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/docs/first-exercise.md)
+
+説明会用:
+
+- [30分説明会スライド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/slides-30min.marp.md)
+- [30分説明会 台本](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/explanation-script-30min.md)
+- [メンバー向けはじめ方メモ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/member-start-note.md)
 
 特に `start-guide.md` では、実際の初回作業に寄せて、次のような手順にしています。
 
@@ -269,7 +277,7 @@ AI開発支援ツールは、個人で使うだけならすぐに始められま
 - 最初は実装ではなく、調査と確認から始める
 - FAQやヒヤリハットをチームで育てる
 
-今後は、このharnessをもとに、社内説明用のプレゼンや30分説明会の台本を整えていく予定です。
+このharnessをもとに、社内説明用の30分説明会スライド、台本、メンバー向けはじめ方メモも用意しました。
 
 まずは「安全に触ってみる」ところまでをチームでそろえ、そのあと実際の利用例やヒヤリハットを反映しながら、少しずつ育てていくつもりです。
 
