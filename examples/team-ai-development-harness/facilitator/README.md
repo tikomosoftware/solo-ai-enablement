@@ -9,7 +9,10 @@
 - [展開ロードマップ](./rollout-plan.md)
 - [30分説明会プラン](./session-plan-30min.md)
 - [30分説明会 台本たたき台](./explanation-script-30min.md)
+- [30分説明会 スライド構成案](./slides-outline-30min.md)
+- [30分説明会 Marpスライド](./slides-30min.marp.md)
 - [展開前チェックリスト](./adoption-checklist.md)
+- [メンバー向けはじめ方メモ](./member-start-note.md)
 
 ## 初回説明会で扱う資料
 
@@ -24,4 +27,3 @@
 - `docs/first-exercise.md` の最初の課題
 
 説明会の目的は、全資料を理解してもらうことではありません。まず安全に起動し、変更なしで調査できる状態にすることです。
-

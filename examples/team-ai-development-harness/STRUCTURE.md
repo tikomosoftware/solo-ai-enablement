@@ -135,7 +135,10 @@ templates/
 - `rollout-plan.md`: 展開ロードマップ
 - `session-plan-30min.md`: 30分説明会の構成
 - `explanation-script-30min.md`: 30分説明会の台本たたき台
+- `slides-outline-30min.md`: 30分説明会のスライド構成案
+- `slides-30min.marp.md`: 参加者に見せるMarp形式のスライド
 - `adoption-checklist.md`: 展開前チェックリスト
+- `member-start-note.md`: メンバーに共有する、Claude Codeを試すためのはじめ方メモ
 
 ## policies/
 

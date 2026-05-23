@@ -1,4 +1,4 @@
-# Claude Codeをチームで安全に使い始めるための「AI Development Harness」を作った話
+# Claude Codeをチームで安全に試すための運用テンプレートを作った話
 
 ## はじめに
 
@@ -15,7 +15,11 @@
 - チーム全員が同じルールで使えるのか
 - 事故やヒヤリハットをどう共有するのか
 
-そこで、Claude Codeを中心に、チームでAI開発支援を安全に使うための **AI Development Harness** を作りました。
+そこで、Claude Codeを中心に、チームでAI開発支援を安全に使うための運用テンプレートを作りました。
+
+この記事では、こうしたルール、権限設定、作業手順、チェックリストをまとめたものを **AI Development Harness** と呼ぶことにします。
+
+ただし、これは英語圏で完全に定着した標準用語というより、今回の取り組みを説明するための呼び方です。近い言葉としては、agent harnessやAI harnessのような表現があります。
 
 リポジトリはこちらです。
 
@@ -25,7 +29,7 @@
 
 [セッションログ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/session-logs/2026-05-23-ai-enablement-harness-session.md)
 
-## 1. 最初はAI啓蒙記事から始めた
+## 1. 最初はAI活用の社内共有記事から始めた
 
 最初に作ったのは、AIをまだ使っていないメンバー向けの記事群です。
 
@@ -239,7 +243,7 @@ FAQやヒヤリハットを更新する
 
 その流れをセッションログとして残しています。
 
-[セッションログ: AI啓蒙記事からTeam AI Development Harnessまで](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/session-logs/2026-05-23-ai-enablement-harness-session.md)
+[セッションログ: AI活用記事からTeam AI Development Harnessまで](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/session-logs/2026-05-23-ai-enablement-harness-session.md)
 
 セッションログには、以下をまとめています。
 
@@ -269,4 +273,4 @@ AI開発支援ツールは、個人で使うだけならすぐに始められま
 
 まずは「安全に触ってみる」ところまでをチームでそろえ、そのあと実際の利用例やヒヤリハットを反映しながら、少しずつ育てていくつもりです。
 
-これからClaude CodeやGitHub Copilotをチームで使い始める人の参考になればうれしいです。
+これからClaude Codeをチームで使い始めるときの、最初のたたき台になればうれしいです。
