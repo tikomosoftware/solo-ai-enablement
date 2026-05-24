@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const articlesDir = path.resolve(__dirname, "..");
 const htmlDir = path.join(articlesDir, "html");
+const versionFile = path.resolve(articlesDir, "..", "docs-version.json");
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -14,6 +15,11 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function readDocumentVersion() {
+  const version = JSON.parse(fs.readFileSync(versionFile, "utf8")).version;
+  return String(version);
 }
 
 function inlineMarkdown(value) {
@@ -119,7 +125,7 @@ function extractTitle(markdown, fallback) {
   return firstHeading ? firstHeading[1].trim() : fallback.replace(/\.md$/i, "");
 }
 
-function pageTemplate({ title, body, nav }) {
+function pageTemplate({ title, body, nav, version }) {
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -158,6 +164,11 @@ function pageTemplate({ title, body, nav }) {
     }
     nav a { color: var(--accent); text-decoration: none; }
     nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
     h1, h2, h3, h4, h5, h6 {
       line-height: 1.35;
       margin: 1.65em 0 0.65em;
@@ -200,6 +211,7 @@ function pageTemplate({ title, body, nav }) {
 <body>
   <main>
     ${nav}
+    <div class="doc-version">資料バージョン ${escapeHtml(version)}</div>
     ${body}
   </main>
 </body>
@@ -209,6 +221,7 @@ function pageTemplate({ title, body, nav }) {
 
 function build() {
   ensureDir(htmlDir);
+  const documentVersion = readDocumentVersion();
 
   const files = fs
     .readdirSync(articlesDir)
@@ -230,7 +243,7 @@ function build() {
     const nav = `<nav><a href="./index.html">記事一覧</a> / ${escapeHtml(page.title)}</nav>`;
     fs.writeFileSync(
       path.join(htmlDir, page.output),
-      pageTemplate({ title: page.title, body, nav }),
+      pageTemplate({ title: page.title, body, nav, version: documentVersion }),
       "utf8"
     );
   }
@@ -247,7 +260,12 @@ function build() {
 
   fs.writeFileSync(
     path.join(htmlDir, "index.html"),
-    pageTemplate({ title: "Solo AI Enablement", body: indexBody, nav: "<nav>記事一覧</nav>" }),
+    pageTemplate({
+      title: "Solo AI Enablement",
+      body: indexBody,
+      nav: "<nav>記事一覧</nav>",
+      version: documentVersion,
+    }),
     "utf8"
   );
 

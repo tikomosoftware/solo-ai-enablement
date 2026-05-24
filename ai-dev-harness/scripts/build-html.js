@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const docsDir = path.resolve(__dirname, "..");
 const htmlDir = path.join(docsDir, "html");
+const versionFile = path.resolve(docsDir, "..", "docs-version.json");
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -14,6 +15,11 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function readDocumentVersion() {
+  const version = JSON.parse(fs.readFileSync(versionFile, "utf8")).version;
+  return String(version);
 }
 
 function inlineMarkdown(value) {
@@ -142,7 +148,7 @@ function extractTitle(markdown, fallback) {
   return firstHeading ? firstHeading[1].trim() : fallback.replace(/\.md$/i, "");
 }
 
-function pageTemplate({ title, body, nav }) {
+function pageTemplate({ title, body, nav, version }) {
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -181,6 +187,11 @@ function pageTemplate({ title, body, nav }) {
     }
     nav a { color: var(--accent); text-decoration: none; }
     nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
     h1, h2, h3, h4, h5, h6 {
       line-height: 1.35;
       margin: 1.65em 0 0.65em;
@@ -223,6 +234,7 @@ function pageTemplate({ title, body, nav }) {
 <body>
   <main>
     ${nav}
+    <div class="doc-version">資料バージョン ${escapeHtml(version)}</div>
     ${body}
   </main>
 </body>
@@ -232,6 +244,7 @@ function pageTemplate({ title, body, nav }) {
 
 function build() {
   ensureDir(htmlDir);
+  const documentVersion = readDocumentVersion();
 
   const files = listMarkdownFiles(docsDir);
 
@@ -257,7 +270,7 @@ function build() {
     ensureDir(path.dirname(outputPath));
     fs.writeFileSync(
       outputPath,
-      pageTemplate({ title: page.title, body, nav }),
+      pageTemplate({ title: page.title, body, nav, version: documentVersion }),
       "utf8"
     );
   }

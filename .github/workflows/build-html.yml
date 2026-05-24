@@ -10,6 +10,7 @@ on:
       - "ai-dev-101/scripts/build-html.js"
       - "ai-dev-harness/**/*.md"
       - "ai-dev-harness/scripts/build-html.js"
+      - "docs-version.json"
       - "package.json"
       - ".github/workflows/build-html.yml"
   workflow_dispatch:
