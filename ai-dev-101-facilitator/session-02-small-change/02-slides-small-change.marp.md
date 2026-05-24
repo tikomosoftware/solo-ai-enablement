@@ -365,7 +365,7 @@ code {
 
 <div class="portrait-wrap">
 <img class="portrait" src="../session-00-ai-basics/assets/facilitator-placeholder.png" />
-<img class="company-logo" src="../session-00-ai-basics/assets/nextworks-ai-logo.png" />
+<img class="company-logo" src="../session-00-ai-basics/assets/neuramnesia-logo.svg" />
 <small class="portrait-comment">差分を見るまでが依頼です</small>
 </div>
 </div>

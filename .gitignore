@@ -2,3 +2,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Generated Marp exports
+*.marp.html
+*.marp.pdf
+*.marp.pptx

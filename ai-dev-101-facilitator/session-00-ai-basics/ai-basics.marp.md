@@ -389,7 +389,7 @@ small {
   <div>
     <div class="portrait-wrap">
       <img class="portrait" src="./assets/facilitator-placeholder.png" alt="案内役の写真">
-      <img class="company-logo" src="./assets/nextworks-ai-logo.png" alt="NEXTWORKS AI ロゴ">
+      <img class="company-logo" src="./assets/neuramnesia-logo.svg" alt="NEURAMNESIA ロゴ">
       <div class="portrait-comment">実はCodex推し😄</div>
     </div>
   </div>
