@@ -422,7 +422,7 @@ Verification 確認方法
 ### 作成物
 
 ```text
-examples/team-ai-development-harness/
+ai-development-harness/
 ```
 
 初期構成:
@@ -598,7 +598,7 @@ STRUCTURE.md
 ### 作成物
 
 ```text
-examples/team-ai-development-harness/STRUCTURE.md
+ai-development-harness/STRUCTURE.md
 ```
 
 内容:
@@ -836,7 +836,7 @@ solo-ai-enablement/
   docs/
   examples/
     claude-code-safe-config/
-    team-ai-development-harness/
+    ai-development-harness/
       README.md
       STRUCTURE.md
       CLAUDE.md
@@ -856,7 +856,7 @@ solo-ai-enablement/
 Team AI Development Harness:
 
 ```text
-examples/team-ai-development-harness/
+ai-development-harness/
   README.md
   STRUCTURE.md
   CLAUDE.md

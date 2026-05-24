@@ -17,7 +17,7 @@
 
 ## 手順2: harnessをコピーする
 
-`examples/team-ai-development-harness/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
+`ai-development-harness/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
 
 配置例:
 

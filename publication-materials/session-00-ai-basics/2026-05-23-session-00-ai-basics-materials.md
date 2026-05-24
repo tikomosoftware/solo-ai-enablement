@@ -4,9 +4,9 @@
 
 対象:
 
-- `examples/team-ai-development-harness/facilitator/session-00-ai-basics/ai-basics.marp.md`
-- `examples/team-ai-development-harness/facilitator/session-00-ai-basics/assets/facilitator-placeholder.png`
-- `examples/team-ai-development-harness/facilitator/session-00-ai-basics/assets/nextworks-ai-logo.png`
+- `facilitator/session-00-ai-basics/ai-basics.marp.md`
+- `facilitator/session-00-ai-basics/assets/facilitator-placeholder.png`
+- `facilitator/session-00-ai-basics/assets/nextworks-ai-logo.png`
 
 ## このログの目的
 
@@ -28,7 +28,7 @@
 Codexは、第0回資料として以下を追加しました。
 
 ```text
-examples/team-ai-development-harness/facilitator/session-00-ai-basics/ai-basics.marp.md
+facilitator/session-00-ai-basics/ai-basics.marp.md
 ```
 
 ## タイトルと位置づけ
@@ -125,7 +125,7 @@ Codexは `imagegen` スキルを使い、架空のITエンジニア風ポート�
 追加アセット:
 
 ```text
-examples/team-ai-development-harness/facilitator/session-00-ai-basics/assets/facilitator-placeholder.png
+facilitator/session-00-ai-basics/assets/facilitator-placeholder.png
 ```
 
 ## 架空プロフィールと会社ロゴ
@@ -157,7 +157,7 @@ Codexは、公式ロゴと誤解されない架空ブランドとして `NEXTWOR
 追加アセット:
 
 ```text
-examples/team-ai-development-harness/facilitator/session-00-ai-basics/assets/nextworks-ai-logo.png
+facilitator/session-00-ai-basics/assets/nextworks-ai-logo.png
 ```
 
 最終的に、会社ロゴは人物写真の右下に小さく重ねる形になりました。

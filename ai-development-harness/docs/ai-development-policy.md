@@ -35,7 +35,7 @@
 
 展開・運用する人が読むもの:
 
-- [展開担当者向け資料](../facilitator/README.md)
+- [展開担当者向け資料](../../facilitator/README.md)
 - [リポジトリ導入手順](./repository-adoption-guide.md)
 - [FAQ](./faq.md)
 

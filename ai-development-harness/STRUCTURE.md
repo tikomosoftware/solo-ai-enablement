@@ -2,26 +2,32 @@
 
 ## このファイルの目的
 
-このファイルは、`team-ai-development-harness` の全体構成を把握するための地図です。
+このファイルは、`ai-development-harness` の全体構成を把握するための地図です。
 
 `README.md` は最初に読む入口、この `STRUCTURE.md` はフォルダとファイルの役割を確認するための資料です。
 
 ## 全体構成
 
 ```text
-team-ai-development-harness/
+ai-development-harness/
   README.md
   STRUCTURE.md
   CLAUDE.md
   .claude/
     settings.json
   docs/
-  facilitator/
   policies/
   workflows/
   checklists/
   prompts/
   templates/
+
+facilitator/
+  README.md
+  rollout-plan.md
+  adoption-checklist.md
+  session-*/
+  demo-projects/
 ```
 
 ## 役割別の見方
@@ -62,7 +68,7 @@ policies/
 ## 展開担当者が読むもの
 
 ```text
-facilitator/
+../facilitator/
 ```
 
 役割:
@@ -123,7 +129,7 @@ templates/
 - `approval-required-operations.md`: 承認が必要な操作
 - `repository-adoption-guide.md`: リポジトリ導入手順
 
-## facilitator/
+## ../facilitator/
 
 展開担当者向けの資料です。
 
@@ -234,9 +240,9 @@ docs/first-exercise.md
 例:
 
 ```text
-facilitator/rollout-plan.md
-facilitator/session-01-30min/03-explanation-script-30min.md
-facilitator/adoption-checklist.md
+../facilitator/rollout-plan.md
+../facilitator/session-01-30min/03-explanation-script-30min.md
+../facilitator/adoption-checklist.md
 ```
 
 つまり、説明会で使う資料は表に出る資料、展開担当者向け資料は進行側のための資料です。
@@ -271,7 +277,7 @@ templates/
 
 会社やチームで実際に展開するなら、最初に育てるべき資料は次です。
 
-- `facilitator/session-01-30min/03-explanation-script-30min.md`
+- `../facilitator/session-01-30min/03-explanation-script-30min.md`
 - `docs/faq.md`
 - `docs/common-pitfalls.md`
 - `templates/incident-report.md`

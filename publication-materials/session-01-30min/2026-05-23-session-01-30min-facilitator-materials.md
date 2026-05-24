@@ -4,11 +4,11 @@
 
 対象:
 
-- `examples/team-ai-development-harness/facilitator/session-01-30min/01-slides-outline-30min.md`
-- `examples/team-ai-development-harness/facilitator/session-01-30min/02-slides-30min.marp.md`
-- `examples/team-ai-development-harness/facilitator/session-01-30min/03-explanation-script-30min.md`
-- `examples/team-ai-development-harness/facilitator/session-01-30min/04-member-start-note.md`
-- `examples/team-ai-development-harness/facilitator/session-01-30min/README.md`
+- `facilitator/session-01-30min/01-slides-outline-30min.md`
+- `facilitator/session-01-30min/02-slides-30min.marp.md`
+- `facilitator/session-01-30min/03-explanation-script-30min.md`
+- `facilitator/session-01-30min/04-member-start-note.md`
+- `facilitator/session-01-30min/README.md`
 
 ## このログの目的
 

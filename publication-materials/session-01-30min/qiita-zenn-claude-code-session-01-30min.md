@@ -10,10 +10,10 @@ Claude Codeをチームで使い始めるとき、いきなり実装を任せる
 
 資料はこちらです。
 
-- [第1回 30分説明会 資料](https://github.com/tikomosoftware/solo-ai-enablement/tree/main/examples/team-ai-development-harness/facilitator/session-01-30min)
-- [第1回 30分説明会 Marpスライド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-01-30min/02-slides-30min.marp.md)
-- [第1回 30分説明会 台本](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-01-30min/03-explanation-script-30min.md)
-- [メンバー向けはじめ方メモ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-01-30min/04-member-start-note.md)
+- [第1回 30分説明会 資料](https://github.com/tikomosoftware/solo-ai-enablement/tree/main/facilitator/session-01-30min)
+- [第1回 30分説明会 Marpスライド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/facilitator/session-01-30min/02-slides-30min.marp.md)
+- [第1回 30分説明会 台本](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/facilitator/session-01-30min/03-explanation-script-30min.md)
+- [メンバー向けはじめ方メモ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/facilitator/session-01-30min/04-member-start-note.md)
 
 リポジトリはこちらです。
 
@@ -142,7 +142,7 @@ Claude Codeをチームで使い始めるとき、いきなり実装を任せる
 そこで、第1回資料は次のフォルダにまとめました。
 
 ```text
-examples/team-ai-development-harness/facilitator/session-01-30min/
+facilitator/session-01-30min/
 ```
 
 今後は、たとえば次のように増やせます。

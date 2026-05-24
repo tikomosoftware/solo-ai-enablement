@@ -16,7 +16,7 @@ Claude Codeの起動方法や権限確認を説明する前に、AIに慣れて�
 
 資料はこちらです。
 
-[第0回 AIツールを使い始める前の基本](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-00-ai-basics/ai-basics.marp.md)
+[第0回 AIツールを使い始める前の基本](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/facilitator/session-00-ai-basics/ai-basics.marp.md)
 
 リポジトリはこちらです。
 
