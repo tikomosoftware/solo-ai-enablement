@@ -12,10 +12,11 @@
 ai-development-harness/
   README.md
   STRUCTURE.md
-  template/
+  minimal/
     CLAUDE.md
     .claude/
       settings.json
+  materials/
     docs/
     policies/
     workflows/
@@ -33,12 +34,26 @@ facilitator/
 
 ## 役割別の見方
 
+## 最初にコピーするもの
+
+```text
+minimal/CLAUDE.md
+minimal/.claude/settings.json
+```
+
+役割:
+
+- Claude Codeへの作業ルール
+- 権限設定
+- 禁止事項
+- 最小限の安全な開始点
+
 ## メンバーが最初に読むもの
 
 ```text
-template/docs/ai-development-policy.md
-template/docs/start-guide.md
-template/docs/first-exercise.md
+materials/docs/ai-development-policy.md
+materials/docs/start-guide.md
+materials/docs/first-exercise.md
 ```
 
 役割:
@@ -51,11 +66,11 @@ template/docs/first-exercise.md
 ## メンバーが必要に応じて読むもの
 
 ```text
-template/docs/faq.md
-template/docs/common-pitfalls.md
-template/docs/tool-selection-guide.md
-template/docs/approval-required-operations.md
-template/policies/
+materials/docs/faq.md
+materials/docs/common-pitfalls.md
+materials/docs/tool-selection-guide.md
+materials/docs/approval-required-operations.md
+materials/policies/
 ```
 
 役割:
@@ -83,10 +98,10 @@ template/policies/
 ## AIに読ませるもの
 
 ```text
-template/CLAUDE.md
-template/.claude/settings.json
-template/policies/
-template/workflows/
+minimal/CLAUDE.md
+minimal/.claude/settings.json
+materials/policies/
+materials/workflows/
 ```
 
 役割:
@@ -99,9 +114,9 @@ template/workflows/
 ## 人間が確認に使うもの
 
 ```text
-template/checklists/
-template/workflows/
-template/templates/
+materials/checklists/
+materials/workflows/
+materials/templates/
 ```
 
 役割:
@@ -113,9 +128,9 @@ template/templates/
 
 ## フォルダの説明
 
-## template/
+## minimal/
 
-実プロジェクトのプロジェクトルートへコピーする中身です。
+実プロジェクトのプロジェクトルートへ最初にコピーする最小構成です。
 
 コピー後の配置例:
 
@@ -124,19 +139,21 @@ my-app/
   CLAUDE.md
   .claude/
     settings.json
-  docs/
-  policies/
-  workflows/
-  checklists/
-  prompts/
-  templates/
 ```
 
 `README.md` と `STRUCTURE.md` は配布元の説明資料なので、通常はコピー対象に含めません。
 
-## template/docs/
+## materials/
+
+チーム運用をそろえたい場合に、必要に応じてプロジェクトへ追加コピーする資料です。
+
+`materials/` は、人間が読む導入資料であり、AIエージェントに読ませるための文脈資料でもあります。ただし、置いてあるだけでClaude Codeが毎回すべて自動で読むわけではありません。AIに守らせたい重要資料は、コピー後の `CLAUDE.md` から参照させます。
+
+## materials/docs/
 
 利用者向けの説明資料です。
+
+`docs/` は制限設定そのものではありません。導入ガイド、FAQ、用語集、最初の練習、承認が必要な操作などをまとめた説明資料です。危険操作を実際に止めるのは `.claude/settings.json`、AIに守らせる入口は `CLAUDE.md` です。
 
 主なファイル:
 
@@ -181,7 +198,7 @@ my-app/
 
 `session-02-small-change/` 以降は、今後の共有に向けたセッション雛形です。まずはREADMEに、各回で扱うこと、扱わないこと、参加者への事前依頼、想定成果物をまとめます。
 
-## template/policies/
+## materials/policies/
 
 守るべきルールです。
 
@@ -196,7 +213,7 @@ my-app/
 
 `common.md` は常に残します。その他の領域別ポリシーは、プロジェクトに関係するものを残し、不要なものは削るか参考資料として扱います。
 
-## template/workflows/
+## materials/workflows/
 
 AIを使う作業の進め方です。
 
@@ -206,7 +223,7 @@ AIを使う作業の進め方です。
 - `code-review.md`: AI利用時のコードレビュー
 - `pull-request.md`: AI利用時のPR運用
 
-## template/checklists/
+## materials/checklists/
 
 作業前後の確認リストです。
 
@@ -216,7 +233,7 @@ AIを使う作業の進め方です。
 - `before-commit.md`: コミット前
 - `before-pr.md`: PR前
 
-## template/prompts/
+## materials/prompts/
 
 AIに依頼するときのプロンプトテンプレートです。
 
@@ -227,7 +244,7 @@ AIに依頼するときのプロンプトテンプレートです。
 - `review.md`: レビュー
 - `test-design.md`: テスト設計
 
-## template/templates/
+## materials/templates/
 
 人間が記入して共有するテンプレートです。
 
@@ -247,11 +264,11 @@ AIに依頼するときのプロンプトテンプレートです。
 例:
 
 ```text
-template/docs/harness-concept.md
-template/docs/start-guide.md
-template/policies/common.md
-template/docs/tool-selection-guide.md
-template/docs/first-exercise.md
+materials/docs/harness-concept.md
+materials/docs/start-guide.md
+materials/policies/common.md
+materials/docs/tool-selection-guide.md
+materials/docs/first-exercise.md
 ```
 
 展開担当者向け資料:
@@ -278,23 +295,23 @@ template/docs/first-exercise.md
 扱う資料:
 
 ```text
-template/docs/harness-concept.md
-template/docs/start-guide.md
-template/policies/common.md
-template/docs/tool-selection-guide.md
-template/docs/first-exercise.md
+materials/docs/harness-concept.md
+materials/docs/start-guide.md
+materials/policies/common.md
+materials/docs/tool-selection-guide.md
+materials/docs/first-exercise.md
 ```
 
 扱わないが、あとで参照する資料:
 
 ```text
-template/docs/faq.md
-template/docs/common-pitfalls.md
-template/docs/approval-required-operations.md
-template/workflows/
-template/checklists/
-template/prompts/
-template/templates/
+materials/docs/faq.md
+materials/docs/common-pitfalls.md
+materials/docs/approval-required-operations.md
+materials/workflows/
+materials/checklists/
+materials/prompts/
+materials/templates/
 ```
 
 ## 最初に育てるべき資料
@@ -302,10 +319,10 @@ template/templates/
 組織やチームで実際に展開するなら、最初に育てるべき資料は次です。
 
 - `../facilitator/session-01-30min/03-explanation-script-30min.md`
-- `template/docs/faq.md`
-- `template/docs/common-pitfalls.md`
-- `template/templates/incident-report.md`
-- `template/policies/common.md`
-- `template/templates/project-adoption-profile.md`
+- `materials/docs/faq.md`
+- `materials/docs/common-pitfalls.md`
+- `materials/templates/incident-report.md`
+- `materials/policies/common.md`
+- `materials/templates/project-adoption-profile.md`
 
 理由は、説明会と実運用で最初に使う可能性が高いためです。

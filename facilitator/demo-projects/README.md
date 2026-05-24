@@ -24,7 +24,7 @@ CLIの使い方は本編の主題にしません。CLIに慣れている人は�
 - `DEMO-STEPS.md`: 登壇者が実演するときの手順
 - サンプルのソースやドキュメント
 
-はじめて参加する人には、先に [事前準備: VS CodeでClaude Codeを使う](../../ai-development-harness/template/docs/vscode-claude-code-guide.md) を共有してください。
+はじめて参加する人には、先に [事前準備: VS CodeでClaude Codeを使う](../../ai-development-harness/materials/docs/vscode-claude-code-guide.md) を共有してください。
 
 ## 4回分の題材
 

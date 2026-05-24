@@ -15,9 +15,9 @@
 - リリース直前のリポジトリ
 - 変更が激しいリポジトリ
 
-## 手順2: harnessをコピーする
+## 手順2: 最小構成をコピーする
 
-`ai-development-harness/template/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
+まず `ai-development-harness/minimal/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
 
 配置例:
 
@@ -26,24 +26,37 @@ my-app/
   CLAUDE.md
   .claude/
     settings.json
+```
+
+この2つはClaude Codeに直接効きます。`CLAUDE.md` は作業ルール、`.claude/settings.json` は権限設定です。
+
+## 手順3: 必要に応じて運用資料を追加する
+
+チームで運用をそろえる場合は、`ai-development-harness/materials/` から必要なフォルダをプロジェクトルートへコピーします。
+
+```text
+my-app/
   docs/
   policies/
   workflows/
   checklists/
   prompts/
+  templates/
 ```
 
-## 手順3: プロジェクト向けに調整する
+`materials/` は人間のための資料でもあり、AIエージェントに読ませるための文脈資料でもあります。ただし、置いてあるだけでClaude Codeが毎回すべて自動で読むわけではありません。AIに守らせたい資料は、`CLAUDE.md` から参照させます。
+
+## 手順4: プロジェクト向けに調整する
 
 最低限、次を編集します。
 
 - `CLAUDE.md`
 - `.claude/settings.json`
-- `policies/common.md`
-- 担当領域に合う `policies/*.md`
-- `docs/start-guide.md`
+- 追加した場合は `policies/common.md`
+- 追加した場合は担当領域に合う `policies/*.md`
+- 追加した場合は `docs/start-guide.md`
 
-このとき、`templates/project-adoption-profile.md` をコピーして、プロジェクト固有の情報を埋めます。
+このとき、必要に応じて `templates/project-adoption-profile.md` をコピーして、プロジェクト固有の情報を埋めます。
 
 整理する内容:
 
@@ -58,7 +71,7 @@ my-app/
 
 `policies/common.md` は全プロジェクトで残します。`frontend.md`、`backend.md`、`windows-app.md`、`devops.md`、`qa.md` は、プロジェクトの技術領域に合わせて残す、削る、または追記します。
 
-## 手順4: チームでレビューする
+## 手順5: チームでレビューする
 
 harnessの導入は、通常のコード変更と同じようにPRでレビューします。
 
@@ -70,7 +83,7 @@ harnessの導入は、通常のコード変更と同じようにPRでレビュ�
 - テストやビルドコマンドが正しいか。
 - 情報管理ルールが明確か。
 
-## 手順5: 初回説明会を行う
+## 手順6: 初回説明会を行う
 
 説明会ではすべての資料を説明しません。
 
@@ -82,7 +95,7 @@ harnessの導入は、通常のコード変更と同じようにPRでレビュ�
 - 禁止操作
 - 最初の実践課題
 
-## 手順6: 小さく試す
+## 手順7: 小さく試す
 
 最初は変更なしの調査から始めます。
 
@@ -95,7 +108,7 @@ harnessの導入は、通常のコード変更と同じようにPRでレビュ�
 - 文言修正
 - 小さなバグ修正
 
-## 手順7: ふりかえりで更新する
+## 手順8: ふりかえりで更新する
 
 1〜2週間使ったら、ルールを見直します。
 

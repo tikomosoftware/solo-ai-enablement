@@ -2,7 +2,7 @@
 
 このディレクトリは、AI Development Harnessをチームに展開する人向けの資料です。
 
-メンバー向けに配る基本資料は `../ai-development-harness/template/docs/`、`../ai-development-harness/template/policies/`、`../ai-development-harness/template/checklists/` にあります。この `facilitator/` は、説明会の準備、導入計画、進行、展開前チェックに使います。
+メンバー向けに配る基本資料は `../ai-development-harness/materials/docs/`、`../ai-development-harness/materials/policies/`、`../ai-development-harness/materials/checklists/` にあります。この `facilitator/` は、説明会の準備、導入計画、進行、展開前チェックに使います。
 
 ## ファイル一覧
 
@@ -23,10 +23,10 @@
 
 扱う範囲:
 
-- `../ai-development-harness/template/docs/harness-concept.md` の要点
-- `../ai-development-harness/template/docs/start-guide.md` のプロジェクトルートとVS Code注意点
-- `../ai-development-harness/template/policies/common.md` の禁止事項
-- `../ai-development-harness/template/docs/tool-selection-guide.md` の使い分け
-- `../ai-development-harness/template/docs/first-exercise.md` の最初の課題
+- `../ai-development-harness/materials/docs/harness-concept.md` の要点
+- `../ai-development-harness/materials/docs/start-guide.md` のプロジェクトルートとVS Code注意点
+- `../ai-development-harness/materials/policies/common.md` の禁止事項
+- `../ai-development-harness/materials/docs/tool-selection-guide.md` の使い分け
+- `../ai-development-harness/materials/docs/first-exercise.md` の最初の課題
 
 説明会の目的は、全資料を理解してもらうことではありません。まず安全に起動し、変更なしで調査できる状態にすることです。
