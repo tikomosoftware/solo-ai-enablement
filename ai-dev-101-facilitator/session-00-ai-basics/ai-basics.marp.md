@@ -365,7 +365,7 @@ small {
     <p class="profile-lead">現場でAI活用を始めるための、最初の相談役です。</p>
     <ul class="profile-list">
       <li>名前: 佐伯 悠人（通称）</li>
-      <li>所属: 株式会社ネクストワークス AI活用支援チーム</li>
+      <li>所属: (株) NEURAMNESIA AI活用支援チーム</li>
       <li>経歴: AI推進室、事業会社のAI活用推進担当などを経験</li>
       <li>普段の仕事: Claude Codeを中心に、AIを使った業務改善や開発支援を提案・サポート</li>
       <li>今日の立ち位置: AIツールを一緒に試すための案内役</li>

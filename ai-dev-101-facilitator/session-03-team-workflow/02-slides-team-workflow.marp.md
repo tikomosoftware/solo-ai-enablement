@@ -86,7 +86,7 @@ code { font-family: "Cascadia Mono", Consolas, monospace; }
 <p class="profile-lead">AIに詳しい人だけが抱え込まず、相談しやすい運用を作る案内役です。</p>
 
 - 名前: 佐伯 悠人（通称）
-- 所属: 株式会社ネクストワークス AI活用支援チーム
+- 所属: (株) NEURAMNESIA AI活用支援チーム
 - 今日の立ち位置: チームで安全に使い続けるための整理役
 - 困ったときの相談先: 弊社担当までお気軽にご相談ください
 
