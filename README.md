@@ -1,6 +1,6 @@
 # Solo AI Enablement
 
-AIをまだ使っていないメンバーに向けて、AI活用の基本、注意点、チームルール、実践例をMarkdownで育てていくためのリポジトリです。
+AIをこれから使い始める人に向けて、AI活用の基本、注意点、チームでの使い方、実践例をMarkdownで育てていくためのリポジトリです。
 
 ## 運用方針
 
@@ -11,11 +11,11 @@ AIをまだ使っていないメンバーに向けて、AI活用の基本、注�
 
 ## 主要フォルダー
 
-- `articles/`: AI活用の基本、注意点、チームルール、実践例の記事原本
+- `articles/`: AI活用の基本、注意点、チームでの使い方、実践例の記事原本
 - `ai-development-harness/`: チーム開発でAI支援を使うためのharness構成テンプレート
 - `facilitator/`: AI Development Harnessをチームに展開するための説明会・研修資料
 - `publication-materials/`: Qiita/Zennなど外部公開向けに整えた原稿
-- `examples/claude-code-safe-config/`: Claude Codeを業務で安全に使うための最小構成サンプル
+- `examples/claude-code-safe-config/`: Claude Codeを仕事で安全に使うための最小構成サンプル
 
 ## ローカルでHTMLを生成する
 

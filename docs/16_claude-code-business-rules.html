@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>16. Claude Codeを業務で使うための安全設定サンプル</title>
+  <title>16. Claude Codeを仕事で使うための安全設定サンプル</title>
   <style>
     :root {
       color-scheme: light;
@@ -77,10 +77,10 @@
 </head>
 <body>
   <main>
-    <nav><a href="./index.html">記事一覧</a> / 16. Claude Codeを業務で使うための安全設定サンプル</nav>
-    <h1>16. Claude Codeを業務で使うための安全設定サンプル</h1>
+    <nav><a href="./index.html">記事一覧</a> / 16. Claude Codeを仕事で使うための安全設定サンプル</nav>
+    <h1>16. Claude Codeを仕事で使うための安全設定サンプル</h1>
 <h2>この記事の目的</h2>
-<p>この記事では、開発者がClaude Codeを業務で使うときに、最低限入れておきたいルールと設定の考え方を整理します。</p>
+<p>この記事では、開発者がClaude Codeを仕事で使うときに、最低限入れておきたいルールと設定の考え方を整理します。</p>
 <p>特に注意したいのは、ファイル削除、ファイル移動、Git履歴を壊す操作、force push、機密ファイルの読み取りです。Claude Codeは強力な開発支援ツールですが、強力だからこそ「AIに任せる範囲」と「人間の承認が必要な範囲」を先に決めておく必要があります。</p>
 <h2>まず理解すること</h2>
 <p>Claude Codeには、大きく分けて2種類のルールがあります。</p>
@@ -93,7 +93,7 @@
 <p>一方で、権限設定は「実際にその操作を許可するか、確認するか、禁止するか」を決める設定です。公式ドキュメントでも、<code>CLAUDE.md</code> の指示はClaudeの振る舞いを形作るが、Claude Codeが許可する操作自体は変えない、と説明されています。</p>
 <p>つまり、安全運用では <code>CLAUDE.md</code> だけでは不十分です。<code>CLAUDE.md</code> と <code>.claude/settings.json</code> の両方を使います。</p>
 <h2>推奨する基本方針</h2>
-<p>業務利用では、最初は少し厳しめに始めるのがおすすめです。</p>
+<p>仕事での利用では、最初は少し厳しめに始めるのがおすすめです。</p>
 <ul>
 <li>permission modeは <code>default</code> または <code>plan</code> から始める</li>
 <li><code>bypassPermissions</code> は使わない</li>
@@ -105,7 +105,7 @@
 <li>変更後は人間が差分を確認してからコミットする</li>
 </ul>
 <p>Claude Codeのpermission modeでは、<code>default</code> は読み取り中心で、編集やコマンド実行時に確認が入ります。<code>plan</code> は調査向けで、ファイル編集をしません。<code>acceptEdits</code> は編集や一部のファイル操作が通りやすくなるため、慣れるまでは避けたほうが安全です。</p>
-<p><code>bypassPermissions</code> は権限確認をほぼ飛ばすモードです。公式ドキュメントでも、コンテナやVMのような隔離環境でのみ使うべきものとして説明されています。通常の業務PCや本物の業務リポジトリでは使わない方針にします。</p>
+<p><code>bypassPermissions</code> は権限確認をほぼ飛ばすモードです。公式ドキュメントでも、コンテナやVMのような隔離環境でのみ使うべきものとして説明されています。通常の実務PCや本物の実務リポジトリでは使わない方針にします。</p>
 <h2>最初に迷いやすい配置場所</h2>
 <p>Claude Codeを使い始めるときに最初に迷いやすいのは、「どこで起動するのか」と「設定ファイルをどこに置くのか」です。</p>
 <p>基本は、対象リポジトリの一番上のフォルダをプロジェクトルートとして扱います。VS Codeでいうと、「フォルダーを開く」で開く対象のフォルダです。</p>
@@ -137,7 +137,7 @@ C:\Users\your-name
 C:\ProjectsDEV</code></pre>
 <p>こうした広いフォルダで起動すると、関係ないプロジェクトや個人ファイルまで作業対象に見えてしまう可能性があります。Claude Codeは、何もしなくてもPC全体を完全に隔離するサンドボックスではありません。まずは起動場所を狭くすることが重要です。</p>
 <h2>最初に置くファイル</h2>
-<p>業務利用を始める最小セットは次の3つです。</p>
+<p>仕事での利用を始める最小セットは次の3つです。</p>
 <pre><code class="language-text">my-app/
   CLAUDE.md
   .claude/
@@ -165,7 +165,7 @@ C:\ProjectsDEV</code></pre>
 <p>最初は全ファイルを完璧に整える必要はありません。まずは <code>CLAUDE.md</code> と <code>.claude/settings.json</code> を置き、チームの担当領域に合わせて <code>docs/policies/</code> を追加していく形で十分です。</p>
 <h2>サンプル: CLAUDE.md</h2>
 <p>プロジェクトのルートに <code>CLAUDE.md</code> を置きます。</p>
-<pre><code class="language-markdown"># Claude Code 業務利用ルール
+<pre><code class="language-markdown"># Claude Code 仕事での利用ルール
 
 このリポジトリでは、Claude Codeを開発支援として使います。
 最終判断と最終責任は人間の開発者が持ちます。
@@ -293,7 +293,7 @@ C:\ProjectsDEV</code></pre>
 <li><code>deny</code>: 禁止する</li>
 </ul>
 <p>公式ドキュメントでは、評価順は <code>deny</code>、<code>ask</code>、<code>allow</code> です。つまり、どこかでdenyされた操作は、別の設定でallowしても通りません。</p>
-<p>業務利用では、次の考え方がわかりやすいです。</p>
+<p>仕事での利用では、次の考え方がわかりやすいです。</p>
 <ul>
 <li>何度実行しても安全な確認コマンドは <code>allow</code></li>
 <li>ファイル変更、コミット、push、移動、作成は <code>ask</code></li>
@@ -312,7 +312,7 @@ C:\ProjectsDEV</code></pre>
 確認が取れるまで移動しないでください。</code></pre>
 <h2>Git pushとforce push</h2>
 <p>通常の <code>git push</code> は、チーム方針によります。</p>
-<p>AIにpushまで任せると便利ですが、業務では「push前に人間が差分を見る」ほうが安全です。そのため、最初は <code>ask</code> にします。</p>
+<p>AIにpushまで任せると便利ですが、仕事では「push前に人間が差分を見る」ほうが安全です。そのため、最初は <code>ask</code> にします。</p>
 <p>force pushは原則 <code>deny</code> です。<code>git push --force</code> や <code>git push --force-with-lease</code> は、リモート履歴を書き換える可能性があります。チームの作業やレビュー中の履歴を壊すことがあるため、AIに任せるべきではありません。</p>
 <h2>.envや秘密情報</h2>
 <p><code>.env</code>、秘密鍵、APIキー、トークンは、読み取りも書き込みも避けます。</p>
@@ -342,7 +342,7 @@ C:\ProjectsDEV</code></pre>
 </ul>
 <p>特に大事なのは、設定ファイルを置くだけで終わらせないことです。メンバーに「なぜこの操作がブロックされるのか」「どこまでAIに任せてよいのか」を説明します。</p>
 <h2>この章のまとめ</h2>
-<p>Claude Codeを業務で使うなら、<code>CLAUDE.md</code> と <code>.claude/settings.json</code> を分けて考えることが大切です。</p>
+<p>Claude Codeを仕事で使うなら、<code>CLAUDE.md</code> と <code>.claude/settings.json</code> を分けて考えることが大切です。</p>
 <p><code>CLAUDE.md</code> は作業ルール、<code>.claude/settings.json</code> は実際の権限設定です。削除、履歴改変、force push、秘密情報アクセスは最初から厳しめに制限し、ファイル編集や移動、pushは人間の確認を挟む運用から始めるのがおすすめです。</p>
 <p>参考:</p>
 <ul>

@@ -118,7 +118,7 @@ claude --permission-mode default
 
 初回説明会や最初の練習では、`plan` を推奨します。
 
-`bypassPermissions` は通常の業務リポジトリでは使いません。
+`bypassPermissions` は通常の実務リポジトリでは使いません。
 
 ## Step 5: ルールが読まれているか確認する
 
@@ -167,7 +167,7 @@ VS Code連携が必要な場合は、Claude Code内で次を実行します。
 - VS Codeの統合ターミナルから `claude` を起動している。
 - VS CodeがRestricted Modeになっていない。
 - `code` コマンドがPATHに入っている。
-- 拡張機能のインストールが会社ポリシーで制限されていない。
+- 拡張機能のインストールが所属組織のポリシーで制限されていない。
 
 ## Step 8: 変更なしでリポジトリを調査する
 

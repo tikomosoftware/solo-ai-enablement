@@ -18,7 +18,7 @@
 - SQLの書き方をAIに相談する
 - 企画案をAIと壁打ちする
 - 顧客向け文章をわかりやすく整える
-- 社内FAQを作る
+- 組織内FAQを作る
 - AIの回答が間違っていた例を検証する
 
 ## 実践記事のテンプレート
@@ -59,16 +59,16 @@ AIの出力をどのように直したのか。
 
 ## 実践記事一覧
 
-AI活用の実践記事として、まず業務で使う代表的な開発支援ツールの記事を追加しています。
+AI活用の実践記事として、まず仕事で使う代表的な開発支援ツールの記事を追加しています。
 
 - [GitHub Copilot CLIの使い方](./11_github-copilot-cli.md)
 - [GitHub CopilotをVS Codeで使う](./12_github-copilot-vscode.md)
 - [Claude Code CLIの使い方](./13_claude-code-cli.md)
 - [Claude CodeをVS Codeで使う](./14_claude-code-vscode.md)
 - [Claude Codeの代表的な拡張機能](./15_claude-code-advanced.md)
-- [Claude Codeを業務で使うための安全設定サンプル](./16_claude-code-business-rules.md)
+- [Claude Codeを仕事で使うための安全設定サンプル](./16_claude-code-business-rules.md)
 
-今後、実際に社内で試した事例を追加したら、ここにリンクを増やしていきます。
+今後、実際に組織内で試した事例を追加したら、ここにリンクを増やしていきます。
 
 例:
 

@@ -6,7 +6,7 @@ Claude Code、GitHub Copilot、その他のAIコーディング支援ツール�
 
 ## まず読むもの
 
-メンバー向け:
+利用者向け:
 
 - [AI開発利用ポリシー](./docs/ai-development-policy.md)
 - [事前準備: VS CodeでClaude Codeを使う](./docs/vscode-claude-code-guide.md)
