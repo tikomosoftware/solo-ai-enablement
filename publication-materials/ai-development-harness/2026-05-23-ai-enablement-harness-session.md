@@ -850,7 +850,7 @@ solo-ai-enablement/
       prompts/
       templates/
   scripts/
-  session-logs/
+  publication-materials/
 ```
 
 Team AI Development Harness:
@@ -985,4 +985,4 @@ db1e43c Clarify how Skills fit into harness
 
 できるだけユーザーの依頼内容、Codexの提案、作成したファイル、設計判断を残しています。
 
-より完全な逐語録が必要な場合は、今後のセッションでは、節目ごとに `session-logs/` へログを追記していく運用にするとよいです。
+より完全な逐語録が必要な場合は、今後のセッションでは、節目ごとに `publication-materials/` へログを追記していく運用にするとよいです。

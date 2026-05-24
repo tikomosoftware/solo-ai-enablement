@@ -172,7 +172,7 @@ facilitator/
 
 作業ログはこちらです。
 
-[セッションログ: 第1回 Claude Code 30分説明会資料の整理](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-01-30min/article/2026-05-23-session-01-30min-facilitator-materials.md)
+[セッションログ: 第1回 Claude Code 30分説明会資料の整理](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/publication-materials/session-01-30min/2026-05-23-session-01-30min-facilitator-materials.md)
 
 ## まとめ
 

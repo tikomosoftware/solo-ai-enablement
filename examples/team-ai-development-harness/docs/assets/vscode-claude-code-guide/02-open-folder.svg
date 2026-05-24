@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Open sample folder placeholder</title>
+  <desc id="desc">Placeholder screenshot showing VS Code with the demo project folder open.</desc>
+  <rect width="1280" height="720" fill="#f4f6f8"/>
+  <rect x="0" y="0" width="64" height="720" fill="#27313d"/>
+  <rect x="64" y="0" width="310" height="720" fill="#ffffff"/>
+  <rect x="374" y="0" width="906" height="720" fill="#eef2f5"/>
+  <text x="92" y="54" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#20242a">Explorer</text>
+  <text x="92" y="94" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#5d6670">DEMO-PROJECTS</text>
+  <text x="110" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#20242a">01-docs-copy-fix</text>
+  <text x="110" y="174" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#20242a">02-static-page-fix</text>
+  <text x="110" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#20242a">03-form-validation-workflow</text>
+  <text x="110" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#20242a">04-project-onboarding</text>
+  <rect x="430" y="92" width="770" height="470" rx="10" fill="#ffffff" stroke="#d5dce3"/>
+  <text x="480" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#20242a">Open the sample folder</text>
+  <text x="480" y="204" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#5d6670">File &gt; Open Folder... から今回使うフォルダを選びます。</text>
+  <rect x="480" y="252" width="500" height="64" rx="8" fill="#f1f3f5" stroke="#b9c1ca"/>
+  <text x="510" y="292" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">examples/.../demo-projects/02-static-page-fix</text>
+  <text x="430" y="660" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">Replace this placeholder with your actual folder-open screenshot.</text>
+</svg>
+

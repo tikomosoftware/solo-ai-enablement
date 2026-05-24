@@ -25,9 +25,31 @@
 - 例: 文言修正、READMEの追記、小さなバグの再現確認、テスト追加候補の洗い出し
 - 不安な場合は、説明会の担当者やAI推進担当・相談窓口に先に相談する
 
-## 想定する成果物
+## ファイル一覧
 
-- `slides-*.marp.md`: 投影用スライド
-- `explanation-script-*.md`: 説明者向け台本
-- `member-start-note.md`: 参加者向けの事前・事後メモ
-- `article/`: 公開記事ドラフトや作業ログ
+- [01 スライド構成案](./01-slides-outline-small-change.md): スライド構成と話すポイントの原本
+- [02 Marpスライド](./02-slides-small-change.marp.md): 投影用のMarpスライド
+- [03 説明会台本](./03-explanation-script-small-change.md): 登壇者が話す内容の下書き
+- [04 メンバー向けメモ](./04-member-start-note.md): 参加者に共有する事前・事後メモ
+
+## 本番で使うもの
+
+説明会本番では、主に次の3つを使います。
+
+- `02-slides-small-change.marp.md`: MarpでHTMLやPDFに出力し、画面共有で投影する
+- `03-explanation-script-small-change.md`: 登壇者が手元で見ながら話す
+- `04-member-start-note.md`: 説明会の事前、最後、または事後に参加者へ共有する
+
+## 作成・編集用のもの
+
+- `01-slides-outline-small-change.md`: スライドや台本を作るための設計メモ。スライド構成と話すポイントの原本
+
+`01-slides-outline-small-change.md` は、本番で投影したり参加者に配ったりする資料ではありません。内容を直すときに、スライド全体の流れや話すポイントを確認するために使います。
+
+## 編集方針
+
+- `01-slides-outline-small-change.md` をスライド構成と話すポイントの原本とする
+- `02-slides-small-change.marp.md` は投影用のMarpスライドとする
+- スライドの構成や文言を変える場合は、先に `01-slides-outline-small-change.md` を更新し、その内容を `02-slides-small-change.marp.md` に反映する
+- `02-slides-small-change.marp.md` だけを直接直した場合も、あとで `01-slides-outline-small-change.md` に同じ意図を反映する
+- 記事化や作業ログが必要になった場合は、別途 `article/` を作成する

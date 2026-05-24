@@ -195,7 +195,7 @@ AIにあえて厳しめの質問をして、どこで間違えるか観察する
 
 作業ログはこちらです。
 
-[セッションログ: 第0回 AIツール基本資料の整理](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/examples/team-ai-development-harness/facilitator/session-00-ai-basics/article/2026-05-23-session-00-ai-basics-materials.md)
+[セッションログ: 第0回 AIツール基本資料の整理](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/publication-materials/session-00-ai-basics/2026-05-23-session-00-ai-basics-materials.md)
 
 ## まとめ
 

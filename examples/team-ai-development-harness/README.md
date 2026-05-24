@@ -9,6 +9,7 @@ Claude Code、GitHub Copilot、その他のAIコーディング支援ツール�
 メンバー向け:
 
 - [AI開発利用ポリシー](./docs/ai-development-policy.md)
+- [事前準備: VS CodeでClaude Codeを使う](./docs/vscode-claude-code-guide.md)
 - [Claude Code初回セットアップガイド](./docs/start-guide.md)
 - [AI開発支援 用語集](./docs/glossary.md)
 - [最初の実践課題](./docs/first-exercise.md)

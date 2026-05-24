@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Spark icon placeholder</title>
+  <desc id="desc">Placeholder screenshot highlighting the Spark icon used to open Claude Code.</desc>
+  <rect width="1280" height="720" fill="#f4f6f8"/>
+  <rect x="0" y="0" width="64" height="720" fill="#27313d"/>
+  <rect x="64" y="0" width="310" height="720" fill="#ffffff"/>
+  <rect x="374" y="0" width="906" height="720" fill="#ffffff"/>
+  <rect x="374" y="0" width="906" height="44" fill="#eef2f5"/>
+  <polygon points="1190,10 1202,28 1220,34 1202,40 1190,58 1178,40 1160,34 1178,28" fill="#6d5efc"/>
+  <circle cx="1190" cy="34" r="42" fill="none" stroke="#e04b4b" stroke-width="5"/>
+  <text x="430" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#20242a">Open Claude Code</text>
+  <text x="430" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#5d6670">エディタ右上、または左側のSparkアイコンから開きます。</text>
+  <path d="M990 110 C1080 98, 1138 72, 1170 48" fill="none" stroke="#e04b4b" stroke-width="4"/>
+  <text x="810" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#e04b4b">Click here</text>
+  <text x="430" y="660" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">Replace this placeholder with your actual Spark icon screenshot.</text>
+</svg>
+

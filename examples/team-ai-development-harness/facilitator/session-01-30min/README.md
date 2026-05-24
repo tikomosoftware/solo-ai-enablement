@@ -16,8 +16,6 @@
 - [02 Marpスライド](./02-slides-30min.marp.md): 投影用のMarpスライド
 - [03 説明会台本](./03-explanation-script-30min.md): 登壇者が話す内容の下書き
 - [04 メンバー向けはじめ方メモ](./04-member-start-note.md): 参加者に共有する初回利用メモ
-- [公開記事ドラフト](./article/qiita-zenn-claude-code-session-01-30min.md)
-- [作業セッションログ](./article/2026-05-23-session-01-30min-facilitator-materials.md)
 
 ## 本番で使うもの
 

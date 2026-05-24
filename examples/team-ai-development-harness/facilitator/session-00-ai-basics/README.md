@@ -7,8 +7,6 @@ Claude Codeの具体的な使い方に入る前に、AIチャット、AIエデ�
 ## ファイル一覧
 
 - [第0回 Marpスライド](./ai-basics.marp.md)
-- [公開記事ドラフト](./article/qiita-zenn-ai-onboarding-session-00-basics.md)
-- [作業セッションログ](./article/2026-05-23-session-00-ai-basics-materials.md)
 
 ## 素材
 

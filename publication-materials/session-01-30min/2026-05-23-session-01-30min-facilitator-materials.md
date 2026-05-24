@@ -178,8 +178,8 @@ Codexの判断:
 
 - `facilitator/README.md`
 - `STRUCTURE.md`
-- `articles-public/qiita-zenn-ai-development-harness.md`
-- `session-logs/2026-05-23-ai-enablement-harness-session.md`
+- `publication-materials/ai-development-harness/qiita-zenn-ai-development-harness.md`
+- `publication-materials/ai-development-harness/2026-05-23-ai-enablement-harness-session.md`
 
 `facilitator/README.md` では、説明会ごとの資料として第1回資料へリンクする形にしました。
 

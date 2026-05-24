@@ -143,7 +143,6 @@ templates/
 `session-00-ai-basics/` の主なファイル:
 
 - `ai-basics.marp.md`: AIチャット、AIエディタ、AIエージェントを使う前の基本姿勢を説明するMarpスライド
-- `article/`: 第0回の公開記事ドラフトと作業セッションログ
 
 `session-01-30min/` の主なファイル:
 
@@ -151,7 +150,6 @@ templates/
 - `02-slides-30min.marp.md`: 参加者に見せるMarp形式のスライド
 - `03-explanation-script-30min.md`: 30分説明会の台本たたき台
 - `04-member-start-note.md`: メンバーに共有する、Claude Codeを使い始めるためのはじめ方メモ
-- `article/`: 第1回の公開記事ドラフトと作業セッションログ
 
 `session-02-small-change/` 以降は、今後の社内共有に向けたセッション雛形です。まずはREADMEに、各回で扱うこと、扱わないこと、参加者への事前依頼、想定成果物をまとめます。
 

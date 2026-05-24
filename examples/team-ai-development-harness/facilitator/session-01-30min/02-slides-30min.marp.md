@@ -362,12 +362,14 @@ code {
 
 # 今日の案内役
 
-<p class="profile-lead">AI活用を始める現場に寄り添って、基本の考え方を案内します。</p>
+<p class="profile-lead">現場でAI活用を始めるための、最初の相談役です。</p>
 
-- 佐伯 悠人（架空の人物）
-- 株式会社ネクストワークス AI活用支援チーム（架空の会社）
-- 主にClaude Codeを使った業務改善や開発支援の提案を担当
-- 困ったときは、まず弊社まで気軽にご相談ください
+- 名前: 佐伯 悠人（通称）
+- 所属: 株式会社ネクストワークス AI活用支援チーム
+- 経歴: AI推進室、事業会社のAI活用推進担当などを経験
+- 普段の仕事: Claude Codeを中心に、AIを使った業務改善や開発支援を提案・サポート
+- 今日の立ち位置: Claude Codeを一緒に安全に試すための案内役
+- 困ったときの相談先: 弊社担当までお気軽にご相談ください
 
 <div class="profile-personal">
 <div><strong>最近ハマっていること</strong><span>AIにあえて厳しめの質問をして、どこで間違えるか観察すること</span></div>
@@ -380,7 +382,7 @@ code {
 <div class="portrait-wrap">
 <img class="portrait" src="../session-00-ai-basics/assets/facilitator-placeholder.png" />
 <img class="company-logo" src="../session-00-ai-basics/assets/nextworks-ai-logo.png" />
-<small class="portrait-comment">架空の案内役です</small>
+<small class="portrait-comment">実はCodex推し</small>
 </div>
 </div>
 

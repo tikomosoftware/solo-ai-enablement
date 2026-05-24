@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Plan response placeholder</title>
+  <desc id="desc">Placeholder screenshot showing Claude Code returning an implementation plan before making changes.</desc>
+  <rect width="1280" height="720" fill="#f4f6f8"/>
+  <rect x="0" y="0" width="64" height="720" fill="#27313d"/>
+  <rect x="64" y="0" width="300" height="720" fill="#ffffff"/>
+  <rect x="364" y="0" width="916" height="720" fill="#f9fafb"/>
+  <rect x="430" y="80" width="740" height="500" rx="10" fill="#ffffff" stroke="#d5dce3"/>
+  <text x="470" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#20242a">Claude Code plan</text>
+  <text x="470" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">1. Project structure</text>
+  <text x="470" y="232" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">2. Files to edit</text>
+  <text x="470" y="274" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">3. Smallest safe change</text>
+  <text x="470" y="316" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">4. How to verify</text>
+  <text x="470" y="358" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">5. What not to touch</text>
+  <rect x="470" y="420" width="360" height="56" rx="8" fill="#fff5d6" stroke="#e0b942"/>
+  <text x="492" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#665000">Read this before implementation.</text>
+  <text x="430" y="660" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">Replace this placeholder with your actual plan-response screenshot.</text>
+</svg>
+

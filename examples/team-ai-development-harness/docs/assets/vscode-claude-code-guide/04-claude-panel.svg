@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code panel placeholder</title>
+  <desc id="desc">Placeholder screenshot showing the Claude Code chat panel in VS Code.</desc>
+  <rect width="1280" height="720" fill="#f4f6f8"/>
+  <rect x="0" y="0" width="64" height="720" fill="#27313d"/>
+  <rect x="64" y="0" width="300" height="720" fill="#ffffff"/>
+  <rect x="364" y="0" width="560" height="720" fill="#ffffff"/>
+  <rect x="924" y="0" width="356" height="720" fill="#f9fafb" stroke="#d5dce3"/>
+  <text x="952" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#20242a">Claude Code</text>
+  <rect x="952" y="92" width="292" height="120" rx="8" fill="#ffffff" stroke="#d5dce3"/>
+  <text x="972" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#20242a">Paste the prompt here.</text>
+  <rect x="952" y="594" width="292" height="78" rx="8" fill="#ffffff" stroke="#b9c1ca"/>
+  <text x="972" y="638" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#6a737d">Ask Claude Code...</text>
+  <rect x="430" y="96" width="420" height="280" rx="10" fill="#eef2f5" stroke="#d5dce3"/>
+  <text x="470" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700" fill="#20242a">Chat panel is open</text>
+  <text x="470" y="204" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#5d6670">ここにDEMO-STEPS.mdの依頼文を貼ります。</text>
+  <text x="430" y="660" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#20242a">Replace this placeholder with your actual Claude Code panel screenshot.</text>
+</svg>
+

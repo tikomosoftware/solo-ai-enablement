@@ -27,7 +27,7 @@
 
 実際のセッションログも残しています。
 
-[セッションログ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/session-logs/2026-05-23-ai-enablement-harness-session.md)
+[セッションログ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/publication-materials/ai-development-harness/2026-05-23-ai-enablement-harness-session.md)
 
 ## 1. 最初はAI活用の社内共有記事から始めた
 
@@ -252,7 +252,7 @@ FAQやヒヤリハットを更新する
 
 その流れをセッションログとして残しています。
 
-[セッションログ: AI活用記事からTeam AI Development Harnessまで](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/session-logs/2026-05-23-ai-enablement-harness-session.md)
+[セッションログ: AI活用記事からTeam AI Development Harnessまで](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/publication-materials/ai-development-harness/2026-05-23-ai-enablement-harness-session.md)
 
 セッションログには、以下をまとめています。
 
