@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI開発支援ツール使い分けガイド</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / AI開発支援ツール使い分けガイド</nav>
+    <h1>AI開発支援ツール使い分けガイド</h1>
+<h2>目的</h2>
+<p>このドキュメントは、GitHub Copilot、GitHub Copilot CLI、Claude Codeをどう使い分けるかを整理します。</p>
+<h2>使い分けの基本</h2>
+<p>| やりたいこと | 向いているツール | | --- | --- | | コードを書いている途中の補完 | GitHub Copilot | | 小さな関数やテストの補完 | GitHub Copilot | | エディタ内でコードの説明を聞く | GitHub Copilot Chat | | 選択範囲の小さな修正 | GitHub Copilot Edit | | 複数ファイルにまたがる実装 | Claude Code | | リポジトリ全体の調査 | Claude Code | | テストやビルドを実行しながら作業 | Claude Code | | ターミナルのエラー相談 | Claude Code または Copilot CLI | | Git操作やCLIコマンドの相談 | Copilot CLI または Claude Code | | PR前の差分レビュー | Claude Code | | テスト観点の洗い出し | Claude Code |</p>
+<h2>GitHub Copilotが向いている場面</h2>
+<p>GitHub Copilotは、エディタ内での短い補完や小さな修正に向いています。</p>
+<p>例:</p>
+<ul>
+<li>関数の続きを補完する。</li>
+<li>テストコードのたたき台を作る。</li>
+<li>選択したコードを説明してもらう。</li>
+<li>小さなリファクタリング案を出す。</li>
+<li>コメントからコードを生成する。</li>
+</ul>
+<h2>GitHub Copilot CLIが向いている場面</h2>
+<p>Copilot CLIは、ターミナル作業やコマンド相談に向いています。</p>
+<p>例:</p>
+<ul>
+<li>コマンドの意味を説明してもらう。</li>
+<li>エラー原因を相談する。</li>
+<li>Git操作の手順を確認する。</li>
+<li>シェルコマンドの候補を出す。</li>
+</ul>
+<p>ただし、削除、reset、force pushなどの危険操作は実行前に必ず人間が確認します。</p>
+<h2>Claude Codeが向いている場面</h2>
+<p>Claude Codeは、リポジトリを読みながら作業を進めるエージェント型の使い方に向いています。</p>
+<p>例:</p>
+<ul>
+<li>コードベース全体を調査する。</li>
+<li>複数ファイルにまたがる修正をする。</li>
+<li>テストやビルドを実行して確認する。</li>
+<li>PR前に差分をレビューする。</li>
+<li>既存設計に合わせて実装する。</li>
+</ul>
+<p>Claude Codeは強力なぶん、起動場所、権限設定、作業範囲を明確にします。</p>
+<h2>最初のおすすめ</h2>
+<p>初めて使うメンバーには、次の順番をおすすめします。</p>
+<p>1. GitHub Copilotでコード補完を試す。 2. Claude Codeを <code>plan</code> modeで起動し、リポジトリ調査だけを試す。 3. Claude Codeで小さな修正を試す。 4. PR前レビューやテスト観点洗い出しに使う。</p>
+<h2>判断に迷ったとき</h2>
+<p>次の基準で選びます。</p>
+<ul>
+<li>1ファイル内の小さな作業ならCopilot。</li>
+<li>複数ファイルをまたぐならClaude Code。</li>
+<li>ターミナル作業の相談ならCopilot CLIまたはClaude Code。</li>
+<li>影響範囲が大きいなら、まずClaude Codeに調査だけさせる。</li>
+</ul>
+  </main>
+</body>
+</html>

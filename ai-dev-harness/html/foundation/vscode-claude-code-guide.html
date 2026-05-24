@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>事前準備: VS CodeでClaude Codeを使う</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / 事前準備: VS CodeでClaude Codeを使う</nav>
+    <h1>事前準備: VS CodeでClaude Codeを使う</h1>
+<p>この資料は、説明会に参加する前に読むスタートガイドです。</p>
+<p>説明会では、Visual Studio Code と Claude Code extension を使って、AIエージェントへの依頼、方針確認、差分確認を練習します。</p>
+<p>CLIやGitコマンドの細かい使い方は扱いません。まずは、VS Code上でClaude Codeを開き、依頼文を送り、変更内容を確認できる状態にします。</p>
+<h2>この資料でできるようになること</h2>
+<ul>
+<li>Claude Code extensionをインストールする</li>
+<li>VS Codeでサンプルフォルダを開く</li>
+<li>Claude Codeのチャット画面を開く</li>
+<li>依頼文を送る</li>
+<li>AIが返した方針を読む</li>
+<li>VS Codeで変更差分を見る</li>
+<li>Markdownプレビューやブラウザで結果を確認する</li>
+</ul>
+<h2>1. Claude Code extensionをインストールする</h2>
+<p>1. VS Codeを起動する 2. 左側の拡張機能アイコンを開く 3. 検索欄で <code>Claude Code</code> を検索する 4. Claude Code拡張機能を選び、インストールする 5. インストール後、必要に応じてVS Codeを再読み込みする 6. 初回起動時にサインインを求められたら、自分のAnthropicアカウントでサインインする</p>
+<p>補足: VS Codeは 1.98.0 以降が前提です。拡張機能が表示されない場合は、VS Codeを再起動するか、コマンドパレットから <code>Developer: Reload Window</code> を実行します。</p>
+<p>!<a href="../assets/vscode-claude-code-guide/01-extension-search.svg">拡張機能ビューでClaude Codeを検索した画面</a></p>
+<h2>2. サンプルフォルダを開く</h2>
+<p>1. VS Codeを起動する 2. <code>File</code> &gt; <code>Open Folder...</code> を選ぶ 3. 説明会で使うサンプルフォルダを選ぶ 4. 左側のExplorerにファイル一覧が表示されることを確認する</p>
+<p>説明会では、回ごとに次のフォルダを使います。</p>
+<p>| 回 | 開くフォルダ | | --- | --- | | 第1回 | <code>01-docs-copy-fix</code> | | 第2回 | <code>02-static-page-fix</code> | | 第3回 | <code>03-form-validation-workflow</code> | | 第4回 | <code>04-project-onboarding</code> |</p>
+<p>!<a href="../assets/vscode-claude-code-guide/02-open-folder.svg">VS Codeでサンプルフォルダを開いた画面</a></p>
+<h2>3. Claude Codeのチャット画面を開く</h2>
+<p>1. Explorerで何か1つファイルを開く 2. エディタ右上の Spark アイコンをクリックする 3. Claude Codeのチャット画面が開くことを確認する</p>
+<p>右上のアイコンが見えない場合は、次のどちらかで開きます。</p>
+<ul>
+<li>左側のアクティビティバーにある Spark アイコンをクリックする</li>
+<li><code>Ctrl+Shift+P</code> でコマンドパレットを開き、<code>Claude Code</code> と入力して開く</li>
+</ul>
+<p>!<a href="../assets/vscode-claude-code-guide/03-spark-icon.svg">Claude Codeを開くSparkアイコン</a></p>
+<p>!<a href="../assets/vscode-claude-code-guide/04-claude-panel.svg">Claude Codeパネルを開いた画面</a></p>
+<h2>4. まずは変更せずに方針を聞く</h2>
+<p>Claude Codeが開いたら、いきなり実装を頼まず、まずは調査と方針だけを依頼します。</p>
+<p>1. 各回の <code>DEMO-STEPS.md</code> を開く 2. 「最初に使う依頼文」をコピーする 3. Claude Codeの入力欄に貼り付ける 4. 送信する 5. AIが返した方針、触るファイル、確認方法を読む</p>
+<p>ここでは、まだ実装させません。</p>
+<p>内容が分からない場合は、次のように聞き返します。</p>
+<pre><code class="language-text">初心者にも分かるように、触るファイルと確認方法をもう少し短く説明してください。</code></pre>
+<p>!<a href="../assets/vscode-claude-code-guide/05-plan-response.svg">AIが方針を返した画面</a></p>
+<h2>5. 方針を確認してから実装を依頼する</h2>
+<p>AIの方針を読んで、問題なさそうであれば実装を依頼します。</p>
+<p>1. 触るファイルが多すぎないか確認する 2. 変更内容が今回の目的に合っているか確認する 3. 確認方法が具体的か確認する 4. 問題なければ、<code>DEMO-STEPS.md</code> の「実装を依頼する文」をコピーする 5. Claude Codeの入力欄に貼り付ける 6. 送信する 7. AIの作業が終わるまで待つ</p>
+<p>不安がある場合は、実装に進まず止めてください。</p>
+<pre><code class="language-text">この変更は少し不安です。
+今回は実装せず、もっと小さく分ける案を出してください。</code></pre>
+<h2>6. VS Codeで差分を見る</h2>
+<p>AIの作業が終わったら、説明だけで判断せず、必ず差分を確認します。</p>
+<p>VS Codeの差分表示には、追加の拡張機能は不要です。</p>
+<p>1. 左側の Source Control アイコンを開く 2. <code>Changes</code> に表示されたファイルを確認する 3. 変更されたファイルをクリックする 4. 左側が変更前、右側が変更後であることを確認する 5. 依頼していないファイルが変わっていないか見る</p>
+<p>確認すること:</p>
+<ul>
+<li>触る予定だったファイルだけが変わっているか</li>
+<li>変更量が大きすぎないか</li>
+<li>文言や動作が依頼と合っているか</li>
+<li>削除や大きな移動が入っていないか</li>
+</ul>
+<p>!<a href="../assets/vscode-claude-code-guide/06-diff-view.svg">VS Codeの差分表示</a></p>
+<h2>7. 結果を確認する</h2>
+<p>差分を見たあと、実際の表示や動作も確認します。</p>
+<p>Markdownの場合:</p>
+<p>1. <code>.md</code> ファイルを開く 2. 右上のプレビューアイコンをクリックする 3. 表示された文章を読む 4. 誤字や分かりにくい表現がないか確認する</p>
+<p>HTMLの場合:</p>
+<p>1. Explorerで <code>index.html</code> を右クリックする 2. ブラウザで開く 3. 画面表示やボタン操作を確認する 4. 修正前に起きていた問題が直っているか見る</p>
+<p>ブラウザで開くメニューがない場合は、<code>index.html</code> をファイル一覧からダブルクリックしてブラウザで開いても構いません。</p>
+<p>!<a href="../assets/vscode-claude-code-guide/07-preview-check.svg">Markdownプレビューまたはブラウザ確認</a></p>
+<h2>全体の流れ</h2>
+<pre><code class="language-mermaid">flowchart LR
+  A[&quot;VS Codeでサンプルを開く&quot;] --&gt; B[&quot;Claude Codeに調査を依頼&quot;]
+  B --&gt; C[&quot;方針・対象ファイル・確認方法を読む&quot;]
+  C --&gt; D{&quot;進めてよいか&quot;}
+  D --&gt;|よい| E[&quot;実装を依頼&quot;]
+  D --&gt;|不安がある| F[&quot;質問・相談して止める&quot;]
+  E --&gt; G[&quot;VS Codeで差分を見る&quot;]
+  G --&gt; H[&quot;プレビューやブラウザで確認&quot;]</code></pre>
+<h2>CLIを使う場合</h2>
+<p>この説明会では、VS Code + Claude Code extension を基本の進め方にします。</p>
+<p>すでにCLI操作に慣れている人は、対象フォルダでClaude Codeを起動し、同じ依頼文を使って進めても構いません。ただし、説明会中の案内や画面例はVS Code前提です。</p>
+<p>迷う場合は、VS Codeで進めてください。</p>
+<h2>画像について</h2>
+<p>この資料の画像は、差し替え前提のサンプルです。</p>
+<p>実際の説明会では、自分の環境で撮った画面キャプチャに置き換えると、参加者がより迷いにくくなります。画像ファイルは <a href="../assets/vscode-claude-code-guide/README.html">assets/vscode-claude-code-guide</a> に置いています。</p>
+  </main>
+</body>
+</html>

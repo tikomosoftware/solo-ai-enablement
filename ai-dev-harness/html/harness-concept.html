@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Development Harnessの考え方</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / AI Development Harnessの考え方</nav>
+    <h1>AI Development Harnessの考え方</h1>
+<h2>Harnessとは何か</h2>
+<p>AI Development Harnessとは、AIに開発作業を任せる前に、作業範囲、権限、進め方、確認方法を整えるための仕組みです。</p>
+<p>AIに「この機能をいい感じに作って」と依頼すると、AIは広い範囲を調べ、ファイルを編集し、コマンドを実行しようとします。これは便利ですが、チーム開発では危険もあります。</p>
+<p>そこで、AIが動く前に作業環境を整えます。これがharnessの考え方です。</p>
+<h2>なぜ必要か</h2>
+<p>チーム開発では、一人の判断で作業が完結することはほとんどありません。</p>
+<p>実際の開発には、次のような前提があります。</p>
+<ul>
+<li>既存の設計がある</li>
+<li>チームのコーディング規約がある</li>
+<li>レビューと承認フローがある</li>
+<li>触ってよい範囲と触ってはいけない範囲がある</li>
+<li>本番環境や顧客データを守る必要がある</li>
+<li>複数人が同じリポジトリで作業している</li>
+</ul>
+<p>AIを個人の便利ツールとしてだけ使うと、これらの前提が抜け落ちやすくなります。</p>
+<p>Harnessは、AI活用を個人技ではなく、チームの開発プロセスに乗せるための考え方です。</p>
+<h2>4つの要素</h2>
+<p>Harnessは、次の4つに分けると考えやすくなります。</p>
+<h2>1. Context</h2>
+<p>Contextは、AIに渡す前提情報です。</p>
+<p>例:</p>
+<ul>
+<li>プロジェクト概要</li>
+<li>アーキテクチャ</li>
+<li>コーディング規約</li>
+<li>命名ルール</li>
+<li>テスト方針</li>
+<li>変更してよい範囲</li>
+<li>変更してはいけない範囲</li>
+</ul>
+<p>このリポジトリでは、主に次がContextになります。</p>
+<pre><code class="language-text">CLAUDE.md
+README.md
+docs/
+policies/
+workflows/</code></pre>
+<p>AIは文脈が不足すると、一般論で判断します。チームの事情を反映するには、Contextを明示する必要があります。</p>
+<h2>2. Guardrails</h2>
+<p>Guardrailsは、AIに許可すること、確認が必要なこと、禁止することを決める仕組みです。</p>
+<p>例:</p>
+<ul>
+<li><code>.env</code> を読ませない</li>
+<li>秘密鍵を読ませない</li>
+<li>ファイル削除を禁止する</li>
+<li>force pushを禁止する</li>
+<li>ファイル編集は確認する</li>
+<li>本番環境操作はAIに任せない</li>
+</ul>
+<p>このリポジトリでは、主に次がGuardrailsになります。</p>
+<pre><code class="language-text">.claude/settings.json
+policies/common.md
+checklists/</code></pre>
+<p><code>CLAUDE.md</code> に「やらないで」と書くだけでは、強制力としては不十分です。実際に止めたい操作は、権限設定やレビュー運用で止めます。</p>
+<h2>3. Workflow</h2>
+<p>Workflowは、AIと人間がどう作業を進めるかを決めるものです。</p>
+<p>例:</p>
+<ul>
+<li>まず調査する</li>
+<li>変更方針を説明する</li>
+<li>人間が確認する</li>
+<li>実装する</li>
+<li>テストする</li>
+<li>差分を報告する</li>
+<li>PRを作る</li>
+</ul>
+<p>このリポジトリでは、主に次がWorkflowになります。</p>
+<pre><code class="language-text">workflows/
+prompts/</code></pre>
+<p>AIにいきなり実装させるのではなく、調査、計画、実装、確認を分けることで事故を減らします。</p>
+<h2>4. Verification</h2>
+<p>Verificationは、AIの作業結果をどう確認するかです。</p>
+<p>例:</p>
+<ul>
+<li><code>npm run test</code></li>
+<li><code>npm run build</code></li>
+<li>lint</li>
+<li>型チェック</li>
+<li>コードレビュー</li>
+<li>セキュリティ観点レビュー</li>
+<li>PRチェックリスト</li>
+</ul>
+<p>このリポジトリでは、主に次がVerificationになります。</p>
+<pre><code class="language-text">checklists/
+workflows/code-review.md
+workflows/pull-request.md</code></pre>
+<p>AIが作ったコードも、人間が作ったコードと同じように確認します。むしろ、AI生成物は一見きれいに見えるぶん、意図しない仕様変更やセキュリティリスクを見落としやすいことがあります。</p>
+<h2>チームで共有する意味</h2>
+<p>Harnessは、個人のローカルメモではなく、チームで共有することに意味があります。</p>
+<p>チームで共有すると、次の効果があります。</p>
+<ul>
+<li>AIの使い方が人によって大きくばらつかない</li>
+<li>危険操作のルールを統一できる</li>
+<li>新しいメンバーが始めやすい</li>
+<li>レビュー観点をそろえられる</li>
+<li>失敗例や改善をチーム資産にできる</li>
+</ul>
+<p>AIを使う人だけが詳しくなる状態を避け、チーム全体で安全に使える状態を作ります。</p>
+<h2>最初から完璧にしない</h2>
+<p>Harnessは、最初から完璧なルール集を作るものではありません。</p>
+<p>最初は次の最小構成で十分です。</p>
+<pre><code class="language-text">CLAUDE.md
+.claude/settings.json
+docs/start-guide.md
+policies/common.md
+checklists/before-ai-work.md</code></pre>
+<p>実際に使いながら、足りないルール、よく使うプロンプト、失敗しやすい作業を追加していきます。</p>
+<h2>Skillsはいつ作るか</h2>
+<p>Claude CodeにはSkillsという考え方があります。</p>
+<p>Skillsは、特定の作業をClaudeにうまく実行してもらうための再利用パッケージです。harnessそのものがSkillというわけではありません。</p>
+<p>チーム導入では、Skillsは最初から必須ではありません。</p>
+<p>最初からSkill化してよいもの:</p>
+<ul>
+<li>コードレビュー</li>
+<li>テスト観点洗い出し</li>
+<li>PR説明文作成</li>
+<li>リリースノート作成</li>
+</ul>
+<p>後からSkill化するのが向いているもの:</p>
+<ul>
+<li>プロジェクト固有のデプロイ手順</li>
+<li>組織固有のレビュー観点</li>
+<li>独自フレームワークや組織内ライブラリの使い方</li>
+<li>よくある障害対応</li>
+</ul>
+<p>最初は、<code>prompts/</code> と <code>workflows/</code> に作業の型を置きます。</p>
+<p>実運用で何度も使うもの、毎回同じ説明をしているもの、チームで標準化したいものが見えてきたら、それをSkills化します。</p>
+<p>つまり、harnessはSkillsを含めて安全に使うための上位構造であり、Skillsはharnessの中で育っていく再利用部品です。</p>
+<h2>このサンプルの位置づけ</h2>
+<p>この <code>ai-development-harness</code> は、チームでAI開発支援を始めるためのテンプレートです。</p>
+<p>そのまま使うのではなく、各プロジェクトの事情に合わせて編集してください。</p>
+<p>重要なのは、フォルダ構成そのものよりも、次の考え方です。</p>
+<pre><code class="language-text">AIに作業させる前に、仕事場を整える。
+AIの出力を、チームの開発プロセスの中で検証する。</code></pre>
+  </main>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI開発支援 FAQ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / AI開発支援 FAQ</nav>
+    <h1>AI開発支援 FAQ</h1>
+<h2>AIが間違えたら誰の責任ですか</h2>
+<p>最終責任は人間の開発者とチームにあります。</p>
+<p>AIは補助ツールです。AIが出したコード、説明、コマンド、判断材料は必ず人間が確認します。</p>
+<h2>コードをAIに読ませていいですか</h2>
+<p>所属組織で許可された環境、対象リポジトリ、ツールであれば利用できます。</p>
+<p>ただし、顧客情報、個人情報、秘密情報、未公開情報が含まれる場合は、入力してよいか確認してください。</p>
+<h2><code>.env</code> は見せていいですか</h2>
+<p>原則として見せてはいけません。</p>
+<p>必要な場合は、値を伏せて環境変数名だけ説明します。</p>
+<h2>APIキーやトークンを貼っていいですか</h2>
+<p>貼ってはいけません。</p>
+<p>ログやエラーに含まれている場合も、伏せてから相談します。</p>
+<h2>VS Codeのmulti-root workspaceは使っていいですか</h2>
+<p>最初は使わないことを推奨します。</p>
+<p>1つのVS Codeウィンドウには、1つのプロジェクトルートだけを開いてください。</p>
+<h2>Claude CodeはPC全体を見ますか</h2>
+<p>Claude Codeは、起動したフォルダを中心に作業します。</p>
+<p>ただし、OSレベルで完全に隔離されているわけではありません。広いフォルダで起動すると、関係ないファイルまで見えてしまう可能性があります。</p>
+<p>必ず対象リポジトリのプロジェクトルートで起動してください。</p>
+<h2>CopilotとClaude Codeはどう使い分けますか</h2>
+<p>短い補完やエディタ内の小さな相談はGitHub Copilotが向いています。</p>
+<p>リポジトリ調査、複数ファイル修正、テスト実行を含む作業はClaude Codeが向いています。</p>
+<p>詳しくは <code>docs/tool-selection-guide.md</code> を見てください。</p>
+<h2>AIが削除を提案したらどうしますか</h2>
+<p>すぐに実行しません。</p>
+<p>対象パス、理由、影響範囲を確認し、人間が判断します。最初の運用では、削除はAIに実行させない方針を推奨します。</p>
+<h2>force pushはAIに任せていいですか</h2>
+<p>任せてはいけません。</p>
+<p><code>git push --force</code> や <code>git push --force-with-lease</code> はリモート履歴を書き換える可能性があります。</p>
+<h2>AIが作ったコードはレビュー不要ですか</h2>
+<p>レビューが必要です。</p>
+<p>AIを使った変更でも、人間が書いたコードと同じレビュー、テスト、承認フローを通します。</p>
+<h2>AI利用をPRに書く必要がありますか</h2>
+<p>チーム方針によりますが、最初は書くことを推奨します。</p>
+<p>少なくとも、変更内容を人間が説明できる状態にしてください。</p>
+<h2>何から始めればいいですか</h2>
+<p><code>docs/first-exercise.md</code> の最初の課題から始めてください。</p>
+<p>最初はコードを変更せず、調査とルール確認だけを行います。</p>
+<h2>Claude Codeを起動する場所が分かりません</h2>
+<p>対象リポジトリのプロジェクトルートで起動します。</p>
+<p>プロジェクトルートは、VS Codeで「フォルダーを開く」ときに選ぶ一番上のフォルダです。</p>
+<p>よい例:</p>
+<pre><code class="language-text">cd C:\ProjectsDEV\my-app
+claude --permission-mode default</code></pre>
+<p>避ける例:</p>
+<pre><code class="language-text">cd C:\
+claude</code></pre>
+<pre><code class="language-text">cd C:\ProjectsDEV
+claude</code></pre>
+<h2>VS Codeで複数プロジェクトを開いています。このままでいいですか</h2>
+<p>最初は避けてください。</p>
+<p>1つのVS Codeウィンドウには、1つのプロジェクトルートだけを開く運用を推奨します。複数プロジェクトを同時に開くと、Claude Codeがどのフォルダを作業対象にしているか分かりにくくなります。</p>
+<h2>Claude Codeが別プロジェクトのファイルを見ている気がします</h2>
+<p>起動した場所を確認してください。</p>
+<p>PowerShell:</p>
+<pre><code class="language-text">Get-Location</code></pre>
+<p>Claude Codeを終了し、対象リポジトリのルートへ移動してから起動し直します。</p>
+<h2><code>/memory</code> でCLAUDE.mdが出てきません</h2>
+<p><code>CLAUDE.md</code> がプロジェクトルートにあるか確認してください。</p>
+<p>また、Claude Codeをプロジェクトルートで起動しているか確認してください。</p>
+<h2><code>/permissions</code> で想定した設定になっていません</h2>
+<p><code>.claude/settings.json</code> がプロジェクトルート配下にあるか確認してください。</p>
+<p>配置例:</p>
+<pre><code class="language-text">my-app/
+  .claude/
+    settings.json
+  CLAUDE.md</code></pre>
+<h2>permission modeは何を使えばいいですか</h2>
+<p>最初は <code>plan</code> か <code>default</code> を使います。</p>
+<ul>
+<li><code>plan</code>: 調査や方針整理だけしたいとき</li>
+<li><code>default</code>: 通常利用。編集やコマンド実行で確認が入りやすい</li>
+</ul>
+<p><code>bypassPermissions</code> は通常の実務リポジトリでは使いません。</p>
+<h2>AIにcommitしてもらっていいですか</h2>
+<p>最初の運用では、人間が明示的に依頼した場合だけにします。</p>
+<p>AIにcommitさせる場合でも、事前に <code>git status --short</code> と差分を人間が確認してください。</p>
+<h2>AIにpushしてもらっていいですか</h2>
+<p>最初の運用では、pushは人間が行うことを推奨します。</p>
+<p>特にforce pushはAIに任せてはいけません。</p>
+<h2>AIにファイル移動やリネームを頼んでいいですか</h2>
+<p>必要な場合は、事前に対象パス、理由、影響範囲を説明させ、人間が確認してからにします。</p>
+<p>最初は、AIに提案だけさせて、人間が実行する運用が安全です。</p>
+<h2>AIに依存パッケージを追加してもらっていいですか</h2>
+<p>事前承認が必要です。</p>
+<p>依存追加は、セキュリティ、ライセンス、bundle size、lockfile変更、メンテナンス性に影響します。</p>
+<h2>AIが「テストは不要」と言っています。信じていいですか</h2>
+<p>そのまま信じません。</p>
+<p>テスト不要の判断は人間が行います。少なくとも、なぜ不要なのか、既存テストでどこが担保されるのかを確認します。</p>
+<h2>AIが作ったコードが動けばOKですか</h2>
+<p>動くだけでは不十分です。</p>
+<p>既存設計に合っているか、保守しやすいか、セキュリティリスクがないか、テストがあるかを確認します。</p>
+<h2>AIが知らないライブラリを使おうとしています</h2>
+<p>勝手に採用しないでください。</p>
+<p>既存プロジェクトで使っているライブラリや標準的な方法に合わせます。新規ライブラリが必要な場合は、人間が判断します。</p>
+<h2>AIに本番ログを貼っていいですか</h2>
+<p>原則として貼りません。</p>
+<p>必要な場合は、個人情報、顧客情報、トークン、IPアドレス、メールアドレスなどを除去またはマスクしてから相談します。</p>
+<h2>AIにエラー画面のスクリーンショットを見せていいですか</h2>
+<p>機密情報、顧客名、個人情報、URL、トークン、非公開情報が写っていないか確認してください。</p>
+<p>写っている場合はマスクします。</p>
+<h2>AIを使ったことを隠してPRを出していいですか</h2>
+<p>チーム方針によりますが、最初はAIを使ったことを共有する方針を推奨します。</p>
+<p>目的は責めることではなく、レビュー観点を合わせるためです。</p>
+<h2>AIの回答が自信満々ですが、根拠が分かりません</h2>
+<p>根拠を確認してください。</p>
+<pre><code class="language-text">その説明の根拠となるファイル、行、公式ドキュメント、またはテスト結果を示してください。</code></pre>
+<p>根拠が出せない場合は、参考意見として扱います。</p>
+<h2>AIが途中で関係ないリファクタリングを始めました</h2>
+<p>止めます。</p>
+<p>依頼範囲外のリファクタリングは行わないルールです。差分を確認し、必要なら元に戻す方針を人間が判断します。</p>
+<h2>AIの提案が速すぎてレビューが追いつきません</h2>
+<p>作業を小さく分けます。</p>
+<pre><code class="language-text">一度に編集せず、まず変更方針と対象ファイルだけ提示してください。</code></pre>
+<pre><code class="language-text">1ファイルずつ変更してください。</code></pre>
+<h2>どんな失敗を共有すればいいですか</h2>
+<p>実害が出たものだけでなく、ヒヤリとしたものも共有します。</p>
+<p>例:</p>
+<ul>
+<li>危険なコマンドを提案した</li>
+<li>不要なファイルを編集した</li>
+<li><code>.env</code> を読もうとした</li>
+<li>仕様を勘違いした</li>
+<li>テストなしで完了と言った</li>
+<li>存在しないAPIを使った</li>
+<li>依頼していないリファクタリングを始めた</li>
+</ul>
+<p>共有には <code>templates/incident-report.md</code> を使います。</p>
+<h2>Skillsは最初から作るものですか</h2>
+<p>必ず最初から作る必要はありません。</p>
+<p>Skillsは、Claudeに特定の作業をうまくやってもらうための再利用パッケージです。</p>
+<p>最初から作ってよいSkillもあります。</p>
+<p>例:</p>
+<ul>
+<li>コードレビュー</li>
+<li>テスト観点洗い出し</li>
+<li>PR説明文作成</li>
+<li>リリースノート作成</li>
+</ul>
+<p>一方で、後から作った方がよいSkillもあります。</p>
+<p>例:</p>
+<ul>
+<li>プロジェクト固有のデプロイ手順</li>
+<li>組織固有のレビュー観点</li>
+<li>独自ライブラリの使い方</li>
+<li>よくある障害対応</li>
+</ul>
+<p>初期導入では、まず <code>prompts/</code> や <code>workflows/</code> に作業の型を置きます。</p>
+<p>運用していく中で、何度も使うもの、毎回同じ説明をしているもの、チームで標準化したいものが見えてきたらSkills化します。</p>
+<p>つまり、Skillsは最初から作ってもよいですが、運用で溜まったノウハウを後からまとめるものでもあります。</p>
+<h2>今回のharnessやルールファイルはSkillsですか</h2>
+<p>同じものではありません。</p>
+<p>関係は次のように考えます。</p>
+<pre><code class="language-text">CLAUDE.md
+  プロジェクトで守るルール、前提、作業方針
+
+.claude/settings.json
+  許可、確認、禁止する操作の設定
+
+policies / workflows / checklists / prompts
+  チームで共有する運用資料、手順、テンプレート
+
+Skills
+  特定の作業をClaudeにうまくやらせるための再利用パッケージ
+
+Harness
+  それらをまとめて、チームで安全にAIを使うための上位構造</code></pre>
+<p>今回のharnessはSkillsそのものではありません。</p>
+<p>ただし、<code>prompts/</code> や <code>workflows/</code> は、将来的にSkills化できる材料です。</p>
+  </main>
+</body>
+</html>

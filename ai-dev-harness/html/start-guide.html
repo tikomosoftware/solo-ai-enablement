@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Code初回セットアップガイド</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / Claude Code初回セットアップガイド</nav>
+    <h1>Claude Code初回セットアップガイド</h1>
+<h2>このガイドの目的</h2>
+<p>このガイドは、チームのリポジトリでClaude Codeを安全に使い始めるための初回作業手順です。</p>
+<p>最初のゴールは、コードを変更することではありません。正しい場所でClaude Codeを起動し、ルールと権限設定を確認し、変更なしでリポジトリ調査ができる状態にすることです。</p>
+<h2>初回作業のゴール</h2>
+<p>このガイドを終えると、次の状態になります。</p>
+<ul>
+<li>対象リポジトリのプロジェクトルートでClaude Codeを起動できる。</li>
+<li><code>CLAUDE.md</code> が読み込まれていることを確認できる。</li>
+<li><code>.claude/settings.json</code> の権限設定を確認できる。</li>
+<li>変更なしでリポジトリ構成を調査できる。</li>
+<li>次に何を相談すればよいか分かる。</li>
+</ul>
+<h2>事前確認</h2>
+<p>作業前に次を確認します。</p>
+<ul>
+<li>対象リポジトリをローカルにcloneしている。</li>
+<li>VS Codeで対象リポジトリを開ける。</li>
+<li>対象リポジトリに <code>CLAUDE.md</code> がある。</li>
+<li>対象リポジトリに <code>.claude/settings.json</code> がある。</li>
+<li>AIに入力してはいけない情報を理解している。</li>
+</ul>
+<p>まだ対象リポジトリにharnessが入っていない場合は、先に <code>docs/repository-adoption-guide.md</code> を確認してください。</p>
+<h2>Step 1: プロジェクトルートを確認する</h2>
+<p>プロジェクトルートとは、VS Codeで「フォルダーを開く」ときに選ぶ一番上のフォルダです。</p>
+<p>例:</p>
+<pre><code class="language-text">my-app/
+  .git/
+  CLAUDE.md
+  .claude/
+    settings.json
+  docs/
+  policies/
+  workflows/
+  checklists/
+  prompts/
+  src/
+  tests/</code></pre>
+<p>この例では <code>my-app/</code> がプロジェクトルートです。</p>
+<p>プロジェクトルートには、通常 <code>.git/</code>、<code>README.md</code>、<code>src/</code>、<code>package.json</code>、<code>.sln</code> などがあります。</p>
+<h2>Step 2: VS Codeで対象リポジトリを開く</h2>
+<p>VS Codeで使う場合は、対象リポジトリのプロジェクトルートだけを開きます。</p>
+<pre><code class="language-text">File &gt; Open Folder &gt; my-app/</code></pre>
+<p>原則として、1つのVS Codeウィンドウには1つのプロジェクトルートだけを開きます。</p>
+<p>multi-root workspaceは、最初は使わないことを推奨します。</p>
+<p>理由:</p>
+<ul>
+<li>作業対象のプロジェクトが曖昧になる。</li>
+<li>どの <code>CLAUDE.md</code> が読まれているか分かりにくい。</li>
+<li>どの <code>.claude/settings.json</code> が効いているか迷いやすい。</li>
+<li>関係ないプロジェクトを参照するリスクが上がる。</li>
+</ul>
+<p>フロントエンドとバックエンドを同時に見る場合は、最初は別々のVS Codeウィンドウで開きます。</p>
+<h2>Step 3: 統合ターミナルで場所を確認する</h2>
+<p>VS Codeの統合ターミナルを開きます。</p>
+<p>PowerShellの場合:</p>
+<pre><code class="language-text">Get-Location</code></pre>
+<p>表示された場所が対象リポジトリのプロジェクトルートであることを確認します。</p>
+<p>よい例:</p>
+<pre><code class="language-text">C:\ProjectsDEV\my-app</code></pre>
+<p>避ける例:</p>
+<pre><code class="language-text">C:\
+C:\Users\your-name
+C:\ProjectsDEV</code></pre>
+<p>広いフォルダで起動すると、関係ないファイルや別プロジェクトまで作業対象に見えてしまう可能性があります。</p>
+<h2>Step 4: 最初はplan modeで起動する</h2>
+<p>初回は、ファイル編集をさせずに調査から始めます。</p>
+<pre><code class="language-text">claude --permission-mode plan</code></pre>
+<p>通常利用を始める場合は、確認が入りやすいdefault modeを使います。</p>
+<pre><code class="language-text">claude --permission-mode default</code></pre>
+<p>初回説明会や最初の練習では、<code>plan</code> を推奨します。</p>
+<p><code>bypassPermissions</code> は通常の実務リポジトリでは使いません。</p>
+<h2>Step 5: ルールが読まれているか確認する</h2>
+<p>Claude Codeを起動したら、次を実行します。</p>
+<pre><code class="language-text">/memory</code></pre>
+<p>確認すること:</p>
+<ul>
+<li><code>CLAUDE.md</code> が読み込まれている。</li>
+<li>チームルールが見えている。</li>
+<li>プロジェクト固有の注意点が反映されている。</li>
+</ul>
+<p><code>CLAUDE.md</code> が出てこない場合は、起動場所が違う可能性があります。</p>
+<h2>Step 6: 権限設定を確認する</h2>
+<p>次を実行します。</p>
+<pre><code class="language-text">/permissions</code></pre>
+<p>確認すること:</p>
+<ul>
+<li><code>.claude/settings.json</code> が効いている。</li>
+<li>削除、reset、clean、rebase、force pushが禁止されている。</li>
+<li>編集、commit、push、ファイル移動が確認対象になっている。</li>
+<li><code>.env</code>、秘密鍵、トークンが読み取り禁止になっている。</li>
+</ul>
+<p>想定と違う場合は、作業を進めず、展開担当者またはリポジトリ管理者に確認してください。</p>
+<h2>Step 7: VS Code連携を確認する</h2>
+<p>VS Code連携が必要な場合は、Claude Code内で次を実行します。</p>
+<pre><code class="language-text">/ide</code></pre>
+<p>うまく連携しない場合は、次を確認します。</p>
+<ul>
+<li>VS Codeで対象リポジトリを開いている。</li>
+<li>VS Codeの統合ターミナルから <code>claude</code> を起動している。</li>
+<li>VS CodeがRestricted Modeになっていない。</li>
+<li><code>code</code> コマンドがPATHに入っている。</li>
+<li>拡張機能のインストールが所属組織のポリシーで制限されていない。</li>
+</ul>
+<h2>Step 8: 変更なしでリポジトリを調査する</h2>
+<p>最初の依頼は、実装ではなく調査にします。</p>
+<pre><code class="language-text">まずこのリポジトリの構成を調査してください。
+変更はまだ行わず、主要なフォルダ、実行方法、テスト方法、注意点を整理してください。</code></pre>
+<p>確認すること:</p>
+<ul>
+<li>ファイル変更が発生していない。</li>
+<li>リポジトリの概要が説明されている。</li>
+<li>実行方法やテスト方法が整理されている。</li>
+<li>不明点を勝手に推測せず、質問している。</li>
+</ul>
+<h2>Step 9: ルールを要約させる</h2>
+<p>次に、ルールを理解しているか確認します。</p>
+<pre><code class="language-text">CLAUDE.md、policies/common.md、docs/ai-development-policy.mdを読み、
+このリポジトリでAIを使うときに守るべきルールを要約してください。
+まだファイル変更はしないでください。</code></pre>
+<p>確認すること:</p>
+<ul>
+<li>禁止操作が説明されている。</li>
+<li>情報管理の注意が説明されている。</li>
+<li>作業フローが説明されている。</li>
+<li>最終判断は人間が行うと説明されている。</li>
+</ul>
+<h2>Step 10: 初回作業の結果を共有する</h2>
+<p>初回作業が終わったら、次をチームに共有します。</p>
+<ul>
+<li>起動できたか。</li>
+<li><code>/memory</code> と <code>/permissions</code> は想定どおりだったか。</li>
+<li>リポジトリ調査で便利だったこと。</li>
+<li>不安に感じたこと。</li>
+<li>FAQに追加したい質問。</li>
+</ul>
+<h2>次に進む前に</h2>
+<p>コード変更を伴う作業を始める前に、次を読んでください。</p>
+<ul>
+<li><code>policies/common.md</code></li>
+<li><code>docs/approval-required-operations.md</code></li>
+<li><code>checklists/before-ai-work.md</code></li>
+<li><code>prompts/investigate.md</code></li>
+<li><code>prompts/implement.md</code></li>
+</ul>
+<p>最初の実装は、小さく、戻しやすい作業から始めます。</p>
+  </main>
+</body>
+</html>

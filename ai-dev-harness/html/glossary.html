@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI開発支援 用語集</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / AI開発支援 用語集</nav>
+    <h1>AI開発支援 用語集</h1>
+<h2>この用語集の目的</h2>
+<p>この用語集は、Claude CodeやAI Development Harnessを使うときに出てくる用語を、チームメンバーが同じ意味で理解するための資料です。</p>
+<p>ここでは厳密な製品仕様よりも、仕事で使うときの理解しやすさを優先しています。</p>
+<h2>AI Development Harness</h2>
+<p>AIに開発作業を任せる前に、前提、権限、作業手順、確認方法を整えるための仕組みです。</p>
+<p>AIに「いい感じにやって」と丸投げするのではなく、作業できる範囲、やってはいけないこと、確認方法を先に決めます。</p>
+<p>このリポジトリでは、<code>CLAUDE.md</code>、<code>.claude/settings.json</code>、<code>policies/</code>、<code>workflows/</code>、<code>checklists/</code> などをまとめてharnessとして扱います。</p>
+<h2>Context</h2>
+<p>AIに渡す前提情報です。</p>
+<p>例:</p>
+<ul>
+<li>プロジェクト概要</li>
+<li>設計方針</li>
+<li>コーディング規約</li>
+<li>テスト方針</li>
+<li>変更してよい範囲</li>
+<li>変更してはいけない範囲</li>
+</ul>
+<p>AIは前提が不足すると一般論で判断します。チームの事情を反映するには、Contextを明示します。</p>
+<h2>Guardrails</h2>
+<p>AIに許可すること、確認が必要なこと、禁止することを決める仕組みです。</p>
+<p>例:</p>
+<ul>
+<li><code>.env</code> を読ませない</li>
+<li>force pushを禁止する</li>
+<li>ファイル削除を禁止する</li>
+<li>ファイル編集は確認する</li>
+<li>本番環境操作を禁止する</li>
+</ul>
+<p>Claude Codeでは、<code>.claude/settings.json</code> が代表的なGuardrailsです。</p>
+<h2>Workflow</h2>
+<p>AIと人間がどう作業を進めるかを決めた手順です。</p>
+<p>例:</p>
+<p>1. まず調査する 2. 方針を説明する 3. 人間が確認する 4. 実装する 5. テストする 6. 差分を確認する</p>
+<p>このリポジトリでは、<code>workflows/</code> に作業手順を置いています。</p>
+<h2>Verification</h2>
+<p>AIの作業結果を確認する方法です。</p>
+<p>例:</p>
+<ul>
+<li>テスト</li>
+<li>ビルド</li>
+<li>lint</li>
+<li>型チェック</li>
+<li>コードレビュー</li>
+<li>PRチェックリスト</li>
+</ul>
+<p>AIが作ったコードでも、人間が作ったコードと同じように確認します。</p>
+<h2>Claude Code</h2>
+<p>AnthropicのClaudeを使った、ターミナル上で動くAIコーディングエージェントです。</p>
+<p>コードベースを読み、ファイルを編集し、コマンドを実行しながら開発作業を支援できます。</p>
+<p>便利ですが、強力なぶん、起動場所、権限設定、禁止操作を明確にする必要があります。</p>
+<h2>CLAUDE.md</h2>
+<p>Claude Codeに読ませるプロジェクトルールです。</p>
+<p>例:</p>
+<ul>
+<li>作業前に影響範囲を説明する</li>
+<li>削除やforce pushをしない</li>
+<li>既存の設計に合わせる</li>
+<li>依頼範囲外のリファクタリングをしない</li>
+</ul>
+<p><code>CLAUDE.md</code> は「Claudeへの指示」です。実際に危険操作を止めるには、<code>.claude/settings.json</code> などの権限設定も必要です。</p>
+<h2>.claude/settings.json</h2>
+<p>Claude Codeの権限設定ファイルです。</p>
+<p>どの操作を許可するか、確認するか、禁止するかを設定します。</p>
+<p>例:</p>
+<ul>
+<li><code>allow</code>: 確認なしで許可</li>
+<li><code>ask</code>: 実行前に確認</li>
+<li><code>deny</code>: 禁止</li>
+</ul>
+<p>削除、履歴改変、force push、秘密情報の読み取りなどは、原則としてdenyします。</p>
+<h2>permissions</h2>
+<p>Claude Codeが実行できる操作の権限です。</p>
+<p>Claude Code内で次を実行すると、現在の権限設定を確認できます。</p>
+<pre><code class="language-text">/permissions</code></pre>
+<h2>permission mode</h2>
+<p>Claude Codeの権限モードです。</p>
+<p>初回利用では、次のどちらかを使うことを推奨します。</p>
+<ul>
+<li><code>plan</code>: 調査や方針整理向け。ファイル編集をさせたくないときに使う</li>
+<li><code>default</code>: 通常利用向け。編集やコマンド実行で確認が入りやすい</li>
+</ul>
+<p><code>bypassPermissions</code> は、通常の実務リポジトリでは使いません。</p>
+<h2>/memory</h2>
+<p>Claude Codeが読み込んでいるルールやメモリを確認するコマンドです。</p>
+<p>初回起動時に、<code>CLAUDE.md</code> が読み込まれているか確認します。</p>
+<pre><code class="language-text">/memory</code></pre>
+<h2>/permissions</h2>
+<p>Claude Codeの権限設定を確認するコマンドです。</p>
+<p><code>.claude/settings.json</code> が効いているか、危険操作がdenyになっているかを確認します。</p>
+<pre><code class="language-text">/permissions</code></pre>
+<h2>/ide</h2>
+<p>Claude CodeとVS CodeなどのIDE連携を確認・接続するためのコマンドです。</p>
+<p>VS Code連携がうまくいかない場合に使います。</p>
+<pre><code class="language-text">/ide</code></pre>
+<h2>Project Root</h2>
+<p>対象リポジトリの一番上のフォルダです。</p>
+<p>VS Codeで「フォルダーを開く」ときに選ぶフォルダと考えると分かりやすいです。</p>
+<p>例:</p>
+<pre><code class="language-text">my-app/
+  .git/
+  CLAUDE.md
+  .claude/
+  src/
+  tests/</code></pre>
+<p>この場合、<code>my-app/</code> がProject Rootです。</p>
+<p>Claude Codeは、必ずProject Rootで起動します。</p>
+<h2>multi-root workspace</h2>
+<p>VS Codeで複数のフォルダを1つのウィンドウに開く機能です。</p>
+<p>便利ですが、Claude Codeの初回利用では推奨しません。</p>
+<p>理由:</p>
+<ul>
+<li>作業対象が曖昧になる</li>
+<li>どの <code>CLAUDE.md</code> が対象か分かりにくい</li>
+<li>どの <code>.claude/settings.json</code> が効いているか迷いやすい</li>
+</ul>
+<p>最初は、1つのVS Codeウィンドウに1つのプロジェクトだけを開きます。</p>
+<h2>Skills</h2>
+<p>Claudeに特定の作業能力や手順を追加するための再利用パッケージです。</p>
+<p>今回作っているharnessそのものがSkillというわけではありません。</p>
+<p>関係は次のように考えます。</p>
+<pre><code class="language-text">Harness
+  チームでAIを安全に使うための上位構造
+
+Skill
+  特定の作業をうまくやるための再利用部品</code></pre>
+<p>例:</p>
+<ul>
+<li>コードレビューSkill</li>
+<li>テスト設計Skill</li>
+<li>リリースノート作成Skill</li>
+<li>セキュリティレビューSkill</li>
+</ul>
+<p>このharness内の <code>prompts/</code> や <code>workflows/</code> は、将来的にSkills化できる材料になります。</p>
+<p>Skillsは、必ず最初に作らなければいけないものではありません。</p>
+<p>考え方は2つあります。</p>
+<pre><code class="language-text">最初から作るSkill
+  すでに手順が決まっている反復作業
+
+後から作るSkill
+  実運用で何度も使われたpromptsやworkflows</code></pre>
+<p>たとえば、コードレビュー、テスト観点洗い出し、PR説明文作成のように作業の型があるものは、最初からSkill化してもよい候補です。</p>
+<p>一方で、プロジェクト固有のデプロイ手順、組織固有のレビュー観点、独自ライブラリの使い方は、運用しながらノウハウが溜まってからSkill化する方が自然です。</p>
+<p>初期導入では、まず <code>prompts/</code> と <code>workflows/</code> に作業の型を置き、繰り返し使うものが見えてきたらSkills化する進め方を推奨します。</p>
+<h2>Agents</h2>
+<p>特定の役割を持つAIの振る舞いです。</p>
+<p>例:</p>
+<ul>
+<li>調査担当</li>
+<li>実装担当</li>
+<li>レビュー担当</li>
+<li>テスト担当</li>
+<li>セキュリティ確認担当</li>
+</ul>
+<p>作業の性質に合わせて役割を分けると、AIへの依頼が明確になります。</p>
+<h2>Hooks</h2>
+<p>Claude Codeの作業タイミングに合わせて処理を実行する仕組みです。</p>
+<p>例:</p>
+<ul>
+<li>ファイル編集後にformatterを実行する</li>
+<li>危険なコマンドを実行前に検知する</li>
+<li>作業終了時にログを残す</li>
+</ul>
+<p>便利ですが、自動実行される仕組みなので、最初から無理に使う必要はありません。</p>
+<h2>MCP</h2>
+<p>Model Context Protocolの略です。</p>
+<p>Claude Codeを外部ツールやデータソースにつなぐための仕組みです。</p>
+<p>例:</p>
+<ul>
+<li>GitHub</li>
+<li>Slack</li>
+<li>Figma</li>
+<li>Sentry</li>
+<li>データベース</li>
+</ul>
+<p>外部ツールにアクセスできるぶん、権限管理と情報管理が重要です。</p>
+<h2>GitHub Copilot</h2>
+<p>GitHubが提供するAI開発支援ツールです。</p>
+<p>VS Codeなどのエディタでコード補完、チャット、編集支援に使えます。</p>
+<p>短い補完や、エディタ内の小さな修正に向いています。</p>
+<h2>GitHub Copilot CLI</h2>
+<p>ターミナル上でGitHub Copilotを使うための機能です。</p>
+<p>コマンドの説明、Git操作の相談、エラー調査などに使えます。</p>
+<p>危険なコマンドを提案された場合は、意味を確認してから実行します。</p>
+<h2>Prompt</h2>
+<p>AIへの依頼文です。</p>
+<p>よいPromptには、目的、背景、変更範囲、禁止事項、出力形式が含まれます。</p>
+<p>例:</p>
+<pre><code class="language-text">まず関連ファイルを調査してください。
+変更はまだ行わず、影響範囲、変更候補、確認すべきリスクを整理してください。</code></pre>
+<h2>Prompt Template</h2>
+<p>繰り返し使えるPromptの型です。</p>
+<p>このリポジトリでは、<code>prompts/</code> に調査、実装、レビュー、テスト設計用のテンプレートを置いています。</p>
+<h2>Checklist</h2>
+<p>作業前後に人間が確認する項目です。</p>
+<p>例:</p>
+<ul>
+<li>AI作業前チェック</li>
+<li>コミット前チェック</li>
+<li>PR前チェック</li>
+</ul>
+<p>AIを使う場合でも、人間の確認を省略しません。</p>
+<h2>Incident / Near Miss</h2>
+<p>事故またはヒヤリハットです。</p>
+<p>実害が出たものだけでなく、危険な提案、誤った説明、不要な変更、機密情報に触れそうな挙動も共有対象です。</p>
+<p>共有には <code>templates/incident-report.md</code> を使います。</p>
+<h2>Project Adoption Profile</h2>
+<p>実プロジェクトにharnessを導入するときに埋めるプロジェクト固有情報のテンプレートです。</p>
+<p>例:</p>
+<ul>
+<li>対象リポジトリ</li>
+<li>テストコマンド</li>
+<li>ビルドコマンド</li>
+<li>ブランチ運用</li>
+<li>PRルール</li>
+<li>相談先</li>
+<li>AIに実行させないコマンド</li>
+</ul>
+<p>このリポジトリでは、<code>templates/project-adoption-profile.md</code> に置いています。</p>
+  </main>
+</body>
+</html>

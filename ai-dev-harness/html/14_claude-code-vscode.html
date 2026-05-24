@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>14. Claude CodeをVS Codeで使う</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / 14. Claude CodeをVS Codeで使う</nav>
+    <h1>14. Claude CodeをVS Codeで使う</h1>
+<h2>この記事の目的</h2>
+<p>この記事では、Claude CodeをVS Codeと組み合わせて使う方法を説明します。</p>
+<p>Claude CodeはCLIとして使えますが、VS Codeと連携すると、差分確認、選択範囲の共有、診断情報の共有、ファイル参照などが使いやすくなります。普段VS Codeで開発している人は、この使い方が自然です。</p>
+<h2>VS Code連携でできること</h2>
+<p>Anthropicの公式ドキュメントでは、Claude CodeのIDE連携として、VS Code系エディタとJetBrains系IDEが案内されています。</p>
+<p>VS Code連携の代表的な機能は次のとおりです。</p>
+<ul>
+<li>エディタからClaude Codeを素早く開く</li>
+<li>変更差分をVS Codeのdiffビューで確認する</li>
+<li>現在選択しているコードや開いているタブの文脈を共有する</li>
+<li>ファイル参照をショートカットで挿入する</li>
+<li>lintや構文エラーなどの診断情報を共有する</li>
+</ul>
+<p>つまり、Claude Codeの作業はターミナルで進めつつ、確認や編集体験はVS Codeに寄せられます。</p>
+<h2>基本的な始め方</h2>
+<p>VS Codeでプロジェクトを開きます。</p>
+<p>次に、VS Codeの統合ターミナルを開き、プロジェクトルートで次を実行します。</p>
+<pre><code class="language-text">claude</code></pre>
+<p>公式ドキュメントでは、VS Codeの統合ターミナルから<code>claude</code>を実行すると、拡張機能が自動インストールされると説明されています。うまく入らない場合は、VS Codeの拡張機能インストール権限や、<code>code</code>コマンドがPATHに入っているかを確認します。</p>
+<h2>外部ターミナルから接続する</h2>
+<p>VS Codeの外でClaude Codeを起動している場合でも、<code>/ide</code> コマンドでIDEに接続できます。</p>
+<pre><code class="language-text">/ide</code></pre>
+<p>外部ターミナルから使う場合も、VS Codeで開いているプロジェクトと同じルートディレクトリからClaude Codeを起動すると、ファイルの文脈がずれにくくなります。</p>
+<h2>VS Code連携で便利な場面</h2>
+<p>VS Code連携が便利なのは、次のような場面です。</p>
+<ul>
+<li>AIが編集した差分を見ながらレビューしたい</li>
+<li>選択中のコードについて質問したい</li>
+<li>エラー箇所をClaude Codeに認識させたい</li>
+<li>ファイルの特定行を参照しながら依頼したい</li>
+<li>ターミナルとエディタを行き来しながら作業したい</li>
+</ul>
+<p>例:</p>
+<pre><code class="language-text">今選択している関数の責務が大きくなっていないか確認してください。
+変更はまだ行わず、改善案だけ出してください。</code></pre>
+<pre><code class="language-text">VS Code上で出ている診断エラーを確認し、原因を整理してください。
+修正する場合は最小限にしてください。</code></pre>
+<h2>差分確認を必ず行う</h2>
+<p>Claude Codeがコードを変更したら、VS Codeのdiffビューで差分を確認します。</p>
+<p>確認する観点は次のとおりです。</p>
+<ul>
+<li>依頼した範囲だけが変わっているか</li>
+<li>不要なリファクタリングが入っていないか</li>
+<li>既存の命名や設計に合っているか</li>
+<li>テストや型チェックが必要か</li>
+<li>セキュリティや権限まわりに影響がないか</li>
+</ul>
+<p>AIが作業した変更は、必ず人間がレビューしてからコミットします。</p>
+<h2>よくあるトラブル</h2>
+<p>VS Code連携が動かない場合は、次を確認します。</p>
+<ul>
+<li>VS Codeの統合ターミナルから<code>claude</code>を実行しているか</li>
+<li>VS Codeで対象プロジェクトを開いているか</li>
+<li><code>code</code>コマンドがPATHに入っているか</li>
+<li>VS Codeが拡張機能のインストールを許可しているか</li>
+<li>WSLを使っている場合、IDE検出やネットワーク設定に問題がないか</li>
+<li><code>/config</code>でdiffツール設定が適切になっているか</li>
+</ul>
+<h2>この章のまとめ</h2>
+<p>Claude CodeはCLIだけでも使えますが、VS Codeと連携すると、差分確認、選択範囲の共有、診断情報の共有がしやすくなります。</p>
+<p>普段VS Codeで開発している場合は、VS Codeの統合ターミナルから<code>claude</code>を起動する使い方を基本にするとよいです。</p>
+<p>参考:</p>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/ide-integrations">Add Claude Code to your IDE</a></li>
+<li><a href="https://docs.claude.com/en/docs/claude-code/terminal-config">Optimize your terminal setup</a></li>
+</ul>
+  </main>
+</body>
+</html>

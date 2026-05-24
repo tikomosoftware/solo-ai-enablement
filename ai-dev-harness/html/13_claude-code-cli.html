@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13. Claude Code CLIの使い方</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / 13. Claude Code CLIの使い方</nav>
+    <h1>13. Claude Code CLIの使い方</h1>
+<h2>この記事の目的</h2>
+<p>この記事では、Claude CodeをCLIで使う基本を説明します。</p>
+<p>Claude Codeは、ターミナルで動くAIコーディングエージェントです。リポジトリを読み、ファイルを編集し、コマンドを実行し、作業を進めることができます。コードを書く道具というより、開発作業を一緒に進めるエージェントとして考えると理解しやすいです。</p>
+<h2>Claude Codeでできること</h2>
+<p>Claude Codeは、次のような作業に使えます。</p>
+<ul>
+<li>コードベースの調査</li>
+<li>バグ修正</li>
+<li>小さな機能追加</li>
+<li>テスト追加</li>
+<li>リファクタリングの提案</li>
+<li>ドキュメント作成</li>
+<li>エラー調査</li>
+<li>実装方針の壁打ち</li>
+<li>コマンド実行と結果確認</li>
+</ul>
+<p>Claude Codeはターミナル上で動きますが、単なるチャットではありません。必要に応じてファイルを読み、編集し、テストやビルドを実行するところまで進められます。</p>
+<h2>基本的な起動</h2>
+<p>プロジェクトのルートディレクトリでClaude Codeを起動します。</p>
+<pre><code class="language-text">claude</code></pre>
+<p>起動後は、自然文で依頼します。</p>
+<pre><code class="language-text">このリポジトリの構成を調べて、どこから読み始めればよいか教えてください。</code></pre>
+<pre><code class="language-text">READMEを見て、開発環境のセットアップ手順に不足がないか確認してください。</code></pre>
+<pre><code class="language-text">このテスト失敗の原因を調べて、最小限の修正を提案してください。</code></pre>
+<h2>最初におすすめの依頼</h2>
+<p>いきなり大きな実装を任せるより、最初は調査や説明から始めるのがおすすめです。</p>
+<pre><code class="language-text">まずコードベースを調査してください。
+変更はまだ行わず、主要なフォルダ、実行方法、テスト方法、注意点を整理してください。</code></pre>
+<pre><code class="language-text">この機能を直したいです。
+まず関連ファイルを探し、変更方針を説明してください。
+実装はまだしないでください。</code></pre>
+<p>このように段階を分けると、Claude Codeがどこを見て何を考えているか確認しやすくなります。</p>
+<h2>実装を依頼するときのコツ</h2>
+<p>実装を依頼するときは、目的だけでなく制約も伝えます。</p>
+<pre><code class="language-text">ログイン画面のエラーメッセージを改善してください。
+条件:
+- 既存のAPI仕様は変えない
+- レイアウトは大きく変えない
+- 既存の文体に合わせる
+- 変更後に関連テストを実行する</code></pre>
+<p>よい依頼に含めたい要素は次のとおりです。</p>
+<ul>
+<li>何を達成したいか</li>
+<li>変更してよい範囲</li>
+<li>変更してはいけない範囲</li>
+<li>守るべき設計やルール</li>
+<li>実行してほしい確認コマンド</li>
+<li>完了時に報告してほしい内容</li>
+</ul>
+<h2>コマンド実行と権限</h2>
+<p>Claude Codeはコマンドを実行できます。便利ですが、注意も必要です。</p>
+<p>特に次の操作は慎重に扱います。</p>
+<ul>
+<li>ファイル削除</li>
+<li>Gitの履歴変更</li>
+<li><code>git reset</code></li>
+<li><code>git clean</code></li>
+<li>force push</li>
+<li>データベース削除やリセット</li>
+<li>本番環境に影響するコマンド</li>
+</ul>
+<p>AIに依頼するときは、危険な操作を勝手に行わないように明示します。</p>
+<pre><code class="language-text">削除、reset、clean、force push、本番環境への操作は行わないでください。
+必要な場合は、実行前に理由と影響を説明してください。</code></pre>
+<h2>使いどころ</h2>
+<p>Claude Code CLIは、次のような場面で特に使いやすいです。</p>
+<ul>
+<li>コードベース全体を見ながら作業したい</li>
+<li>複数ファイルにまたがる修正をしたい</li>
+<li>テストやビルドまで含めて進めたい</li>
+<li>作業ログを会話として残したい</li>
+<li>VS Code以外のエディタでも同じように使いたい</li>
+</ul>
+<h2>注意点</h2>
+<p>Claude Codeに限らず、AIコーディングエージェントを使うときは次を守ります。</p>
+<ul>
+<li>変更差分を必ず確認する</li>
+<li>テストやビルドを実行する</li>
+<li>生成コードの意味を理解する</li>
+<li>機密情報や認証情報を入力しない</li>
+<li>大きな変更は小さく分ける</li>
+<li>重要な判断は人間が行う</li>
+</ul>
+<h2>この章のまとめ</h2>
+<p>Claude Code CLIは、ターミナルで使う開発支援エージェントです。</p>
+<p>調査、実装、テスト、ドキュメント作成まで幅広く使えます。最初は「調査だけ」「方針だけ」のように段階を分け、慣れてから実装を任せると安全です。</p>
+<p>参考:</p>
+<ul>
+<li><a href="https://www.claude.com/product/claude-code">Claude Code</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/settings">Claude Code settings</a></li>
+</ul>
+  </main>
+</body>
+</html>

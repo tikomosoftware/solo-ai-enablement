@@ -6,8 +6,10 @@ on:
       - main
       - master
     paths:
-      - "articles/**/*.md"
-      - "articles/scripts/build-html.js"
+      - "ai-dev-101/**/*.md"
+      - "ai-dev-101/scripts/build-html.js"
+      - "ai-dev-harness/**/*.md"
+      - "ai-dev-harness/scripts/build-html.js"
       - "package.json"
       - ".github/workflows/build-html.yml"
   workflow_dispatch:
@@ -35,4 +37,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Build HTML from Markdown"
-          file_pattern: articles/docs/*.html
+          file_pattern: ai-dev-101/html/*.html ai-dev-harness/html/*.html

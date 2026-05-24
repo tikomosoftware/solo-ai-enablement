@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05. 困ったときの止め方</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / 05. 困ったときの止め方</nav>
+    <h1>05. 困ったときの止め方</h1>
+<h2>この章の目的</h2>
+<p>AIの作業中に不安を感じたとき、どこで止めるかを決めます。</p>
+<p>止めることは失敗ではありません。むしろ、チームで安全に使うための重要な操作です。</p>
+<h2>止めるべき場面</h2>
+<ul>
+<li>変更範囲が想定より大きくなった。</li>
+<li>関係ないファイルが変更されている。</li>
+<li>削除、移動、大量置換が提案された。</li>
+<li><code>git reset</code>、<code>git clean</code>、<code>git rebase</code>、force push が出てきた。</li>
+<li>本番環境、DB、秘密情報に触れそうになった。</li>
+<li>差分を読んでも意図が分からない。</li>
+<li>AIの説明と実際の変更が合っていない。</li>
+<li>テストが失敗した理由が分からない。</li>
+</ul>
+<h2>まず依頼すること</h2>
+<pre><code class="language-text">ここで作業を止めてください。
+これ以上ファイルを変更しないでください。
+現在の変更済みファイル、実施した内容、未確認の点、次に人間が判断すべきことを整理してください。</code></pre>
+<h2>人間が確認すること</h2>
+<ul>
+<li>どのファイルが変わったか。</li>
+<li>依頼範囲外の変更があるか。</li>
+<li>削除や移動が含まれていないか。</li>
+<li>テストやビルドを実行したか。</li>
+<li>元に戻す必要があるか、それとも修正を続けられるか。</li>
+</ul>
+<h2>相談するときに共有する情報</h2>
+<ul>
+<li>依頼した内容</li>
+<li>AIが提案した方針</li>
+<li>変更済みファイル</li>
+<li>不安に感じた点</li>
+<li>実行したコマンド</li>
+<li>テストや確認の結果</li>
+</ul>
+<h2>やってはいけないこと</h2>
+<ul>
+<li>分からないまま追加で大きな修正を依頼する。</li>
+<li>差分を読まずにコミットする。</li>
+<li>失敗したので <code>reset</code> や <code>clean</code> で戻そうとする。</li>
+<li>本番環境やDBで試す。</li>
+<li>秘密情報や認証情報をAIに渡す。</li>
+</ul>
+<h2>再開するとき</h2>
+<p>再開する場合は、作業範囲を小さくします。</p>
+<pre><code class="language-text">先ほどの作業は範囲が大きかったので、次は変更せずに調査だけしてください。
+問題の原因候補と、最小の修正案を整理してください。</code></pre>
+  </main>
+</body>
+</html>

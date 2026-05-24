@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>15. Claude Codeの代表的な拡張機能</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">インデックス</a> / 15. Claude Codeの代表的な拡張機能</nav>
+    <h1>15. Claude Codeの代表的な拡張機能</h1>
+<h2>この記事の目的</h2>
+<p>この記事では、Claude Codeの基本利用に慣れたあとに知っておきたい代表的な機能を整理します。</p>
+<p>Claude Codeは、単にCLIで会話するだけの道具ではありません。設定ファイル、MCP、Hooks、Skills、Agents、Pluginsなどを使うことで、チームの開発フローに合わせて拡張できます。</p>
+<h2>設定ファイル</h2>
+<p>Claude Codeは、設定ファイルで動作を調整できます。</p>
+<p>公式ドキュメントでは、<code>settings.json</code> がClaude Codeの設定機構として説明されています。ユーザー全体に効く設定、プロジェクトで共有する設定、個人用のローカル設定、組織管理ポリシーの設定があります。</p>
+<p>代表的な配置は次のとおりです。</p>
+<ul>
+<li><code>~/.claude/settings.json</code></li>
+<li><code>.claude/settings.json</code></li>
+<li><code>.claude/settings.local.json</code></li>
+</ul>
+<p>チームで共有したいルールは <code>.claude/settings.json</code>、個人だけの試行錯誤は <code>.claude/settings.local.json</code> に分けると運用しやすくなります。</p>
+<h2>MCP</h2>
+<p>MCPはModel Context Protocolの略で、Claude Codeを外部ツールやデータソースにつなぐための仕組みです。</p>
+<p>公式ドキュメントでは、MCPを使うことで、Issue管理、監視ツール、データベース、Figma、Slack、Gmailなど、外部ツールと連携できると説明されています。</p>
+<p>たとえば、次のような使い方が考えられます。</p>
+<ul>
+<li>GitHub Issueの内容を読んで実装する</li>
+<li>Sentryのエラー情報を見て原因を調べる</li>
+<li>Figmaのデザインを参照してUIを修正する</li>
+<li>組織内DBを参照して調査する</li>
+<li>SlackやGmailなどの仕事用ツールと連携する</li>
+</ul>
+<p>ただし、MCPは外部データにアクセスできるぶん、権限管理が重要です。接続するサーバー、扱う情報、ログに残る内容を確認してから使います。</p>
+<h2>Hooks</h2>
+<p>Hooksは、Claude Codeの作業ライフサイクルに合わせてコマンドを実行する仕組みです。</p>
+<p>たとえば、次のような用途があります。</p>
+<ul>
+<li>ファイル編集後にformatterを実行する</li>
+<li>テスト完了後に通知する</li>
+<li>特定の危険操作を検知する</li>
+<li>作業終了時にログを保存する</li>
+<li>Claudeが入力待ちになったら通知する</li>
+</ul>
+<p>Hooksは便利ですが、コマンドを自動実行する仕組みなので、慎重に設計します。特に、削除、デプロイ、データベース更新、本番環境操作につながるHookは避けるか、明確な承認フローを入れます。</p>
+<h2>Skills</h2>
+<p>Skillsは、Claude Codeに特定の作業手順や知識を与えるための仕組みです。</p>
+<p>たとえば、チーム専用のSkillとして次のようなものを用意できます。</p>
+<ul>
+<li>リリースノート作成</li>
+<li>コードレビュー観点</li>
+<li>障害調査手順</li>
+<li>フロントエンド実装ルール</li>
+<li>API設計ルール</li>
+<li>組織内ドキュメント作成ルール</li>
+</ul>
+<p>Skillは、毎回長い指示を手入力しなくても、チームで共通の作業品質を保つために役立ちます。</p>
+<h2>Agents</h2>
+<p>Agentsは、役割ごとにClaude Codeの振る舞いを分ける考え方です。</p>
+<p>たとえば、次のような役割を作れます。</p>
+<ul>
+<li>調査担当</li>
+<li>実装担当</li>
+<li>レビュー担当</li>
+<li>テスト担当</li>
+<li>ドキュメント担当</li>
+<li>セキュリティ確認担当</li>
+</ul>
+<p>作業ごとにエージェントの役割を分けると、指示が明確になります。たとえば「まず調査担当で影響範囲を整理し、そのあと実装担当で修正する」という流れにできます。</p>
+<h2>Plugins</h2>
+<p>Pluginsは、コマンド、エージェント、Skills、Hooks、MCPサーバーなどをまとめて配布するための仕組みです。</p>
+<p>チームで共通の開発支援セットを作る場合、Pluginとしてまとめておくと再利用しやすくなります。</p>
+<p>たとえば、組織内向けPluginとして次をまとめられます。</p>
+<ul>
+<li>標準レビューエージェント</li>
+<li>リリースノートSkill</li>
+<li>テスト実行Hook</li>
+<li>チーム向けツール用MCP設定</li>
+<li>よく使うスラッシュコマンド</li>
+</ul>
+<p>最初からPlugin化する必要はありません。まずは手作業の運用を固め、繰り返し使うものが見えてからまとめるのが現実的です。</p>
+<h2>チームで導入するときの順番</h2>
+<p>Claude Codeの拡張機能は多いので、最初から全部使う必要はありません。</p>
+<p>おすすめの順番は次のとおりです。</p>
+<ul>
+<li>まずCLIとVS Code連携に慣れる</li>
+<li>プロジェクトの基本ルールを設定ファイルやドキュメントに書く</li>
+<li>よく使う作業をSkill化する</li>
+<li>安全な範囲でHooksを使う</li>
+<li>必要な外部ツールだけMCPで接続する</li>
+<li>チーム運用が固まったらPlugin化を検討する</li>
+</ul>
+<h2>注意点</h2>
+<p>拡張機能を使うと、Claude Codeはより強力になります。そのぶん、権限と安全性の確認が重要です。</p>
+<ul>
+<li>MCPで接続する外部ツールの権限を最小限にする</li>
+<li>Hooksで危険なコマンドを自動実行しない</li>
+<li>SkillsやAgentsに利用ルールを明記する</li>
+<li>チーム共有する設定と個人設定を分ける</li>
+<li>機密情報や認証情報をリポジトリに置かない</li>
+</ul>
+<h2>この章のまとめ</h2>
+<p>Claude Codeは、CLIとVS Code連携だけでなく、設定、MCP、Hooks、Skills、Agents、Pluginsで拡張できます。</p>
+<p>最初から全部使うより、基本操作に慣れたあと、チームの反復作業や安全確認から少しずつ仕組み化していくのがよいです。</p>
+<p>参考:</p>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/settings">Claude Code settings</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/mcp">Connect Claude Code to tools via MCP</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Hooks reference</a></li>
+<li><a href="https://docs.claude.com/en/docs/claude-code/plugins">Plugins</a></li>
+</ul>
+  </main>
+</body>
+</html>

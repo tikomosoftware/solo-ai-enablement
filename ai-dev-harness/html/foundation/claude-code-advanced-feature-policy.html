@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Code強機能の扱い方</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / Claude Code強機能の扱い方</nav>
+    <h1>Claude Code強機能の扱い方</h1>
+<h2>目的</h2>
+<p>Claude Codeには、通常のチャットやコード修正以外にも多くの強力な機能があります。</p>
+<p>このドキュメントは、それらをすべて説明するための資料ではありません。チームで安全に使い始めるために、最初から説明するもの、使う前に相談するもの、当面は使わないものを分類します。</p>
+<h2>基本方針</h2>
+<ul>
+<li>最初から全機能を使おうとしない。</li>
+<li>まずは調査、方針作成、小さな修正、差分確認、テスト確認に絞る。</li>
+<li>自動実行、外部連携、永続設定、権限変更は慎重に扱う。</li>
+<li>チームで使う機能は、個人の便利設定ではなくチームルールとして確認する。</li>
+<li>使い方が分からない機能は、無理に試さず、目的とリスクを整理してから相談する。</li>
+</ul>
+<h2>分類表</h2>
+<p>| 分類 | 機能 | 扱い | 理由 | | --- | --- | --- | --- | | 使ってよい | プロジェクトルートでの通常起動 | 最初から使う | 対象ファイルとルールを正しく読ませる基本になるため | | 使ってよい | 調査依頼 | 最初から使う | 変更なしで構成、影響範囲、原因を確認できるため | | 使ってよい | 方針作成 | 最初から使う | 実装前に触るファイル、影響範囲、確認方法を整理できるため | | 使ってよい | 小さな修正依頼 | 最初から使う | README、文言、軽微なバグ修正などで安全に練習しやすいため | | 使ってよい | 差分説明 | 最初から使う | 変更内容を人間が確認しやすくなるため | | 使ってよい | テスト案、確認観点の作成 | 最初から使う | 人間の確認を補助でき、レビュー品質を上げやすいため | | 使ってよい | <code>CLAUDE.md</code> の参照 | 最初から使う | プロジェクトの作業ルールを読み込ませる基本になるため | | 使ってよい | <code>.claude/settings.json</code> による権限制御 | テンプレート導入時に使う | 危険操作を止めるための基本設定になるため | | 要相談 | <code>CLAUDE.md</code> の大きな変更 | 事前に相談する | AIの作業ルール全体に影響するため | | 要相談 | <code>.claude/settings.json</code> の変更 | 事前に相談する | 許可、確認、禁止の境界が変わるため | | 要相談 | カスタムスラッシュコマンド | チームで用途を決めてから使う | 便利だが、古い手順や危険な操作を固定化する可能性があるため | | 要相談 | Hooks | チームでレビューしてから使う | ツール実行前後に処理を自動化できる反面、意図しないコマンド実行につながるため | | 要相談 | MCP連携 | 接続先、権限、情報管理を確認してから使う | 外部サービスや社内情報へアクセスできる場合があるため | | 要相談 | サブエージェント | 役割と権限を決めてから使う | 並行作業や専門分担に便利だが、責任範囲が見えにくくなるため | | 要相談 | Skills、プラグイン、拡張機能 | 導入目的と管理者を決めてから使う | 機能追加により挙動、権限、保守対象が増えるため | | 要相談 | ブラウザ操作、GUI操作 | 対象環境と確認手順を決めてから使う | 認証済みページや社内画面を操作する可能性があるため | | 要相談 | GitHub、Slack、カレンダーなどの外部連携 | 接続範囲を確認してから使う | 通知、投稿、PR操作など、チームに影響する操作が起きるため | | 要相談 | 並列セッション、複数エージェント作業 | 変更範囲を分けてから使う | 競合や見落としが増えやすいため | | 要相談 | 長時間の自動作業 | 途中確認の方法を決めてから使う | 人間のレビュー前に変更が広がりすぎる可能性があるため | | 要相談 | 画像、PDF、スライドなどの生成 | 用途とレビュー方法を決めてから使う | 生成物の正確性、権利、ブランド表現の確認が必要なため | | 原則使わない | 削除、reset、clean、rebase、force pushの自動実行 | 使わない | 作業や履歴を失う可能性があるため | | 原則使わない | 本番環境への操作 | 使わない | 障害やデータ破壊につながる可能性があるため | | 原則使わない | 本番DB、顧客データ、秘密情報への直接操作 | 使わない | 情報漏えい、データ破壊、監査リスクがあるため | | 原則使わない | 承認なしの依存更新、lockfile大規模変更 | 使わない | 影響範囲が広く、ビルドや実行環境を壊す可能性があるため | | 原則使わない | AIによる自動コミット、自動push | 使わない | 人間の差分確認、テスト、レビューを飛ばしやすいため | | 原則使わない | 認証情報、秘密鍵、<code>.env</code> の読み書き | 使わない | 機密情報をAIに渡すリスクがあるため | | 原則使わない | チーム未承認の外部サービス連携 | 使わない | 接続先、保存先、権限範囲が不明なまま情報が流れる可能性があるため |</p>
+<h2>説明会で扱う範囲</h2>
+<p>初心者向け、初回説明会、30分説明会では、次だけ扱います。</p>
+<ul>
+<li>プロジェクトルートで起動する</li>
+<li>変更なしで調査する</li>
+<li>実装前に方針を出してもらう</li>
+<li>小さな修正を依頼する</li>
+<li>差分を見る</li>
+<li>テストや確認観点を聞く</li>
+<li>危険操作は止める</li>
+</ul>
+<p>次の機能は、初回説明会では深く扱いません。</p>
+<ul>
+<li>Hooks</li>
+<li>MCP</li>
+<li>サブエージェント</li>
+<li>Skills、プラグイン</li>
+<li>外部サービス連携</li>
+<li>並列セッション</li>
+<li>長時間の自動作業</li>
+<li>自動コミット、自動push</li>
+</ul>
+<p>存在だけ紹介する場合も、「便利だから各自で試してください」とは言いません。使う場合はチームで目的、権限、レビュー方法を決めます。</p>
+<h2>使う前に確認すること</h2>
+<p>要相談の機能を使いたい場合は、次を整理してから相談します。</p>
+<ul>
+<li>何のために使うのか。</li>
+<li>対象ファイル、対象サービス、対象データは何か。</li>
+<li>AIが実行できる操作はどこまでか。</li>
+<li>失敗した場合に何が壊れるか。</li>
+<li>人間がどこで差分や結果を確認するか。</li>
+<li>チームの誰が設定を管理するか。</li>
+<li>無効化、停止、削除の方法は分かっているか。</li>
+</ul>
+<h2>AIへの指示例</h2>
+<pre><code class="language-text">Claude Codeの高度な機能は、こちらが明示的に依頼するまで使わないでください。
+Hooks、MCP、サブエージェント、外部サービス連携、自動コミット、自動pushが必要だと判断した場合は、実行せず、目的、メリット、リスク、必要な承認だけ説明してください。</code></pre>
+<h2>見直し</h2>
+<p>この分類は固定ではありません。</p>
+<p>チームで安全に使えることが確認できた機能は、「要相談」から「使ってよい」へ移せます。逆に、事故や混乱が起きた機能は「原則使わない」へ戻します。</p>
+  </main>
+</body>
+</html>

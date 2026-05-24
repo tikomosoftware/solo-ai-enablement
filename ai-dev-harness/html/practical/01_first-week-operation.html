@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01. 最初の1週間の進め方</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../index.html">インデックス</a> / 01. 最初の1週間の進め方</nav>
+    <h1>01. 最初の1週間の進め方</h1>
+<h2>この章の目的</h2>
+<p>Claude CodeやGitHub Copilotを使い始めた直後の1週間で、何をどこまで試すかを決めます。</p>
+<p>最初の目的は、AIに大きな成果を出させることではありません。安全な起動、ルール確認、変更なしの調査、小さな修正、差分確認の流れに慣れることです。</p>
+<h2>Day 1: 起動と確認</h2>
+<p>やること:</p>
+<ul>
+<li>プロジェクトルートで起動する。</li>
+<li>ルールやREADMEを読ませる。</li>
+<li>変更を加えずに、プロジェクト構成を説明してもらう。</li>
+<li>危険操作や承認が必要な操作を確認する。</li>
+</ul>
+<p>依頼例:</p>
+<pre><code class="language-text">このリポジトリの構成を調査してください。
+まだファイルは変更しないでください。
+まず、主要なフォルダ、実行方法、テスト方法、注意すべきルールを整理してください。</code></pre>
+<h2>Day 2-3: 調査と説明に使う</h2>
+<p>やること:</p>
+<ul>
+<li>既存処理の説明を依頼する。</li>
+<li>エラー原因の候補を出してもらう。</li>
+<li>影響範囲を調べてもらう。</li>
+<li>テスト観点を洗い出してもらう。</li>
+</ul>
+<p>まだ実装は急ぎません。</p>
+<h2>Day 4-5: 小さな修正を試す</h2>
+<p>対象にしやすいもの:</p>
+<ul>
+<li>READMEの追記</li>
+<li>文言修正</li>
+<li>小さな表示崩れの修正</li>
+<li>テスト追加候補の洗い出し</li>
+<li>ログメッセージの改善</li>
+</ul>
+<p>進め方:</p>
+<p>1. 変更前に方針を出してもらう。 2. 触るファイルを確認する。 3. 小さい範囲だけ修正する。 4. 差分を人間が読む。 5. テストや動作確認を行う。</p>
+<h2>1週間の終わりに確認すること</h2>
+<ul>
+<li>便利だった依頼は何か。</li>
+<li>怖かった提案は何か。</li>
+<li>差分確認で迷った点は何か。</li>
+<li>追加したいチームルールは何か。</li>
+<li>FAQに足すべき質問は何か。</li>
+</ul>
+<h2>やらないこと</h2>
+<ul>
+<li>大規模な実装を任せる。</li>
+<li>複数機能をまたぐ修正を任せる。</li>
+<li>本番環境や本番DBを操作する。</li>
+<li>AIの提案を読まずに採用する。</li>
+<li>自動コミットや自動pushを行う。</li>
+</ul>
+  </main>
+</body>
+</html>
