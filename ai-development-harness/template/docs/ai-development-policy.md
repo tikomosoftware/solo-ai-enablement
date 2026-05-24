@@ -35,9 +35,10 @@
 
 展開・運用する人が読むもの:
 
-- [展開担当者向け資料](../../facilitator/README.md)
 - [リポジトリ導入手順](./repository-adoption-guide.md)
 - [FAQ](./faq.md)
+
+説明会や研修を行う場合は、配布元リポジトリの `facilitator/` も参照します。
 
 ## 基本方針
 

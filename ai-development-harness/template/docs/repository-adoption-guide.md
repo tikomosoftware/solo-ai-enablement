@@ -17,7 +17,7 @@
 
 ## 手順2: harnessをコピーする
 
-`ai-development-harness/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
+`ai-development-harness/template/` の中身を、対象リポジトリのプロジェクトルートへコピーします。
 
 配置例:
 
@@ -55,6 +55,8 @@ my-app/
 - 入れてはいけない情報の組織内基準
 - 相談先
 - 具体的な対象リポジトリ
+
+`policies/common.md` は全プロジェクトで残します。`frontend.md`、`backend.md`、`windows-app.md`、`devops.md`、`qa.md` は、プロジェクトの技術領域に合わせて残す、削る、または追記します。
 
 ## 手順4: チームでレビューする
 

@@ -12,15 +12,16 @@
 ai-development-harness/
   README.md
   STRUCTURE.md
-  CLAUDE.md
-  .claude/
-    settings.json
-  docs/
-  policies/
-  workflows/
-  checklists/
-  prompts/
-  templates/
+  template/
+    CLAUDE.md
+    .claude/
+      settings.json
+    docs/
+    policies/
+    workflows/
+    checklists/
+    prompts/
+    templates/
 
 facilitator/
   README.md
@@ -35,9 +36,9 @@ facilitator/
 ## メンバーが最初に読むもの
 
 ```text
-docs/ai-development-policy.md
-docs/start-guide.md
-docs/first-exercise.md
+template/docs/ai-development-policy.md
+template/docs/start-guide.md
+template/docs/first-exercise.md
 ```
 
 役割:
@@ -50,11 +51,11 @@ docs/first-exercise.md
 ## メンバーが必要に応じて読むもの
 
 ```text
-docs/faq.md
-docs/common-pitfalls.md
-docs/tool-selection-guide.md
-docs/approval-required-operations.md
-policies/
+template/docs/faq.md
+template/docs/common-pitfalls.md
+template/docs/tool-selection-guide.md
+template/docs/approval-required-operations.md
+template/policies/
 ```
 
 役割:
@@ -82,10 +83,10 @@ policies/
 ## AIに読ませるもの
 
 ```text
-CLAUDE.md
-.claude/settings.json
-policies/
-workflows/
+template/CLAUDE.md
+template/.claude/settings.json
+template/policies/
+template/workflows/
 ```
 
 役割:
@@ -98,9 +99,9 @@ workflows/
 ## 人間が確認に使うもの
 
 ```text
-checklists/
-workflows/
-templates/
+template/checklists/
+template/workflows/
+template/templates/
 ```
 
 役割:
@@ -112,7 +113,28 @@ templates/
 
 ## フォルダの説明
 
-## docs/
+## template/
+
+実プロジェクトのプロジェクトルートへコピーする中身です。
+
+コピー後の配置例:
+
+```text
+my-app/
+  CLAUDE.md
+  .claude/
+    settings.json
+  docs/
+  policies/
+  workflows/
+  checklists/
+  prompts/
+  templates/
+```
+
+`README.md` と `STRUCTURE.md` は配布元の説明資料なので、通常はコピー対象に含めません。
+
+## template/docs/
 
 利用者向けの説明資料です。
 
@@ -159,7 +181,7 @@ templates/
 
 `session-02-small-change/` 以降は、今後の共有に向けたセッション雛形です。まずはREADMEに、各回で扱うこと、扱わないこと、参加者への事前依頼、想定成果物をまとめます。
 
-## policies/
+## template/policies/
 
 守るべきルールです。
 
@@ -172,7 +194,9 @@ templates/
 - `devops.md`: インフラ・DevOps向け
 - `qa.md`: QA・テスト向け
 
-## workflows/
+`common.md` は常に残します。その他の領域別ポリシーは、プロジェクトに関係するものを残し、不要なものは削るか参考資料として扱います。
+
+## template/workflows/
 
 AIを使う作業の進め方です。
 
@@ -182,7 +206,7 @@ AIを使う作業の進め方です。
 - `code-review.md`: AI利用時のコードレビュー
 - `pull-request.md`: AI利用時のPR運用
 
-## checklists/
+## template/checklists/
 
 作業前後の確認リストです。
 
@@ -192,7 +216,7 @@ AIを使う作業の進め方です。
 - `before-commit.md`: コミット前
 - `before-pr.md`: PR前
 
-## prompts/
+## template/prompts/
 
 AIに依頼するときのプロンプトテンプレートです。
 
@@ -203,7 +227,7 @@ AIに依頼するときのプロンプトテンプレートです。
 - `review.md`: レビュー
 - `test-design.md`: テスト設計
 
-## templates/
+## template/templates/
 
 人間が記入して共有するテンプレートです。
 
@@ -223,11 +247,11 @@ AIに依頼するときのプロンプトテンプレートです。
 例:
 
 ```text
-docs/harness-concept.md
-docs/start-guide.md
-policies/common.md
-docs/tool-selection-guide.md
-docs/first-exercise.md
+template/docs/harness-concept.md
+template/docs/start-guide.md
+template/policies/common.md
+template/docs/tool-selection-guide.md
+template/docs/first-exercise.md
 ```
 
 展開担当者向け資料:
@@ -254,23 +278,23 @@ docs/first-exercise.md
 扱う資料:
 
 ```text
-docs/harness-concept.md
-docs/start-guide.md
-policies/common.md
-docs/tool-selection-guide.md
-docs/first-exercise.md
+template/docs/harness-concept.md
+template/docs/start-guide.md
+template/policies/common.md
+template/docs/tool-selection-guide.md
+template/docs/first-exercise.md
 ```
 
 扱わないが、あとで参照する資料:
 
 ```text
-docs/faq.md
-docs/common-pitfalls.md
-docs/approval-required-operations.md
-workflows/
-checklists/
-prompts/
-templates/
+template/docs/faq.md
+template/docs/common-pitfalls.md
+template/docs/approval-required-operations.md
+template/workflows/
+template/checklists/
+template/prompts/
+template/templates/
 ```
 
 ## 最初に育てるべき資料
@@ -278,10 +302,10 @@ templates/
 組織やチームで実際に展開するなら、最初に育てるべき資料は次です。
 
 - `../facilitator/session-01-30min/03-explanation-script-30min.md`
-- `docs/faq.md`
-- `docs/common-pitfalls.md`
-- `templates/incident-report.md`
-- `policies/common.md`
-- `templates/project-adoption-profile.md`
+- `template/docs/faq.md`
+- `template/docs/common-pitfalls.md`
+- `template/templates/incident-report.md`
+- `template/policies/common.md`
+- `template/templates/project-adoption-profile.md`
 
 理由は、説明会と実運用で最初に使う可能性が高いためです。

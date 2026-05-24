@@ -108,16 +108,20 @@ CLAUDE.md
 ai-development-harness/
   README.md
   STRUCTURE.md
-  CLAUDE.md
-  .claude/
-    settings.json
-  docs/
-  facilitator/
-  policies/
-  workflows/
-  checklists/
-  prompts/
-  templates/
+  template/
+    CLAUDE.md
+    .claude/
+      settings.json
+    docs/
+    policies/
+    workflows/
+    checklists/
+    prompts/
+    templates/
+
+facilitator/
+  session-*/
+  demo-projects/
 ```
 
 全体構成はこちらにまとめています。
@@ -135,7 +139,7 @@ Verification 確認方法
 
 詳しくはこちらに書きました。
 
-[AI Development Harnessの考え方](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/harness-concept.md)
+[AI Development Harnessの考え方](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/harness-concept.md)
 
 ## 4. 利用者向けに「最初に読む資料」を用意する
 
@@ -147,10 +151,10 @@ Verification 確認方法
 
 まず読むもの:
 
-- [AI開発利用ポリシー](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/ai-development-policy.md)
-- [Claude Code初回セットアップガイド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/start-guide.md)
-- [AI開発支援 用語集](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/glossary.md)
-- [最初の実践課題](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/first-exercise.md)
+- [AI開発利用ポリシー](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/ai-development-policy.md)
+- [Claude Code初回セットアップガイド](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/start-guide.md)
+- [AI開発支援 用語集](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/glossary.md)
+- [最初の実践課題](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/first-exercise.md)
 
 説明会用:
 
@@ -179,9 +183,9 @@ AI導入では、だいたい同じような質問や不安が出ると思って
 
 そこで、FAQとよくある失敗例も先に用意しました。
 
-- [FAQ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/faq.md)
-- [よくある失敗例](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/common-pitfalls.md)
-- [承認が必要な操作](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/approval-required-operations.md)
+- [FAQ](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/faq.md)
+- [よくある失敗例](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/common-pitfalls.md)
+- [承認が必要な操作](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/approval-required-operations.md)
 
 たとえばFAQには、次のような質問を入れています。
 
@@ -196,7 +200,7 @@ AI導入では、だいたい同じような質問や不安が出ると思って
 
 また、ヒヤリハット共有テンプレートも作りました。
 
-[事故・ヒヤリハット共有テンプレート](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/templates/incident-report.md)
+[事故・ヒヤリハット共有テンプレート](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/templates/incident-report.md)
 
 記入例として、以下のようなケースを入れています。
 
@@ -224,11 +228,11 @@ AI導入では、だいたい同じような質問や不安が出ると思って
 
 そのために、プロジェクト導入プロファイルを作りました。
 
-[project-adoption-profile.md](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/templates/project-adoption-profile.md)
+[project-adoption-profile.md](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/templates/project-adoption-profile.md)
 
 導入手順はこちらです。
 
-[リポジトリ導入手順](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/docs/repository-adoption-guide.md)
+[リポジトリ導入手順](https://github.com/tikomosoftware/solo-ai-enablement/blob/main/ai-development-harness/template/docs/repository-adoption-guide.md)
 
 この流れを想定しています。
 
