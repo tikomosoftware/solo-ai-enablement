@@ -5,7 +5,7 @@ AIをこれから使い始める人に向けて、AI活用の基本、注意点�
 ## 運用方針
 
 - `articles/` のMarkdownを原本にする
-- `docs/` のHTMLは生成物として扱う
+- `articles/docs/` のHTMLは生成物として扱う
 - OneNoteにはHTML表示から貼り付ける
 - 将来的に権限が取れたら、Microsoft Graph APIでOneNote更新を自動化する
 
@@ -26,7 +26,7 @@ npm run build
 生成先:
 
 ```text
-docs/
+articles/docs/
 ```
 
 ## GitHub Actions

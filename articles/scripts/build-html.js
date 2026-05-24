@@ -1,9 +1,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const rootDir = path.resolve(__dirname, "..");
-const articlesDir = path.join(rootDir, "articles");
-const docsDir = path.join(rootDir, "docs");
+const articlesDir = path.resolve(__dirname, "..");
+const docsDir = path.join(articlesDir, "docs");
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -252,8 +251,7 @@ function build() {
     "utf8"
   );
 
-  console.log(`Generated ${pages.length + 1} HTML files in docs/`);
+  console.log(`Generated ${pages.length + 1} HTML files in articles/docs/`);
 }
 
 build();
-

@@ -7,7 +7,7 @@ on:
       - master
     paths:
       - "articles/**/*.md"
-      - "scripts/build-html.js"
+      - "articles/scripts/build-html.js"
       - "package.json"
       - ".github/workflows/build-html.yml"
   workflow_dispatch:
@@ -35,5 +35,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Build HTML from Markdown"
-          file_pattern: docs/*.html
-
+          file_pattern: articles/docs/*.html

@@ -4,10 +4,9 @@
   "private": true,
   "description": "Markdown-first AI enablement articles with generated HTML for sharing.",
   "scripts": {
-    "build": "node scripts/build-html.js"
+    "build": "node articles/scripts/build-html.js"
   },
   "engines": {
     "node": ">=20"
   }
 }
-
