@@ -7,6 +7,8 @@ Claude Codeの具体的な使い方に入る前に、AIチャット、AIエデ�
 ## ファイル一覧
 
 - [第0回 Marpスライド](./ai-basics.marp.md)
+- [第0回 YouTube版 Marpスライド](./ai-basics-youtube.marp.md)
+- [YouTube版スライド スタイルガイド](./youtube-slide-style-guide.md)
 
 ## 素材
 

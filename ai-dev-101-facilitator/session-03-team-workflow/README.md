@@ -29,6 +29,7 @@
 
 - [01 スライド構成案](./01-slides-outline-team-workflow.md): スライド構成と話すポイントの原本
 - [02 Marpスライド](./02-slides-team-workflow.marp.md): 投影用のMarpスライド
+- [第3回 YouTube版 Marpスライド](./02-slides-team-workflow-youtube.marp.md)
 - [03 説明会台本](./03-explanation-script-team-workflow.md): 登壇者が話す内容の下書き
 - [04 メンバー向けメモ](./04-member-start-note.md): 参加者に共有する事前・事後メモ
 

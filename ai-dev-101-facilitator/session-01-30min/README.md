@@ -14,6 +14,7 @@
 
 - [01 スライド構成案](./01-slides-outline-30min.md): スライド構成と話すポイントの原本
 - [02 Marpスライド](./02-slides-30min.marp.md): 投影用のMarpスライド
+- [第1回 YouTube版 Marpスライド](./02-slides-30min-youtube.marp.md)
 - [03 説明会台本](./03-explanation-script-30min.md): 登壇者が話す内容の下書き
 - [04 メンバー向けはじめ方メモ](./04-member-start-note.md): 参加者に共有する初回利用メモ
 
