@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11. AI初心者向け 最初の30分ワーク</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 11. AI初心者向け 最初の30分ワーク</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>11. AI初心者向け 最初の30分ワーク</h1>
+<h2>この記事の目的</h2>
+<p>この記事は、AIをまだ仕事で使ったことがない人が、最初の30分でAIに触ってみるためのワークです。</p>
+<p>細かい理屈をすべて読む前に、まず「AIに頼む」「返ってきた内容を直す」「そのまま信じない」を体験します。</p>
+<p>このワークでは、機密情報、顧客情報、個人情報、社内だけの情報は使いません。ダミーの内容で試します。</p>
+<h2>この30分でできればよいこと</h2>
+<ul>
+<li>AIに短い依頼を出せる</li>
+<li>返ってきた内容に追加依頼を出せる</li>
+<li>AIの出力をそのまま使わず、人間が直す感覚を持てる</li>
+<li>入力してよい情報か迷ったら止まれる</li>
+</ul>
+<h2>使う前の確認</h2>
+<p>始める前に、次を確認します。</p>
+<ul>
+<li>仕事で使ってよいAIツールか</li>
+<li>個人アカウントや無料版に業務情報を入れていないか</li>
+<li>顧客名、個人名、契約内容、売上、認証情報を入れないか</li>
+<li>今日のワークではダミー情報だけを使うか</li>
+</ul>
+<p>迷った場合は、実データを使わず、例文や架空の内容で試してください。</p>
+<h2>0分から5分: まず聞いてみる</h2>
+<p>最初は、仕事に近いけれど機密を含まない内容で試します。</p>
+<p>そのまま入力する例:</p>
+<pre><code class="language-text">AIを仕事で使い始める人向けに、最初に気をつけることを5つ教えてください。
+専門用語は少なめにしてください。</code></pre>
+<p>見るポイント:</p>
+<ul>
+<li>分かりやすいか</li>
+<li>一般論になりすぎていないか</li>
+<li>自分の職場でそのまま言ってよい内容か</li>
+</ul>
+<p>ここでは、AIの答えを正解として受け取るのではなく、たたき台として眺めます。</p>
+<h2>5分から10分: 追加で直してもらう</h2>
+<p>次に、返ってきた内容へ追加依頼をします。</p>
+<p>入力する例:</p>
+<pre><code class="language-text">もう少し初心者向けにしてください。
+不安をあおる表現は避けて、今日から小さく試せる言い方にしてください。</code></pre>
+<p>追加依頼の例:</p>
+<pre><code class="language-text">箇条書きを3つに減らしてください。</code></pre>
+<pre><code class="language-text">チーム内チャットに投稿できる文面にしてください。</code></pre>
+<pre><code class="language-text">注意点と、まず試してよいことを分けてください。</code></pre>
+<p>AIは1回で完成させる道具ではありません。会話しながら、使える形に近づけます。</p>
+<h2>10分から20分: 小さな仕事に使ってみる</h2>
+<p>次は、架空の予定変更をチャット文にします。</p>
+<p>入力する例:</p>
+<pre><code class="language-text">以下の内容を、チーム内チャットに投稿する丁寧な文面にしてください。
+
+内容:
+- 明日の定例会の開始時間を変更する
+- 変更前: 10:00
+- 変更後: 11:00
+- 理由: 先方都合
+- 対象: プロジェクトメンバー
+
+条件:
+- 短くする
+- 申し訳なさを出しすぎない
+- 確認してほしいことを最後に入れる</code></pre>
+<p>返ってきたら、次を確認します。</p>
+<ul>
+<li>時刻が間違っていないか</li>
+<li>余計な事情を作っていないか</li>
+<li>相手に失礼な表現がないか</li>
+<li>自分たちの言い方として自然か</li>
+</ul>
+<p>そのあと、必要ならこう頼みます。</p>
+<pre><code class="language-text">少しだけくだけた社内向けの表現にしてください。
+ただし、失礼にはならないようにしてください。</code></pre>
+<h2>20分から25分: 批判的に見てもらう</h2>
+<p>AIには、作るだけでなく確認も頼めます。</p>
+<p>入力する例:</p>
+<pre><code class="language-text">以下のチャット文について、初めて読む人が誤解しそうな点、冷たく見える点、足りない情報があれば指摘してください。
+
+[ここに作ったチャット文を貼る]</code></pre>
+<p>見るポイント:</p>
+<ul>
+<li>AIが出した指摘は本当に必要か</li>
+<li>細かすぎる指摘はないか</li>
+<li>自分の職場では不要な指摘ではないか</li>
+</ul>
+<p>AIの指摘も候補です。全部直す必要はありません。</p>
+<h2>25分から30分: 振り返る</h2>
+<p>最後に、次の3つをメモします。</p>
+<ul>
+<li>便利だったこと</li>
+<li>不安だったこと</li>
+<li>次に試したい小さい作業</li>
+</ul>
+<p>チームで共有する場合は、次の形にすると簡単です。</p>
+<pre><code class="language-text">今日AIで試したこと:
+
+便利だったこと:
+
+そのまま使わず直したこと:
+
+次に試したいこと:
+
+入力情報で迷ったこと:</code></pre>
+<h2>最初に試しやすい作業</h2>
+<p>次のような作業は、AI初心者でも試しやすいです。</p>
+<ul>
+<li>社内チャット文の下書き</li>
+<li>会議メモの整理</li>
+<li>長い文章の要約</li>
+<li>説明文の言い換え</li>
+<li>手順書のたたき台</li>
+<li>アイデア出し</li>
+<li>FAQの候補作成</li>
+</ul>
+<p>ただし、元の文章に機密情報や個人情報が含まれる場合は、利用ルールを確認してから扱います。</p>
+<h2>このワークで扱わないこと</h2>
+<p>このワークでは、次は扱いません。</p>
+<ul>
+<li>顧客情報や個人情報を使った相談</li>
+<li>契約、法務、人事、会計などの重要判断</li>
+<li>ソースコードや本番ログの投入</li>
+<li>AIの回答をそのまま外部に提出すること</li>
+<li>AIエージェントによるファイル編集やコマンド実行</li>
+</ul>
+<h2>この章のまとめ</h2>
+<p>最初の30分では、AIを完璧に使いこなす必要はありません。</p>
+<p>大事なのは、AIに小さく頼み、返ってきた内容を人間が確認し、必要なら追加で直してもらう感覚を持つことです。</p>
+  </main>
+</body>
+</html>

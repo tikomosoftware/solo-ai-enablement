@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12. 初心者向け1枚チートシート</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 12. 初心者向け1枚チートシート</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>12. 初心者向け1枚チートシート</h1>
+<h2>このファイルの目的</h2>
+<p>このファイルは、AI初心者が最初に見るための短いまとめです。</p>
+<p>忙しい人や、説明会で時間が限られている場合は、まずこの1枚と「最初の30分ワーク」「入力してよい/ダメ判断クイズ」だけを使います。</p>
+<h2>AIは何に使うか</h2>
+<p>AIは、正解を決める人ではなく、下書き、整理、言い換え、確認を手伝う相手です。</p>
+<p>最初は、次のような小さい作業から使います。</p>
+<ul>
+<li>文章の下書きを作る</li>
+<li>長い文章を短くまとめる</li>
+<li>会議メモを整理する</li>
+<li>説明を初心者向けに言い換える</li>
+<li>アイデアを複数出す</li>
+<li>抜け漏れや分かりにくい点を確認する</li>
+</ul>
+<h2>最初に使える依頼文</h2>
+<p>迷ったら、この形で頼みます。</p>
+<pre><code class="language-text">目的:
+背景:
+依頼内容:
+条件:
+出力形式:
+対象読者:</code></pre>
+<p>全部を埋める必要はありません。分かっているところだけで十分です。</p>
+<h2>そのまま使える例</h2>
+<h3>文章を作る</h3>
+<pre><code class="language-text">以下の内容を、チーム内チャットに投稿する短い文面にしてください。
+丁寧だけど堅すぎない表現にしてください。
+
+[内容を書く]</code></pre>
+<h3>要約する</h3>
+<pre><code class="language-text">以下の文章を、3行の要約と重要ポイント5つに分けて整理してください。
+対象読者は、このテーマに詳しくない人です。
+
+[文章を貼る]</code></pre>
+<h3>分かりやすくする</h3>
+<pre><code class="language-text">以下の説明を、AIをまだ使ったことがない人にも分かるように言い換えてください。
+専門用語はできるだけ避けてください。
+
+[説明を書く]</code></pre>
+<h3>確認してもらう</h3>
+<pre><code class="language-text">以下の文章に、分かりにくい点、誤解されそうな点、足りない情報があれば指摘してください。
+指摘は最大5つにしてください。
+
+[文章を貼る]</code></pre>
+<h2>入れてはいけない情報</h2>
+<p>迷ったら入力しないでください。</p>
+<ul>
+<li>顧客名、担当者名、連絡先</li>
+<li>個人名、住所、メールアドレス、電話番号</li>
+<li>契約書、見積書、請求書</li>
+<li>売上、利益、予算、原価などの未公開情報</li>
+<li>人事、評価、給与に関する情報</li>
+<li>未公開の企画、戦略、ロードマップ</li>
+<li>APIキー、パスワード、トークン、秘密鍵</li>
+<li>本番ログ、アクセスログ、セキュリティ情報</li>
+<li>公開されていないソースコードや設計資料</li>
+</ul>
+<p>許可されたAI環境で扱える情報もありますが、最初は「具体情報を入れすぎない」ことを基本にします。</p>
+<h2>AIの回答を見るときの確認</h2>
+<p>AIの回答は、確認してから使います。</p>
+<ul>
+<li>数字、日付、名前は正しいか</li>
+<li>存在しない情報を作っていないか</li>
+<li>自分たちの状況に合っているか</li>
+<li>相手に失礼な表現になっていないか</li>
+<li>機密情報や個人情報が混ざっていないか</li>
+<li>根拠が必要な内容に出典や確認元があるか</li>
+</ul>
+<p>「AIが言っていた」は根拠になりません。</p>
+<h2>迷ったときの止め方</h2>
+<p>迷ったら、次のどれかを選びます。</p>
+<ul>
+<li>入力しない</li>
+<li>ダミー情報に置き換える</li>
+<li>もっと抽象化して相談する</li>
+<li>チームのルールを見る</li>
+<li>責任者や詳しい人に確認する</li>
+</ul>
+<p>AIに聞く場合は、こう頼めます。</p>
+<pre><code class="language-text">この内容をAIに入力してよいか迷っています。
+機密情報、個人情報、契約情報、認証情報の観点で、入力前に確認すべき点を挙げてください。
+ただし、最終判断は人間が行います。</code></pre>
+<h2>最初に覚えること</h2>
+<p>AIを使う基本は、次の3つです。</p>
+<ul>
+<li>小さく頼む</li>
+<li>そのまま信じない</li>
+<li>迷った情報は入れない</li>
+</ul>
+<p>この3つを守れば、最初の一歩はかなり安全に始められます。</p>
+  </main>
+</body>
+</html>
