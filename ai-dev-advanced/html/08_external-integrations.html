@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08. 外部サービス連携</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 08. 外部サービス連携</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>08. 外部サービス連携</h1>
+<h2>この章の目的</h2>
+<p>GitHub、Slack、カレンダー、メール、ドキュメント管理など、チームに影響する外部サービス連携を扱います。</p>
+<h2>扱うこと</h2>
+<ul>
+<li>連携でできること</li>
+<li>通知、投稿、PR操作、予定変更などの影響</li>
+<li>接続範囲と権限の確認</li>
+<li>操作前の承認とログの残し方</li>
+<li>Slack、GitHub Actions、CI/CD、スケジュール実行の扱い</li>
+</ul>
+<h2>扱わないこと</h2>
+<ul>
+<li>チーム未承認の投稿や変更</li>
+<li>秘密情報へのアクセス</li>
+<li>人間の確認を飛ばす自動操作</li>
+</ul>
+<h2>説明会で扱う判断</h2>
+<p>外部サービス連携は便利ですが、チーム全体へ影響します。</p>
+<p>具体的なユースケースと管理者が決まってから扱います。</p>
+<h2>最近の使いどころ</h2>
+<p>Claude Codeは、Slack、CI/CD、Web、Desktop、スケジュール実行など、チームの外部サービスに近い場所から使える面が増えています。</p>
+<p>便利な一方で、投稿、PR作成、チケット更新、定期実行はチーム全体へ影響します。</p>
+<p>導入時は、次を決めます。</p>
+<ul>
+<li>どのサービスからClaude Codeを呼び出せるか</li>
+<li>誰が呼び出せるか</li>
+<li>どのリポジトリやチャンネルが対象か</li>
+<li>AIが書き込みできるか、読み取りだけか</li>
+<li>実行ログをどこに残すか</li>
+<li>誤投稿や誤更新を止める方法があるか</li>
+</ul>
+<p>SlackやCI/CD連携は、まず通知や要約のような低リスク用途から始めます。PR作成、チケット更新、リリース関連操作は、承認フローを決めてから扱います。</p>
+  </main>
+</body>
+</html>

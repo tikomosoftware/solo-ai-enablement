@@ -8,7 +8,7 @@
 
 - [AI Development Harnessの考え方](./harness-concept.md)
 - [Claude Code初回セットアップガイド](./start-guide.md)
-- [AI開発支援 用語集](../reference/glossary.md)
+- AI開発支援 用語集
 - [最初の実践課題](./first-exercise.md)
 
 全員が読むもの:
@@ -26,7 +26,7 @@
 
 作業前後に使うもの:
 
-- [よくある失敗例](../reference/common-pitfalls.md)
+- よくある失敗例
 - AI作業前チェックリスト
 - コミット前チェックリスト
 - PR前チェックリスト
@@ -35,7 +35,7 @@
 展開・運用する人が読むもの:
 
 - [リポジトリ導入手順](./repository-adoption-guide.md)
-- [FAQ](../reference/faq.md)
+- FAQ
 
 説明会や研修を行う場合は、展開担当者向けの資料を別資料として準備します。
 

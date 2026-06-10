@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プロジェクト導入プロファイル</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../../index.html">記事一覧</a> / プロジェクト導入プロファイル</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>プロジェクト導入プロファイル</h1>
+<h2>このテンプレートの目的</h2>
+<p>このテンプレートは、AI Development Harnessを実際のプロジェクトに導入するときに、プロジェクト固有の情報を整理するためのものです。</p>
+<p>共通harnessはそのままでは完成ではありません。対象リポジトリ、ビルド方法、テスト方法、ブランチ運用、PRルール、相談先などは、プロジェクトごとに違います。</p>
+<p>導入時には、このファイルを埋めながら <code>CLAUDE.md</code>、<code>.claude/settings.json</code>、<code>policies/</code>、<code>workflows/</code> をプロジェクト向けに調整します。</p>
+<h2>1. 基本情報</h2>
+<p>| 項目 | 内容 | | --- | --- | | プロジェクト名 |  | | 対象リポジトリ |  | | リポジトリURL |  | | 主な担当チーム |  | | 主な技術スタック |  | | 開発環境 |  | | 本番環境の有無 |  | | AI導入の目的 |  |</p>
+<h2>2. 対象範囲</h2>
+<p>AI支援の対象にする範囲:</p>
+<p>- - -</p>
+<p>AI支援の対象外にする範囲:</p>
+<p>- - -</p>
+<p>例:</p>
+<ul>
+<li>対象: README修正、テスト追加、小さなバグ修正</li>
+<li>対象外: 本番デプロイ、DBマイグレーション、認証認可の最終判断</li>
+</ul>
+<h2>3. 使用してよいAIツール</h2>
+<p>| ツール | 利用可否 | 用途 | 注意点 | | --- | --- | --- | --- | | Claude Code |  |  |  | | GitHub Copilot |  |  |  | | GitHub Copilot CLI |  |  |  | | その他 |  |  |  |</p>
+<h2>4. 入力してはいけない情報</h2>
+<p>このプロジェクトで特に注意する情報:</p>
+<p>- - -</p>
+<p>例:</p>
+<ul>
+<li>顧客名</li>
+<li>本番ログ</li>
+<li>APIキー</li>
+<li><code>.env</code></li>
+<li>個人情報</li>
+<li>契約情報</li>
+</ul>
+<h2>5. 実行してよい確認コマンド</h2>
+<p>ビルド:</p>
+<pre><code class="language-text"></code></pre>
+<p>テスト:</p>
+<pre><code class="language-text"></code></pre>
+<p>lint:</p>
+<pre><code class="language-text"></code></pre>
+<p>型チェック:</p>
+<pre><code class="language-text"></code></pre>
+<p>その他:</p>
+<pre><code class="language-text"></code></pre>
+<h2>6. AIに実行させないコマンド</h2>
+<p>このプロジェクトで特に禁止するコマンド:</p>
+<pre><code class="language-text"></code></pre>
+<p>例:</p>
+<pre><code class="language-text">git reset
+git clean
+git rebase
+git push --force
+rm
+Remove-Item
+terraform apply
+terraform destroy
+kubectl delete</code></pre>
+<h2>7. ブランチ運用</h2>
+<p>| 項目 | 内容 | | --- | --- | | デフォルトブランチ |  | | 作業ブランチ命名 |  | | PR必須か |  | | レビュー必須人数 |  | | force push可否 |  | | squash merge / merge commit / rebase merge |  |</p>
+<p>AIに任せる範囲:</p>
+<p>-</p>
+<p>人間が行う範囲:</p>
+<p>-</p>
+<h2>8. PRルール</h2>
+<p>PRに書くべき内容:</p>
+<p>- - -</p>
+<p>AIを使った場合に書くべき内容:</p>
+<p>- - -</p>
+<h2>9. レビュー観点</h2>
+<p>このプロジェクトで特に見るべき観点:</p>
+<p>- - -</p>
+<p>例:</p>
+<ul>
+<li>認証認可</li>
+<li>入力検証</li>
+<li>レスポンシブ表示</li>
+<li>Windowsパス</li>
+<li>DB負荷</li>
+<li>ログの機密情報</li>
+</ul>
+<h2>10. テスト方針</h2>
+<p>最低限必要な確認:</p>
+<p>- - -</p>
+<p>AIにテスト作成を依頼してよい範囲:</p>
+<p>- - -</p>
+<p>人間が必ず確認する範囲:</p>
+<p>- - -</p>
+<h2>11. デプロイ・本番操作</h2>
+<p>AIに実行させてよいか:</p>
+<pre><code class="language-text">不可</code></pre>
+<p>本番操作の担当者:</p>
+<p>-</p>
+<p>本番操作前に必要な確認:</p>
+<p>- - -</p>
+<h2>12. 相談先</h2>
+<p>| 内容 | 相談先 | | --- | --- | | AI利用ルール |  | | セキュリティ |  | | リポジトリ運用 |  | | 本番環境 |  | | 仕様判断 |  | | 障害・ヒヤリハット |  |</p>
+<h2>13. 初回導入時に更新するファイル</h2>
+<p>導入時に確認・更新するファイル:</p>
+<ul>
+<li>[ ] <code>CLAUDE.md</code></li>
+<li>[ ] <code>.claude/settings.json</code></li>
+<li>[ ] <code>docs/start-guide.md</code></li>
+<li>[ ] <code>policies/common.md</code></li>
+<li>[ ] 担当領域の <code>policies/*.md</code></li>
+<li>[ ] <code>workflows/ai-assisted-development.md</code></li>
+<li>[ ] <code>checklists/before-ai-work.md</code></li>
+<li>[ ] <code>checklists/before-commit.md</code></li>
+<li>[ ] <code>checklists/before-pr.md</code></li>
+</ul>
+<h2>14. 導入時メモ</h2>
+<p>決まっていないこと:</p>
+<p>- - -</p>
+<p>あとで見直すこと:</p>
+<p>- - -</p>
+  </main>
+</body>
+</html>

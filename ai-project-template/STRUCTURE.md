@@ -156,8 +156,14 @@ AIや人間が記入して共有するテンプレートです。
 
 - `incident-report.md`: 事故・ヒヤリハット共有
 - `project-adoption-profile.md`: 実プロジェクト導入時に埋めるプロジェクト固有設定
+- `repository-security-guidance.md`: 対象リポジトリ固有のセキュリティ観点
+- `personal-collaboration-guidance.md`: 個人の相談スタイルやレビュー姿勢
 
 導入時には、まず `project-adoption-profile.md` を使って対象リポジトリの前提を整理すると、`CLAUDE.md` やポリシーを調整しやすくなります。
+
+`repository-security-guidance.md` は、対象リポジトリに合わせて編集し、必要に応じて `.claude/policies/security.md` のような名前でコピーします。認証、認可、ログ、マルチテナント、XSS、SSRF、シークレット管理など、AIに毎回見てほしい観点を書きます。
+
+`personal-collaboration-guidance.md` は、個人の使い方に合わせて編集する任意テンプレートです。チーム全員に強制するルールではなく、AIとの相談の仕方を整えるために使います。
 
 ## 導入時に決めること
 
@@ -171,6 +177,8 @@ AIや人間が記入して共有するテンプレートです。
 - 削除、履歴操作、本番環境操作などの禁止事項
 - 相談先
 - チーム固有のレビュー観点
+- リポジトリ固有のセキュリティ観点
+- 個人設定として持つ指示と、チーム共有する指示の分け方
 
 ## 育て方
 

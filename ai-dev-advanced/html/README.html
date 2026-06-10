@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Code高機能活用・自動化 インデックス</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / Claude Code高機能活用・自動化 インデックス</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>Claude Code高機能活用・自動化 インデックス</h1>
+<p>資料基準日: 2026-06-10</p>
+<p>このフォルダは、Claude Codeの高機能や自動化を説明するための候補一覧です。</p>
+<p>初回説明会や初心者向け資料では、ここにある内容をすべて説明しません。説明会後の質問、チームの成熟度、対象プロジェクトの状況に応じて、必要な章だけを選んで扱います。</p>
+<p>この資料は、AI一般の入門資料ではなく、Claude CodeとClaude関連機能に寄せた発展編です。MCP、Hooks、Skills、Plugins、サブエージェント、Claude Security、Fable 5 / Mythos 5のような具体的な製品・機能名を扱います。</p>
+<h2>作成状況について</h2>
+<p><strong>注意:</strong> この資料は、現時点ではClaude Code高機能活用の構成案と検討メニューです。各章にはインデックスと簡単な要点を置いていますが、詳しい設定手順、実プロジェクトでの導入例、画面例、運用テンプレートはまだ作成中です。</p>
+<p>完成済みの手順書ではなく、どの機能を今後深掘りするかを決めるための地図として扱ってください。</p>
+<h2>最新情報の扱い</h2>
+<p>Claude CodeやClaudeのモデル、関連機能は更新が速いため、このフォルダでは「資料を読めば最新機能をすべて網羅できる」状態を目指しません。</p>
+<p>説明会で扱うときは、次の順で確認します。</p>
+<p>1. 自社やプロジェクトでClaude Codeの利用が許可されているか。 2. 利用できるプラン、モデル、機能が何か。 3. Claude Code本体、Claude Security、Fable 5 / Mythos 5などの提供範囲が変わっていないか。 4. 権限、ログ、データ保持、外部連携の条件が自社ルールと合っているか。</p>
+<p>最終確認日: 2026-06-10</p>
+<h2>対象者</h2>
+<ul>
+<li>Claude Codeの基本操作に慣れてきた開発者</li>
+<li>チームへAI開発支援を展開する担当者</li>
+<li>Hooks、MCP、サブエージェントなどの導入を検討する人</li>
+<li>プロジェクト単位でAI利用ルールや自動化を整備する人</li>
+</ul>
+<h2>この資料の使い方</h2>
+<ul>
+<li>説明会では、まず「こういう高機能がある」という一覧として見せる。</li>
+<li>参加者やチームから要望が出た章だけ、別回で詳しく説明する。</li>
+<li>すぐ使う機能と、まだ使わない機能を分けて考える。</li>
+<li>導入前に、目的、権限、情報管理、レビュー方法を決める。</li>
+</ul>
+<h2>章一覧</h2>
+<h3>1. 高機能マップ</h3>
+<p><a href="./01_advanced-feature-map.md">01 高機能マップ</a></p>
+<p>Claude Codeでできる高度なことを、設定、コマンド、Hooks、MCP、サブエージェント、Skills、Plugins、自動化に分けて俯瞰します。</p>
+<p>説明会では、詳細に入る前の全体地図として使います。</p>
+<h3>2. 設定と権限設計</h3>
+<p><a href="./02_settings-and-permissions.md">02 設定と権限設計</a></p>
+<p><code>CLAUDE.md</code>、<code>.claude/settings.json</code>、個人設定、プロジェクト設定、許可、確認、禁止の考え方を整理します。</p>
+<p>高機能を使う前に、まず安全な境界を作るための章です。</p>
+<h3>3. カスタムコマンド</h3>
+<p><a href="./03_custom-commands.md">03 カスタムコマンド</a></p>
+<p>よく使う依頼や作業手順を、スラッシュコマンドとして再利用する考え方を扱います。</p>
+<p>毎回同じ説明を手入力しているチームに向いています。</p>
+<h3>4. Hooks</h3>
+<p><a href="./04_hooks.md">04 Hooks</a></p>
+<p>Claude Codeの作業前後にコマンドを実行する仕組みを扱います。</p>
+<p>formatter、テスト、通知、ログ保存などに使えますが、自動実行のリスクもあるため、導入判断を慎重に行います。</p>
+<h3>5. MCP連携</h3>
+<p><a href="./05_mcp.md">05 MCP連携</a></p>
+<p>GitHub、Issue管理、監視ツール、社内データ、デザインツールなど、外部サービスやデータソースとの連携を扱います。</p>
+<p>情報管理とアクセス権限の確認が必要なため、説明会では要望がある場合だけ詳しく扱います。</p>
+<h3>6. サブエージェント</h3>
+<p><a href="./06_subagents.md">06 サブエージェント</a></p>
+<p>調査、実装、レビュー、テスト、ドキュメント作成など、役割を分けて作業する考え方を扱います。</p>
+<p>並行作業や専門分担に便利ですが、責任範囲と変更範囲を明確にしてから使います。</p>
+<h3>7. SkillsとPlugins</h3>
+<p><a href="./07_skills-and-plugins.md">07 SkillsとPlugins</a></p>
+<p>チーム固有の作業手順、レビュー観点、ドキュメント作成手順などを再利用可能な形にする考え方を扱います。</p>
+<p>まずは手作業の運用を固め、繰り返し使うものが見えてから整備します。</p>
+<h3>8. 外部サービス連携</h3>
+<p><a href="./08_external-integrations.md">08 外部サービス連携</a></p>
+<p>GitHub、Slack、カレンダー、メール、ドキュメント管理など、チームに影響するサービスとの連携を扱います。</p>
+<p>通知、投稿、PR操作、予定変更などが発生するため、権限と承認フローを先に決めます。</p>
+<h3>9. チーム自動化パターン</h3>
+<p><a href="./09_team-automation-patterns.md">09 チーム自動化パターン</a></p>
+<p>レビュー補助、テスト実行、PR説明作成、リリースノート作成、作業ログ整理など、チームで使いやすい自動化パターンを整理します。</p>
+<p>個別機能の説明ではなく、実務フローとしてどう組み合わせるかを扱います。</p>
+<h3>10. 導入判断チェックリスト</h3>
+<p><a href="./10_adoption-checklist.md">10 導入判断チェックリスト</a></p>
+<p>高機能をチームで使う前に確認する項目をまとめます。</p>
+<p>説明会後に「この機能を使いたい」と要望が出たとき、導入可否を判断するための入口として使います。</p>
+<h3>11. 最近のClaude関連アップデート</h3>
+<p><a href="./11_recent-claude-updates.md">11 最近のClaude関連アップデート</a></p>
+<p>Claude Codeの対応面、Fable 5 / Mythos 5、Claude Security、safe modeなど、最近追加・強化された機能を整理します。</p>
+<p>Mythos 5は一般利用を前提にせず、限定提供・信頼アクセス向けのモデルとして扱います。</p>
+<p>この章は、説明会の冒頭で「いま何が変わっているか」を共有するための更新メモとして使います。</p>
+<h3>12. セキュリティガードと導入時の注意点</h3>
+<p><a href="./12_security-guards.md">12 セキュリティガードと導入時の注意点</a></p>
+<p>Claude Codeの権限、safe mode、managed settings、Claude Security、Fable 5の安全ガードを、チーム運用の観点で整理します。</p>
+<p>「安全機能があるから任せてよい」ではなく、「安全機能の境界を理解したうえで、人間の承認とレビューを残す」ための章です。</p>
+<h2>説明会での扱い方</h2>
+<p>最初の説明会では、次のように扱います。</p>
+<p>1. 高機能があることだけ紹介する。 2. 今日すぐ使うものではないと伝える。 3. 興味がある機能や困っている作業を聞く。 4. 要望が多い章から、別回で詳しく扱う。</p>
+<h2>最初に深掘りしやすい章</h2>
+<p>チーム開発で要望が出やすいのは、次の章です。</p>
+<ul>
+<li>設定と権限設計</li>
+<li>カスタムコマンド</li>
+<li>Hooks</li>
+<li>MCP連携</li>
+<li>サブエージェント</li>
+<li>Claude Security</li>
+<li>チーム自動化パターン</li>
+</ul>
+<p>ただし、最初に扱う章は機能の派手さではなく、チームの困りごとから決めます。</p>
+  </main>
+</body>
+</html>

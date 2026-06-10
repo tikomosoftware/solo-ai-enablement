@@ -169,4 +169,4 @@ flowchart LR
 
 この資料の画像は、差し替え前提のサンプルです。
 
-実際の説明会では、自分の環境で撮った画面キャプチャに置き換えると、参加者がより迷いにくくなります。画像ファイルは [assets/vscode-claude-code-guide](../assets/vscode-claude-code-guide/README.md) に置いています。
+実際の説明会では、自分の環境で撮った画面キャプチャに置き換えると、参加者がより迷いにくくなります。画像ファイルは `assets/vscode-claude-code-guide/` に置いています。

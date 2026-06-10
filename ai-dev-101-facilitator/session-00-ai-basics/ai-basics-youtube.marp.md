@@ -687,7 +687,7 @@ strong {
       <li>名前: 佐伯 悠人（通称）</li>
       <li>所属: (株) NEURAMNESIA AI活用支援チーム</li>
       <li>経歴: AI推進室、事業会社のAI活用推進担当などを経験</li>
-      <li>普段の仕事: Claude Codeを中心に、AIを使った業務改善や開発支援を提案・サポート</li>
+      <li>普段の仕事: AI開発支援ツールを中心に、AIを使った業務改善や開発支援を提案・サポート</li>
       <li>今日の立ち位置: AIツールを一緒に試すための案内役</li>
       <li>困ったときの相談先: 弊社担当までお気軽にご相談ください</li>
     </ul>
@@ -709,7 +709,7 @@ strong {
   <div>
     <div class="portrait-wrap">
       <img class="portrait" src="./assets/facilitator-placeholder.png" alt="案内役の写真">
-      <div class="portrait-comment">Codex推し</div>
+      <div class="portrait-comment">いろいろ試す派</div>
     </div>
   </div>
 </div>
@@ -751,7 +751,7 @@ strong {
     <div class="agenda-no">5</div>
     <div>
       <div class="agenda-title">次回セッションへ</div>
-      <div class="agenda-detail">小さく試して、Claude Code説明会につなげる</div>
+      <div class="agenda-detail">小さく試して、具体的なAI開発支援ツールの説明会につなげる</div>
     </div>
   </div>
 </div>
@@ -760,7 +760,7 @@ strong {
 
 # この回の目的
 
-Claude Codeを使う前に、AIツール全般に共通する基本をそろえます。
+具体的なAI開発支援ツールを使い始める前に、AIツール全般に共通する基本をそろえます。
 
 <div class="grid">
   <div class="card" data-icon="1">
@@ -990,7 +990,7 @@ CLI型: ターミナルから相談する<br>
 
 # AIエージェントには作業として頼める
 
-Codex app、Kiro、Claude Codeなどでは、会話だけでなく作業単位で相談できます。
+AIエージェントでは、会話だけでなく作業単位で相談できます。
 
 <div class="grid">
   <div class="card" data-icon="+">
@@ -1164,7 +1164,7 @@ AIは自然に見える文章で、間違ったことを言う場合がありま
 第0回では、AIツール全般の見方をそろえました。
 
 <div class="next-card">
-  <strong>Claude Codeを安全に試す</strong>
+  <strong>AI開発支援ツールを安全に試す</strong>
   <span>サンプルプロジェクトを使って、コードを書かせる前にプロジェクトを説明してもらう流れを見ます。</span>
 </div>
 

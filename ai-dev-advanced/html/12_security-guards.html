@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12. セキュリティガードと導入時の注意点</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 12. セキュリティガードと導入時の注意点</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>12. セキュリティガードと導入時の注意点</h1>
+<p>作成日: 2026-06-10</p>
+<p>最終確認日: 2026-06-10</p>
+<h2>この章の目的</h2>
+<p>Claude CodeやClaude関連機能をチームに入れるときの、安全ガードと限界を整理します。</p>
+<p>ここでいうセキュリティガードは、単一の機能名ではありません。Claude Codeの権限、safe mode、managed settings、MCP制御、Claude Security、Fable 5の安全ガードなどをまとめた運用上の考え方です。</p>
+<h2>基本方針</h2>
+<p>安全機能があることと、チームで安全に使えることは別です。</p>
+<p>説明会では、次のように伝えます。</p>
+<ul>
+<li>AIの提案は、レビュー前提で使う。</li>
+<li>権限設定は、プロンプトより強い境界として扱う。</li>
+<li>MCP、hooks、plugins、skillsは、便利さより先に無効化方法を確認する。</li>
+<li>セキュリティレビューは、Claude Securityだけに任せない。</li>
+<li>高性能モデルほど、データ保持、ログ、フォールバック、安全ガードの条件を確認する。</li>
+</ul>
+<h2>Claude Code側のガード</h2>
+<p>Claude Codeでは、次のようなガードを組み合わせます。</p>
+<p>| ガード | 役割 | 注意点 | |---|---|---| | 権限ルール | Bash、Read、Edit、WebFetch、MCP、Agentなどの許可・確認・禁止を決める | 指示文ではなく設定で止める | | permission mode | 権限確認の粒度を変える | <code>auto</code> や <code>bypassPermissions</code> は慎重に扱う | | managed settings | 組織やチームで設定を強制する | 管理者と更新手順が必要 | | safe mode | カスタマイズを無効化して切り分ける | 通常運用の代替にはしない | | sandbox | OSレベルでアクセス範囲を制限する | ツールや環境によって使える範囲が変わる | | hooks | 実行前後に検査や記録を入れる | hook自体が危険操作をしないようにする |</p>
+<h2>Fable 5の安全ガード</h2>
+<p>Fable 5は、一般利用向けに提供されるMythos-classモデルです。</p>
+<p>安全ガードにより、サイバーセキュリティ、バイオ、化学、蒸留に関わる一部のリクエストでは、Fable 5が直接回答せず、別モデルにフォールバックすることがあります。</p>
+<p>チーム説明でのポイント:</p>
+<ul>
+<li>ガードがあるから何でも聞いてよい、ではない。</li>
+<li>フォールバックが起きる可能性を利用者に説明する。</li>
+<li>サイバー防御目的でも、攻撃手順や悪用可能な詳細に踏み込む依頼は慎重に扱う。</li>
+<li>高性能モデルを使う場合、データ保持やログの条件を確認する。</li>
+</ul>
+<h2>Mythos 5の扱い</h2>
+<p>Mythos 5は、Fable 5と同じ基盤のモデルで、一部の安全ガードが外された形で限定提供されます。</p>
+<p>通常の開発チーム向け資料では、Mythos 5を「使える前提」にしません。</p>
+<p>説明会では、次の程度に留めます。</p>
+<ul>
+<li>Mythos 5は、サイバー防御や研究用途の信頼アクセス向けに制限提供される。</li>
+<li>一般的な開発者教育では、Fable 5や通常のClaude Code利用を前提にする。</li>
+<li>Mythos 5相当の能力が必要な場合は、個別の承認、契約、データ管理、監査が必要になる。</li>
+</ul>
+<h2>Claude Securityの扱い</h2>
+<p>Claude Securityは、コードベースをスキャンし、脆弱性を検出し、検証し、修正案を提示する機能です。</p>
+<p>使う価値がある場面:</p>
+<ul>
+<li>大きなコードベースのセキュリティレビューを補助したい</li>
+<li>複数ファイルをまたぐデータフローを確認したい</li>
+<li>既存ツールで拾いにくいロジック上の弱点を探したい</li>
+<li>修正案まで含めてレビューしたい</li>
+</ul>
+<p>導入時の注意:</p>
+<ul>
+<li>結果は人間が確認する。</li>
+<li>修正案はテスト、レビュー、既存設計との整合を確認する。</li>
+<li>既存のセキュリティツールを置き換える前提にしない。</li>
+<li>スキャン対象、通知先、チケット化、監査ログを決める。</li>
+<li>誤検知、判断保留、リスク受容を記録する。</li>
+</ul>
+<h2>MCP、plugins、skillsのガード</h2>
+<p>MCP、plugins、skillsは、Claude Codeの能力を広げます。広げた分だけ、リスクも増えます。</p>
+<p>導入前に確認すること:</p>
+<ul>
+<li>誰が作ったものか</li>
+<li>どのデータにアクセスするか</li>
+<li>書き込みや投稿ができるか</li>
+<li>更新時にレビューされるか</li>
+<li>使わなくなったときに無効化できるか</li>
+<li>チーム全員に配ってよいか</li>
+</ul>
+<p>外部pluginや外部MCPサーバーは、便利でも、最初から標準導入しない方が安全です。まず小さい範囲で試し、必要なら管理者が配布方法を決めます。</p>
+<h2>説明会で使う短い言い方</h2>
+<p>&gt; Claude Codeには安全機能がありますが、安全機能は万能ではありません。 &gt; チームで使うときは、権限、接続先、ログ、レビュー、停止方法を先に決めます。 &gt; AIには下書き、調査、候補提示を任せ、最終判断は人間が行います。</p>
+<h2>最低限の導入ルール</h2>
+<ul>
+<li>初期状態は <code>default</code> または <code>plan</code> を前提にする。</li>
+<li><code>bypassPermissions</code> は通常PCでは使わない。</li>
+<li>MCP、hooks、plugins、skillsは、導入前にレビューする。</li>
+<li>Claude Securityの修正案は、そのまま取り込まない。</li>
+<li>Fable 5 / Mythos 5のような新モデルは、提供範囲とデータ条件を確認してから使う。</li>
+<li>問題が起きたら safe mode で切り分ける。</li>
+<li>すべての変更は、差分、テスト、レビューを通す。</li>
+</ul>
+<h2>確認元</h2>
+<ul>
+<li>Claude Code permissions: https://code.claude.com/docs/en/permissions</li>
+<li>Claude Code settings: https://code.claude.com/docs/en/settings</li>
+<li>Claude Code security: https://code.claude.com/docs/en/security</li>
+<li>Claude Security: https://claude.com/product/claude-security</li>
+<li>Claude Fable 5 and Claude Mythos 5: https://www.anthropic.com/news/claude-fable-5-mythos-5</li>
+</ul>
+  </main>
+</body>
+</html>

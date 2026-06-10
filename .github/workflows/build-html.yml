@@ -6,10 +6,16 @@ on:
       - main
       - master
     paths:
-      - "ai-dev-101/**/*.md"
-      - "ai-dev-101/scripts/build-html.js"
+      - "ai-general-101/**/*.md"
+      - "ai-general-101/scripts/build-html.js"
+      - "ai-starter-kit/**/*.md"
+      - "ai-starter-kit/scripts/build-html.js"
+      - "ai-dev-advanced/**/*.md"
+      - "ai-dev-advanced/scripts/build-html.js"
       - "ai-dev-harness/**/*.md"
       - "ai-dev-harness/scripts/build-html.js"
+      - "ai-project-template/**/*.md"
+      - "ai-project-template/scripts/build-html.js"
       - "docs-version.json"
       - "package.json"
       - ".github/workflows/build-html.yml"
@@ -38,4 +44,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Build HTML from Markdown"
-          file_pattern: ai-dev-101/html/*.html ai-dev-harness/html/*.html
+          file_pattern: ai-general-101/html/*.html ai-starter-kit/html/*.html ai-dev-advanced/html/*.html ai-dev-harness/html/**/*.html ai-project-template/html/**/*.html

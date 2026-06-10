@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Project Template 構成ガイド</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">記事一覧</a> / AI Project Template 構成ガイド</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>AI Project Template 構成ガイド</h1>
+<h2>このファイルの目的</h2>
+<p>このファイルは、<code>ai-project-template/</code> の中身を実プロジェクトへコピーするときの地図です。</p>
+<p>このフォルダは、AI開発支援ツールをチームで安全に使うためのテンプレートです。読み物としての導入ガイドやFAQではなく、対象リポジトリに配置して使うファイルをまとめています。</p>
+<h2>全体構成</h2>
+<pre><code class="language-text">ai-project-template/
+  README.md
+  STRUCTURE.md
+  minimal/
+    CLAUDE.md
+    .claude/
+      settings.json
+  materials/
+    checklists/
+    policies/
+    prompts/
+    templates/
+    workflows/</code></pre>
+<h2>コピー対象とコピー先</h2>
+<h3>最小構成</h3>
+<p>まず導入する最小構成です。</p>
+<p>コピー元:</p>
+<pre><code class="language-text">minimal/CLAUDE.md
+minimal/.claude/settings.json</code></pre>
+<p>コピー先:</p>
+<pre><code class="language-text">my-app/
+  CLAUDE.md
+  .claude/
+    settings.json</code></pre>
+<p>役割:</p>
+<ul>
+<li><code>CLAUDE.md</code>: Claude Codeへの作業ルール</li>
+<li><code>.claude/settings.json</code>: 権限設定</li>
+<li>最初に守らせたい禁止事項</li>
+<li>小さく安全に始めるための入口</li>
+</ul>
+<h3>追加構成</h3>
+<p>チームで運用をそろえる場合に、必要なものだけ追加します。</p>
+<p>コピー元:</p>
+<pre><code class="language-text">materials/checklists/
+materials/policies/
+materials/prompts/
+materials/templates/
+materials/workflows/</code></pre>
+<p>コピー先:</p>
+<pre><code class="language-text">my-app/
+  CLAUDE.md
+  .claude/
+    settings.json
+    checklists/
+    policies/
+    prompts/
+    templates/
+    workflows/</code></pre>
+<p>追加した資料は、置いてあるだけでClaude Codeが毎回すべて自動で読むわけではありません。AIに守らせたい資料は、コピー後の <code>CLAUDE.md</code> から参照させます。</p>
+<h2>minimal/</h2>
+<p>最初にコピーする最小構成です。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>CLAUDE.md</code></li>
+<li><code>.claude/settings.json</code></li>
+</ul>
+<p><code>CLAUDE.md</code> は、Claude Codeが作業を始めるときの入口になるルールファイルです。プロジェクト固有のテストコマンド、禁止操作、レビュー方針、相談先などを追記して使います。</p>
+<p><code>.claude/settings.json</code> は、危険な操作を止めるための権限設定です。チームの運用に合わせて、許可する操作、確認を求める操作、禁止する操作を調整します。</p>
+<h2>materials/policies/</h2>
+<p>人間とAIの両方が参照する利用ルールです。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>common.md</code>: 全エンジニア共通</li>
+<li><code>frontend.md</code>: フロントエンド向け</li>
+<li><code>backend.md</code>: バックエンド向け</li>
+<li><code>windows-app.md</code>: Windowsアプリ向け</li>
+<li><code>devops.md</code>: インフラ・DevOps向け</li>
+<li><code>qa.md</code>: QA・テスト向け</li>
+</ul>
+<p><code>common.md</code> は基本的に残します。領域別ポリシーは、対象プロジェクトに関係するものを残し、不要なものは削るか参考資料として扱います。</p>
+<h2>materials/workflows/</h2>
+<p>AIを使う作業の進め方です。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>ai-assisted-development.md</code>: AI支援開発の標準フロー</li>
+<li><code>code-review.md</code>: AI利用時のコードレビュー</li>
+<li><code>pull-request.md</code>: AI利用時のPR運用</li>
+</ul>
+<p>実装、レビュー、PR作成など、AIに依頼するときの進め方を揃えるために使います。</p>
+<h2>materials/checklists/</h2>
+<p>作業前後の確認リストです。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>before-ai-work.md</code>: AI作業前</li>
+<li><code>before-commit.md</code>: コミット前</li>
+<li><code>before-pr.md</code>: PR前</li>
+</ul>
+<p>主に人間の確認用ですが、AIに「このチェックリストで確認して」と依頼することもできます。</p>
+<h2>materials/prompts/</h2>
+<p>AIに依頼するときのプロンプトテンプレートです。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>investigate.md</code>: 調査</li>
+<li><code>implement.md</code>: 実装</li>
+<li><code>review.md</code>: レビュー</li>
+<li><code>test-design.md</code>: テスト設計</li>
+</ul>
+<p>そのまま正解として固定するものではなく、チームで依頼の型を育てるためのたたき台です。</p>
+<h2>materials/templates/</h2>
+<p>AIや人間が記入して共有するテンプレートです。</p>
+<p>主なファイル:</p>
+<ul>
+<li><code>incident-report.md</code>: 事故・ヒヤリハット共有</li>
+<li><code>project-adoption-profile.md</code>: 実プロジェクト導入時に埋めるプロジェクト固有設定</li>
+<li><code>repository-security-guidance.md</code>: 対象リポジトリ固有のセキュリティ観点</li>
+<li><code>personal-collaboration-guidance.md</code>: 個人の相談スタイルやレビュー姿勢</li>
+</ul>
+<p>導入時には、まず <code>project-adoption-profile.md</code> を使って対象リポジトリの前提を整理すると、<code>CLAUDE.md</code> やポリシーを調整しやすくなります。</p>
+<p><code>repository-security-guidance.md</code> は、対象リポジトリに合わせて編集し、必要に応じて <code>.claude/policies/security.md</code> のような名前でコピーします。認証、認可、ログ、マルチテナント、XSS、SSRF、シークレット管理など、AIに毎回見てほしい観点を書きます。</p>
+<p><code>personal-collaboration-guidance.md</code> は、個人の使い方に合わせて編集する任意テンプレートです。チーム全員に強制するルールではなく、AIとの相談の仕方を整えるために使います。</p>
+<h2>導入時に決めること</h2>
+<p>実プロジェクトへコピーした後、最低限次を確認します。</p>
+<ul>
+<li>実際のテストコマンド</li>
+<li>実際のビルドコマンド</li>
+<li>ブランチ運用</li>
+<li>PRルール</li>
+<li>AIに入力してよい情報、いけない情報</li>
+<li>削除、履歴操作、本番環境操作などの禁止事項</li>
+<li>相談先</li>
+<li>チーム固有のレビュー観点</li>
+<li>リポジトリ固有のセキュリティ観点</li>
+<li>個人設定として持つ指示と、チーム共有する指示の分け方</li>
+</ul>
+<h2>育て方</h2>
+<p>最初から完璧なルールにしようとせず、小さく始めます。</p>
+<p>1. <code>minimal/</code> だけをコピーする 2. チームで試す 3. よく使う確認や依頼を <code>materials/</code> から追加する 4. 実際の事故や迷いをもとにルールを更新する</p>
+<p>このテンプレートは固定された完成品ではありません。対象プロジェクトの技術、リスク、チームの慣れに合わせて削り、追記しながら使います。</p>
+  </main>
+</body>
+</html>

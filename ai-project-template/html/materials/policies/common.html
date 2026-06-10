@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI開発利用ポリシー 共通ルール</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../../index.html">記事一覧</a> / AI開発利用ポリシー 共通ルール</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>AI開発利用ポリシー 共通ルール</h1>
+<h2>このポリシーの目的</h2>
+<p>このポリシーは、エンジニアがAI開発支援ツールを仕事で使うときの共通ルールです。</p>
+<p>対象ツールは、Claude Code、GitHub Copilot、GitHub Copilot CLI、その他のAIコーディング支援ツールを想定します。</p>
+<p>AIは開発効率を上げるための補助ツールです。最終的な設計判断、品質判断、セキュリティ判断、リリース判断は人間の開発者とチームが行います。</p>
+<h2>基本方針</h2>
+<ul>
+<li>AIは開発者の補助として使います。</li>
+<li>AIの出力をそのまま正解として扱いません。</li>
+<li>生成されたコード、設定、ドキュメントは必ず人間が確認します。</li>
+<li>機密情報、個人情報、顧客情報、認証情報をAIに入力しません。</li>
+<li>削除、履歴改変、force push、本番環境操作はAIに任せません。</li>
+<li>AIを使った変更でも、通常のレビュー、テスト、承認フローを省略しません。</li>
+<li>AIを使った本人が、変更内容を説明できる状態にします。</li>
+</ul>
+<h2>最初に守ること</h2>
+<p>AIを使う前に、次を確認してください。</p>
+<ul>
+<li>対象リポジトリのプロジェクトルートで起動している。</li>
+<li><code>CLAUDE.md</code> が読み込まれている。</li>
+<li><code>.claude/settings.json</code> の権限設定が効いている。</li>
+<li>入力してはいけない情報を渡していない。</li>
+<li>変更してよい範囲と、変更してはいけない範囲を説明できる。</li>
+</ul>
+<p>Claude Codeを使う場合は、初回に次を確認します。</p>
+<pre><code class="language-text">/memory
+/permissions</code></pre>
+<h2>AIに任せてよい作業</h2>
+<p>次の作業は、AIに依頼してよいものとします。</p>
+<ul>
+<li>コードベースの調査</li>
+<li>既存コードの説明</li>
+<li>エラー原因の調査</li>
+<li>小さな修正案の作成</li>
+<li>テストケースのたたき台作成</li>
+<li>READMEや開発メモの下書き</li>
+<li>リファクタリング方針の提案</li>
+<li>レビュー観点の洗い出し</li>
+<li>テスト観点の洗い出し</li>
+<li>コマンドや設定ファイルの意味の説明</li>
+</ul>
+<p>ただし、AIの回答や生成物は必ず人間が確認します。</p>
+<h2>AIに任せない作業</h2>
+<p>次の作業は、AIに単独で任せてはいけません。</p>
+<ul>
+<li>本番環境へのデプロイ</li>
+<li>本番データの変更、削除、移行</li>
+<li>データベースのdrop、truncate、reset</li>
+<li>destructive migrationの実行</li>
+<li><code>git reset</code>、<code>git clean</code>、<code>git rebase</code></li>
+<li><code>git push --force</code>、<code>git push --force-with-lease</code></li>
+<li>認証、認可、課金、個人情報処理の最終判断</li>
+<li>セキュリティ仕様の最終判断</li>
+<li>ライセンス、契約、法務に関わる判断</li>
+<li>顧客向け回答の最終確定</li>
+<li>大量ファイル削除、大量移動、大量リネーム</li>
+</ul>
+<p>AIがこれらを提案した場合は、実行せず、人間が影響範囲を確認します。</p>
+<h2>入力してはいけない情報</h2>
+<p>次の情報は、許可された環境でない限りAIに入力しません。</p>
+<ul>
+<li><code>.env</code> の値</li>
+<li>APIキー</li>
+<li>アクセストークン</li>
+<li>パスワード</li>
+<li>秘密鍵、証明書</li>
+<li>顧客名、担当者名、連絡先</li>
+<li>個人情報</li>
+<li>契約情報</li>
+<li>未公開の売上、原価、経営情報</li>
+<li>セキュリティインシデントの詳細</li>
+<li>脆弱性情報</li>
+<li>本番ログの生データ</li>
+<li>非公開の顧客データ</li>
+</ul>
+<p>必要な場合は、値を伏せる、ダミーデータに置き換える、抽象化して相談します。</p>
+<h2>事前承認が必要な操作</h2>
+<p>次の操作は、AIに実行させる前に人間の承認が必要です。</p>
+<ul>
+<li>ファイル移動</li>
+<li>ファイルリネーム</li>
+<li>大量置換</li>
+<li>大量フォーマット</li>
+<li>依存パッケージ追加</li>
+<li>lockfileの大きな変更</li>
+<li>マイグレーション作成</li>
+<li>CI/CD設定変更</li>
+<li>Dockerfile変更</li>
+<li>インフラ設定変更</li>
+<li>通常の <code>git commit</code></li>
+<li>通常の <code>git push</code></li>
+</ul>
+<p>承認時には、対象、理由、影響範囲、戻し方を確認します。</p>
+<h2>標準フロー</h2>
+<p>AIに実装を依頼する場合は、次の流れを基本とします。</p>
+<p>1. 目的を説明する。 2. 変更してよい範囲を指定する。 3. 変更してはいけない範囲を指定する。 4. まず調査だけを依頼する。 5. 変更方針を確認する。 6. 実装を依頼する。 7. 差分を確認する。 8. テスト、ビルド、lintを実行する。 9. 人間がレビューしてからコミットする。</p>
+<p>最初から「全部やって」と依頼しません。調査、方針、実装、確認を分けます。</p>
+<h2>レビュー時に確認すること</h2>
+<p>AIを使った変更では、特に次を確認します。</p>
+<ul>
+<li>依頼した範囲だけが変更されている。</li>
+<li>既存仕様を壊していない。</li>
+<li>例外処理が不足していない。</li>
+<li>エラー時の挙動が適切である。</li>
+<li>セキュリティ上の問題がない。</li>
+<li>認証、認可、入力検証が適切である。</li>
+<li>テストが必要な箇所にテストがある。</li>
+<li>ログに機密情報が出ない。</li>
+<li>不要な依存関係を追加していない。</li>
+<li>コード規約に合っている。</li>
+</ul>
+<h2>よく使う依頼の型</h2>
+<p>調査:</p>
+<pre><code class="language-text">まず関連ファイルを調査してください。
+変更はまだ行わず、影響範囲、変更候補、確認すべきリスクを整理してください。</code></pre>
+<p>実装:</p>
+<pre><code class="language-text">以下の変更を実装してください。
+条件:
+- 変更範囲は最小限にする
+- 既存の設計と命名に合わせる
+- 依頼範囲外のリファクタリングはしない
+- 実装後に実行すべきテストを提案する</code></pre>
+<p>レビュー:</p>
+<pre><code class="language-text">この差分をレビューしてください。
+観点:
+- バグの可能性
+- セキュリティリスク
+- 既存仕様の破壊
+- テスト不足
+- 不要な変更</code></pre>
+<p>危険操作の制限:</p>
+<pre><code class="language-text">削除、reset、clean、rebase、force push、本番環境への操作は行わないでください。
+必要だと判断した場合は、実行せず、理由と影響範囲だけ説明してください。</code></pre>
+<h2>事故やヒヤリハットの共有</h2>
+<p>AI利用で危ない提案、誤った説明、不要な変更、機密情報に触れそうな挙動があった場合は共有します。</p>
+<p>共有の目的は、誰かを責めることではありません。同じ失敗をチームで繰り返さないために、FAQ、権限設定、チェックリストを改善することです。</p>
+<p>共有には <code>templates/incident-report.md</code> を使います。</p>
+  </main>
+</body>
+</html>

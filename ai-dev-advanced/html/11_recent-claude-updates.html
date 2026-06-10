@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11. 最近のClaude関連アップデート</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 11. 最近のClaude関連アップデート</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>11. 最近のClaude関連アップデート</h1>
+<p>作成日: 2026-06-10</p>
+<p>最終確認日: 2026-06-10</p>
+<h2>この章の目的</h2>
+<p>Claude Code高機能編を説明するときに、最近追加・強化されたClaude関連機能を整理します。</p>
+<p>この章は、細かい操作手順ではなく、「いま何が増えていて、チーム導入時に何を気にするべきか」を共有するための更新メモです。</p>
+<h2>まず押さえる全体像</h2>
+<p>Claude Codeは、ターミナルで動く開発支援CLIから、IDE、デスクトップ、Web、Slack、CI/CD、スケジュール実行、MCP、skills、plugins、subagentsを含む開発エージェント基盤に広がっています。</p>
+<p>そのため、高機能編では「Claude Codeをどう使うか」だけでなく、次の観点が必要です。</p>
+<ul>
+<li>どの利用面を許可するか</li>
+<li>どのモデルを使うか</li>
+<li>どの外部サービスに接続するか</li>
+<li>どの設定をチームで管理するか</li>
+<li>どの作業に人間の承認を残すか</li>
+</ul>
+<h2>Fable 5 / Mythos 5</h2>
+<p>公式名は <code>Claude Fable 5</code> と <code>Claude Mythos 5</code> です。</p>
+<p>Fable 5は、Mythos-classの能力を一般利用向けに提供するモデルです。ソフトウェアエンジニアリング、長い作業、知識作業、画像理解などで高い能力がある一方、サイバーセキュリティ、バイオ、化学、蒸留に関わる一部のリクエストでは安全ガードが働き、別モデルにフォールバックすることがあります。</p>
+<p>Mythos 5は、Fable 5と同じ基盤のモデルですが、一部の安全ガードが外された形で、主に信頼されたサイバー防御組織や研究者向けに限定提供されます。通常のチーム向け説明では、Mythos 5を利用前提にしません。</p>
+<p>説明会での言い方:</p>
+<ul>
+<li>Fable 5は「より長い作業や複雑な開発作業に強いモデル」として紹介する。</li>
+<li>Mythos 5は「一般チームがすぐ使う機能」ではなく、制限提供される高リスク領域向けモデルとして扱う。</li>
+<li>新モデルを使う前に、プラン、提供範囲、データ保持、社内承認を確認する。</li>
+</ul>
+<h2>Claude Security</h2>
+<p>Claude Securityは、コードベースをスキャンし、脆弱性を見つけ、検証し、修正案を提示するための機能です。</p>
+<p>従来のパターンマッチ型のスキャナとは違い、複数ファイルをまたいだデータフローや文脈を見て、複雑な脆弱性を探すことを狙っています。</p>
+<p>ただし、説明会では「セキュリティ担当者を置き換える機能」と説明しません。</p>
+<p>チーム導入時の確認:</p>
+<ul>
+<li>対象リポジトリをどこまでにするか</li>
+<li>スキャン結果を誰が確認するか</li>
+<li>修正案をそのまま適用せず、誰がレビューするか</li>
+<li>既存のSAST、DAST、依存関係スキャン、脆弱性管理とどう併用するか</li>
+<li>Slack、Jira、チケット管理に連携する場合、誰が通知先と権限を管理するか</li>
+<li>誤検知や判断保留をどう記録するか</li>
+</ul>
+<h2>safe mode</h2>
+<p>Claude Codeには、カスタマイズを無効化して起動するsafe modeがあります。</p>
+<p>無効化される対象の例:</p>
+<ul>
+<li><code>CLAUDE.md</code></li>
+<li>plugins</li>
+<li>skills</li>
+<li>hooks</li>
+<li>MCP servers</li>
+</ul>
+<p>safe modeは、次のような切り分けに使います。</p>
+<ul>
+<li>最近追加したskillの影響を外したい</li>
+<li>pluginやMCP接続が原因か確認したい</li>
+<li>hookが意図せず動いている可能性がある</li>
+<li>チーム共有設定ではなく、素の状態で挙動を確認したい</li>
+</ul>
+<p>safe modeは、通常運用の安全策そのものではありません。恒久的な安全策は、権限設計、managed settings、レビュー、ログ、停止手順で作ります。</p>
+<h2>managed settingsと組織管理</h2>
+<p>Claude Codeは、個人設定だけでなく、組織やチームが管理する設定を使えます。</p>
+<p>最近の変更では、MCPサーバーの許可・禁止、バージョン制約、権限モード制限など、管理者が安全側に寄せるための設定が重要になっています。</p>
+<p>説明会で扱うべき点:</p>
+<ul>
+<li>個人が自由に変えてよい設定</li>
+<li>プロジェクトで共有する設定</li>
+<li>管理者が強制する設定</li>
+<li>MCPやpluginの接続先制限</li>
+<li>Claude Codeの最低・最高バージョン</li>
+<li><code>auto</code> や <code>bypassPermissions</code> を許可するか</li>
+</ul>
+<h2>skills / plugins / workflows</h2>
+<p>Claude Codeでは、skillsやpluginsによって、作業手順やツール連携をパッケージ化できます。</p>
+<p>説明会でのポイントは、「便利そうだから入れる」ではなく、「繰り返し使う手順を、レビュー可能な形にする」です。</p>
+<p>導入前に決めること:</p>
+<ul>
+<li>誰が作るか</li>
+<li>誰がレビューするか</li>
+<li>どのリポジトリで管理するか</li>
+<li>どのバージョンを使うか</li>
+<li>問題が起きたときに無効化できるか</li>
+<li>外部pluginを使う場合、配布元を信頼できるか</li>
+</ul>
+<h2>説明会での優先順位</h2>
+<p>全部を一度に説明すると散らかるため、次の順で扱います。</p>
+<p>1. 設定と権限設計 2. Claude Securityなど、チームの具体的な困りごとに近い機能 3. MCP、skills、plugins、hooks 4. サブエージェント、複数セッション、スケジュール実行 5. Fable 5 / Mythos 5などのモデル更新</p>
+<p>モデル名から入ると、使い方より話題性に引っ張られます。説明会では、「このチームのどの作業を安全に楽にするか」から入る方がよいです。</p>
+<h2>確認元</h2>
+<ul>
+<li>Claude Code Docs: https://code.claude.com/docs/en/overview</li>
+<li>Claude Code changelog: https://code.claude.com/docs/en/changelog</li>
+<li>Claude Security: https://claude.com/product/claude-security</li>
+<li>Claude Fable 5 and Claude Mythos 5: https://www.anthropic.com/news/claude-fable-5-mythos-5</li>
+</ul>
+  </main>
+</body>
+</html>

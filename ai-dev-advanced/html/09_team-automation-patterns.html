@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>09. チーム自動化パターン</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 09. チーム自動化パターン</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>09. チーム自動化パターン</h1>
+<h2>この章の目的</h2>
+<p>個別機能ではなく、チームの開発フローの中で使いやすい自動化パターンを整理します。</p>
+<h2>扱うこと</h2>
+<ul>
+<li>調査メモ作成</li>
+<li>レビュー観点の洗い出し</li>
+<li>テスト実行と結果整理</li>
+<li>PR説明の作成</li>
+<li>リリースノート作成</li>
+<li>作業ログやふりかえりの整理</li>
+<li>セキュリティレビューの補助</li>
+<li>依存関係やCI失敗の定期確認</li>
+</ul>
+<h2>扱わないこと</h2>
+<ul>
+<li>人間の確認を省く完全自動化</li>
+<li>本番環境への自動反映</li>
+<li>危険操作の自動実行</li>
+</ul>
+<h2>説明会で扱う判断</h2>
+<p>機能名から入るより、困っている作業から入ると説明しやすい章です。</p>
+<p>参加者に「どの作業を楽にしたいか」を聞いてから、必要な機能へつなげます。</p>
+<h2>最近のClaude Codeで現実的になってきたパターン</h2>
+<p>Claude Codeは、単発の対話だけでなく、複数セッション、バックグラウンド実行、スケジュール実行、CI/CD連携、Slack連携などの面が増えています。</p>
+<p>説明会では、次のような実務パターンとして見せると理解されやすくなります。</p>
+<p>| パターン | 使う可能性のある機能 | 人間が確認する点 | |---|---|---| | 朝のPR確認 | スケジュール実行、GitHub連携、レビュー支援 | 指摘が妥当か、ブロックすべきか | | CI失敗の原因整理 | CI/CD連携、ログ要約、修正案作成 | 修正範囲が過剰でないか | | セキュリティレビュー補助 | Claude Security、差分レビュー、MCP連携 | 脆弱性の再現性、修正案の副作用 | | 依存関係更新の下調べ | スケジュール実行、リリースノート要約 | 破壊的変更、ライセンス、互換性 | | リリースノート作成 | git履歴、PR一覧、チケット情報 | 公開してよい情報か |</p>
+<p>自動化の説明では、「AIが最後までやる」ではなく、「AIが下書き、調査、候補提示を行い、人間が承認する」と説明します。</p>
+  </main>
+</body>
+</html>

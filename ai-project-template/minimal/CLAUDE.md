@@ -12,11 +12,16 @@
 追加した場合に参照する資料の例:
 
 - `.claude/policies/common.md`
+- `.claude/policies/security.md`
 - 担当領域に応じた `.claude/policies/*.md`
 - 作業に該当する `.claude/workflows/*.md`
 - 作業前後の `.claude/checklists/*.md`
 - プロンプトテンプレート `.claude/prompts/*.md`
 - 出力テンプレート `.claude/templates/*.md`
+
+リポジトリ固有のセキュリティ観点を追加する場合は、配布元の `materials/templates/repository-security-guidance.md` をコピーし、対象プロジェクトに合わせて編集してから参照してください。
+
+個人の相談スタイルを調整したい場合は、配布元の `materials/templates/personal-collaboration-guidance.md` をたたき台にできます。ただし、このリポジトリの必須ルールと衝突する場合は、この `CLAUDE.md` とチーム共有ルールを優先してください。
 
 ## 基本姿勢
 

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04. Hooks</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 04. Hooks</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>04. Hooks</h1>
+<h2>この章の目的</h2>
+<p>Claude Codeの作業ライフサイクルに合わせて処理を実行するHooksの考え方を扱います。</p>
+<h2>扱うこと</h2>
+<ul>
+<li>Hooksでできること</li>
+<li>formatter、テスト、通知、ログ保存などの候補</li>
+<li>セッション終了後のログ退避やスナップショット</li>
+<li>自動実行によるリスク</li>
+<li>導入前に確認すべき権限と停止方法</li>
+</ul>
+<h2>扱わないこと</h2>
+<ul>
+<li>本番環境操作</li>
+<li>データベース更新</li>
+<li>削除、履歴書き換え、force pushにつながる処理</li>
+<li>チーム未承認の自動実行</li>
+</ul>
+<h2>説明会で扱う判断</h2>
+<p>Hooksは便利ですが、自動実行の範囲を誤ると危険です。</p>
+<p>説明会では、興味がある人が多い場合でも、まず「安全な用途」と「やらない用途」を分けて説明します。</p>
+<h2>最近の使いどころ</h2>
+<p>Hooksは、作業の前後にチームの確認を差し込むために使えます。</p>
+<p>たとえば次のような用途です。</p>
+<ul>
+<li>ファイル編集後にformatterを実行する</li>
+<li>テスト実行前に対象範囲をログに残す</li>
+<li>セッション終了後に未コミット差分や実行ログを退避する</li>
+<li>特定の危険コマンドを止める</li>
+<li>MCPや外部連携の利用を記録する</li>
+</ul>
+<p>ただし、Hooksは「安全確認の補助」であって、危険操作を隠れて実行する場所ではありません。hook内で削除、push、本番操作、秘密情報送信を行う設計は避けます。</p>
+<p>導入時は、hookの中身をレビューし、誰が更新できるかを決め、safe modeで無効化して切り分けられることを確認します。</p>
+  </main>
+</body>
+</html>

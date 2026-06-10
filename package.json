@@ -4,9 +4,12 @@
   "private": true,
   "description": "Markdown-first AI enablement articles with generated HTML for sharing.",
   "scripts": {
-    "build": "npm run build:ai-dev-101 && npm run build:ai-dev-harness",
-    "build:ai-dev-101": "node ai-dev-101/scripts/build-html.js",
-    "build:ai-dev-harness": "node ai-dev-harness/scripts/build-html.js"
+    "build": "npm run build:ai-general-101 && npm run build:ai-starter-kit && npm run build:ai-dev-advanced && npm run build:ai-dev-harness && npm run build:ai-project-template",
+    "build:ai-general-101": "node ai-general-101/scripts/build-html.js",
+    "build:ai-starter-kit": "node ai-starter-kit/scripts/build-html.js",
+    "build:ai-dev-advanced": "node ai-dev-advanced/scripts/build-html.js",
+    "build:ai-dev-harness": "node ai-dev-harness/scripts/build-html.js",
+    "build:ai-project-template": "node ai-project-template/scripts/build-html.js"
   },
   "engines": {
     "node": ">=20"

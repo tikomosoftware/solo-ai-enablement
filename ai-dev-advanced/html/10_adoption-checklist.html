@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10. 導入判断チェックリスト</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 10. 導入判断チェックリスト</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>10. 導入判断チェックリスト</h1>
+<h2>この章の目的</h2>
+<p>高機能をチームで使う前に、導入してよいかを確認するためのチェックリストです。</p>
+<h2>確認項目</h2>
+<ul>
+<li>何のために使うのかが説明できる。</li>
+<li>対象ファイル、対象サービス、対象データが明確である。</li>
+<li>AIが実行できる操作範囲が決まっている。</li>
+<li>失敗した場合の影響が分かっている。</li>
+<li>人間が確認するタイミングが決まっている。</li>
+<li>管理者、更新者、相談先が決まっている。</li>
+<li>無効化、停止、削除の方法が分かっている。</li>
+<li>機密情報、個人情報、顧客情報を扱わない、または扱う場合の承認がある。</li>
+<li>ログや記録の扱いが決まっている。</li>
+<li>チームに説明できる最小の運用ルールがある。</li>
+<li>利用するClaude Codeの面が決まっている。例: CLI、IDE、Desktop、Web、Slack、CI/CD。</li>
+<li>利用するモデルやプランの条件が確認されている。</li>
+<li>Fable 5 / Mythos 5のような新しいモデルを使う場合、提供範囲、データ保持、制限、社内承認を確認している。</li>
+<li>Claude Securityを使う場合、既存の脆弱性管理、チケット管理、レビュー手順にどう接続するか決まっている。</li>
+<li>MCP、plugins、skills、hooksを使う場合、配布元、更新者、無効化方法が決まっている。</li>
+<li>safe modeで切り分ける手順を説明できる。</li>
+</ul>
+<h2>説明会での使い方</h2>
+<p>参加者から「この機能を使いたい」と要望が出たときに、このチェックリストで導入可否を整理します。</p>
+<p>すべてを満たせない場合は、すぐ導入せず、まず手作業や小さい範囲で試します。</p>
+<h2>導入を急がない方がよいサイン</h2>
+<ul>
+<li>新しいモデル名や機能名だけで導入判断している。</li>
+<li>誰が設定を管理するか決まっていない。</li>
+<li>MCPやpluginの接続先を説明できない。</li>
+<li><code>bypassPermissions</code> や自動承認を通常PCで使う前提になっている。</li>
+<li>AIの提案した修正を誰がレビューするか決まっていない。</li>
+<li>セキュリティレビュー結果を既存の管理台帳やチケットに残せない。</li>
+<li>データ保持やログの扱いを確認していない。</li>
+</ul>
+<p>この場合は、機能説明より先に、利用範囲と権限設計の確認に戻ります。</p>
+  </main>
+</body>
+</html>

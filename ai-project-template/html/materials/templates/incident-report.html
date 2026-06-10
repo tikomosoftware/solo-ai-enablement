@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI利用 事故・ヒヤリハット共有テンプレート</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../../index.html">記事一覧</a> / AI利用 事故・ヒヤリハット共有テンプレート</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>AI利用 事故・ヒヤリハット共有テンプレート</h1>
+<h2>このテンプレートの使い方</h2>
+<p>実害が出た事故だけでなく、ヒヤリとした提案や挙動も共有してください。</p>
+<p>共有の目的は、誰かを責めることではありません。同じ失敗をチームで繰り返さないために、ルール、権限設定、FAQ、チェックリストを改善することです。</p>
+<h2>概要</h2>
+<ul>
+<li>発生日:</li>
+<li>共有者:</li>
+<li>対象リポジトリ:</li>
+<li>使用ツール:</li>
+<li>重大度:</li>
+</ul>
+<h2>何が起きたか</h2>
+<p>簡潔に書いてください。</p>
+<h2>AIに依頼した内容</h2>
+<p>可能であれば、プロンプトや依頼内容を貼ってください。</p>
+<h2>AIの出力または提案</h2>
+<p>危険だった提案、誤った説明、不要な変更などを書いてください。</p>
+<h2>実際の影響</h2>
+<ul>
+<li>影響なし</li>
+<li>ローカル作業だけに影響</li>
+<li>PRに影響</li>
+<li>本番または顧客影響</li>
+<li>その他</li>
+</ul>
+<h2>気づけた理由</h2>
+<p>例:</p>
+<ul>
+<li>差分確認で気づいた</li>
+<li>テストで気づいた</li>
+<li>レビューで気づいた</li>
+<li>権限設定でブロックされた</li>
+<li>違和感があった</li>
+</ul>
+<h2>再発防止案</h2>
+<ul>
+<li>ルール追加</li>
+<li>権限設定変更</li>
+<li>FAQ追加</li>
+<li>プロンプト改善</li>
+<li>チェックリスト追加</li>
+</ul>
+<h2>共有しておきたいこと</h2>
+<p>他メンバーに伝えたいことを書いてください。</p>
+<p>---</p>
+<h1>記入例1: 危険なGitコマンドの提案</h1>
+<h2>概要</h2>
+<ul>
+<li>発生日: 2026-05-22</li>
+<li>共有者: 山田</li>
+<li>対象リポジトリ: my-app</li>
+<li>使用ツール: Claude Code</li>
+<li>重大度: 中</li>
+</ul>
+<h2>何が起きたか</h2>
+<p>ローカルのGit状態を整理する相談をしたところ、AIが <code>git reset --hard</code> を提案した。</p>
+<h2>AIに依頼した内容</h2>
+<pre><code class="language-text">作業ブランチの状態がよく分からないので整理方法を教えてください。</code></pre>
+<h2>AIの出力または提案</h2>
+<p><code>git reset --hard</code> でローカル変更を破棄する提案が出た。</p>
+<h2>実際の影響</h2>
+<p>影響なし。実行前に気づいた。</p>
+<h2>気づけた理由</h2>
+<p><code>approval-required-operations.md</code> で <code>git reset</code> が禁止操作になっていたため。</p>
+<h2>再発防止案</h2>
+<ul>
+<li>FAQに「Git整理でresetを提案された場合」を追加する。</li>
+<li><code>CLAUDE.md</code> に、Git整理時はまず <code>git status</code> と <code>git diff</code> だけを使うと追記する。</li>
+</ul>
+<h2>共有しておきたいこと</h2>
+<p>Gitの相談では、AIが履歴やローカル変更を捨てる提案をすることがある。</p>
+<p>---</p>
+<h1>記入例2: .envを読もうとした</h1>
+<h2>概要</h2>
+<ul>
+<li>発生日: 2026-05-22</li>
+<li>共有者: 佐藤</li>
+<li>対象リポジトリ: api-server</li>
+<li>使用ツール: Claude Code</li>
+<li>重大度: 中</li>
+</ul>
+<h2>何が起きたか</h2>
+<p>環境変数の設定漏れを調査しているときに、AIが <code>.env</code> を確認しようとした。</p>
+<h2>AIに依頼した内容</h2>
+<pre><code class="language-text">ローカル起動時にDB接続エラーになります。原因を調べてください。</code></pre>
+<h2>AIの出力または提案</h2>
+<p><code>.env</code> の中身を確認する提案が出た。</p>
+<h2>実際の影響</h2>
+<p>権限設定でブロックされたため影響なし。</p>
+<h2>気づけた理由</h2>
+<p><code>.claude/settings.json</code> で <code>.env</code> の読み取りをdenyしていた。</p>
+<h2>再発防止案</h2>
+<ul>
+<li>環境変数名だけを共有する相談方法をFAQに追加する。</li>
+<li>エラー調査プロンプトに「.envの値は読まない」と明記する。</li>
+</ul>
+<h2>共有しておきたいこと</h2>
+<p>設定調査では、AIが自然に <code>.env</code> を読もうとすることがある。</p>
+<p>---</p>
+<h1>記入例3: 依頼範囲外のリファクタリング</h1>
+<h2>概要</h2>
+<ul>
+<li>発生日: 2026-05-22</li>
+<li>共有者: 鈴木</li>
+<li>対象リポジトリ: frontend-app</li>
+<li>使用ツール: Claude Code</li>
+<li>重大度: 低</li>
+</ul>
+<h2>何が起きたか</h2>
+<p>文言修正を依頼したところ、周辺コンポーネントのリファクタリングも行われた。</p>
+<h2>AIに依頼した内容</h2>
+<pre><code class="language-text">ログイン画面のエラーメッセージを分かりやすくしてください。</code></pre>
+<h2>AIの出力または提案</h2>
+<p>文言修正に加えて、コンポーネント分割とスタイル整理が行われた。</p>
+<h2>実際の影響</h2>
+<p>PRが大きくなり、レビューが難しくなった。実害はなし。</p>
+<h2>気づけた理由</h2>
+<p>差分確認で、依頼していないファイルが変更されていることに気づいた。</p>
+<h2>再発防止案</h2>
+<ul>
+<li>実装依頼プロンプトに「依頼範囲外のリファクタリングはしない」を必ず入れる。</li>
+<li><code>before-commit.md</code> に「依頼範囲外の変更がない」を確認項目として維持する。</li>
+</ul>
+<h2>共有しておきたいこと</h2>
+<p>小さな変更でも、AIは「ついでに改善」しようとすることがある。</p>
+<p>---</p>
+<h1>記入例4: 存在しないAPIを使った</h1>
+<h2>概要</h2>
+<ul>
+<li>発生日: 2026-05-22</li>
+<li>共有者: 田中</li>
+<li>対象リポジトリ: desktop-client</li>
+<li>使用ツール: GitHub Copilot</li>
+<li>重大度: 低</li>
+</ul>
+<h2>何が起きたか</h2>
+<p>Windowsアプリの実装で、AIが存在しないライブラリAPIを使ったコードを生成した。</p>
+<h2>AIに依頼した内容</h2>
+<pre><code class="language-text">設定ファイルを読み込む処理を追加してください。</code></pre>
+<h2>AIの出力または提案</h2>
+<p>存在しないメソッドを使ったコードが生成された。</p>
+<h2>実際の影響</h2>
+<p>ビルドエラーで気づいた。実害はなし。</p>
+<h2>気づけた理由</h2>
+<p><code>dotnet build</code> を実行したため。</p>
+<h2>再発防止案</h2>
+<ul>
+<li>AI生成コードは必ずビルドする。</li>
+<li>公式ドキュメントや型情報を確認する。</li>
+</ul>
+<h2>共有しておきたいこと</h2>
+<p>AIは自然なコードを書いても、APIが実在しないことがある。</p>
+  </main>
+</body>
+</html>

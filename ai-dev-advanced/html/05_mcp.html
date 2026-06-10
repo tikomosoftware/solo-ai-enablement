@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05. MCP連携</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #1f2933;
+      --muted: #5b6773;
+      --border: #d8dee6;
+      --surface: #ffffff;
+      --code: #f4f6f8;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--surface);
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    nav {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .doc-version {
+      margin: -20px 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.35;
+      margin: 1.65em 0 0.65em;
+      letter-spacing: 0;
+    }
+    h1 {
+      margin-top: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 32px;
+    }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    p, ul, pre { margin: 0 0 1.1em; }
+    ul { padding-left: 1.4em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--accent); }
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: var(--code);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--code);
+      line-height: 1.55;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">記事一覧</a> / 05. MCP連携</nav>
+    <div class="doc-version">資料バージョン 0.5</div>
+    <h1>05. MCP連携</h1>
+<h2>この章の目的</h2>
+<p>Claude Codeを外部ツールやデータソースにつなぐMCP連携の考え方を扱います。</p>
+<h2>扱うこと</h2>
+<ul>
+<li>MCPで何を接続できるか</li>
+<li>GitHub、Issue管理、監視、デザイン、社内データなどの候補</li>
+<li>接続先ごとの権限と情報管理</li>
+<li>managed settingsによるMCP接続先の制御</li>
+<li>連携前に確認すること</li>
+</ul>
+<h2>扱わないこと</h2>
+<ul>
+<li>未承認サービスへの接続</li>
+<li>機密情報や顧客情報への直接アクセス</li>
+<li>本番DBや本番環境への操作</li>
+</ul>
+<h2>説明会で扱う判断</h2>
+<p>MCPは要望が出やすい一方で、情報管理の確認が必要です。</p>
+<p>具体的な接続先が決まってから、別回で扱うのが向いています。</p>
+<h2>最近の注意点</h2>
+<p>MCPは、便利さよりも先に「どのサーバーを許可するか」を決める必要があります。</p>
+<p>Claude Codeでは、MCPサーバーやMCPツールに対して許可、確認、禁止のルールを設定できます。また、組織管理の設定で、許可するMCPサーバーや禁止するMCPサーバーを制御できます。</p>
+<p>説明会では、次の順に確認します。</p>
+<p>1. 接続先は業務上必要か。 2. 接続先のデータ分類は何か。 3. 読み取りだけか、書き込みや投稿もできるか。 4. 個人トークンで接続するのか、組織管理の接続にするのか。 5. ログ、監査、無効化方法があるか。 6. MCPサーバーをチーム全員に配布してよいか。</p>
+<p>特に、GitHub、Slack、Jira、Google Drive、社内データベースのような接続は、AIの性能よりもアクセス権限の設計が先です。</p>
+  </main>
+</body>
+</html>
